@@ -65,25 +65,51 @@ Store everything in your Git account under this project.
 This will be used in our next session as part of our CD project (using ARGOCD) to complete your Continues Delivery to K8s.
 ### Step 1
 <LI>Install Jenkins
+
 `
-kubectl apply -f TBD
+kubectl apply -f https://raw.githubusercontent.com/elevy99927/Jenkins-k8s/main/Jenkins/01-jenkins-deployment.yaml
 `
 
+### Step 2
+use the following Jenkinsfile as your pipeline baseline:
 
+`
+https://github.com/elevy99927/Jenkins-k8s/blob/main/Jenkins/Jenkinsfile
+
+`
+
+Your Jenkinsfile can't run on modern kubernetes, and you will need to fix it so it will use <A href="https://github.com/GoogleContainerTools/kaniko">Kaniko</a> instead (or any other solution you think will apply).
+
+In addition, you are expected to do the following:
+<li> Save your image in a repository (for example: docker.io)
+<LI> Create a  Helm Chart for your application and store it on another repo (this repo will be used by ArgoCD) 
+
+<BR>Extra 1:</B> Add additional staps to your pipeline, For example "test", "Code Scan" etc. This steps are allowed to be empty
+
+<BR>Extra 2:</B> Add webhook to start the jenkins pipeline automaticly
+
+
+## Step 3
 <LI>Install ArgoCD
-<LI> 
 
-## Test functionality:
+`
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+`
+
+Patch your ArgoCD Service:
+
+`
+kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+`
+
+<LI> Create Argo Application for your project
+
+
+
+# Test functionality:
 <LI>Add a file to your project
 <LI>Commit changes
 <LI>Push to remote 
 <LI>Start Jenkins job (or configure jenkins to run on every Commit in Jenkins
-
-### Once Completed
-<LI>Run your HELM CHART Install in your K8S Repo
-<LI>Rerun step 1 -5 but this time use HELM UPGRADE not INSTALL
-
-
-
-
-
+<LI>Watch Jenkins build and build your image
+<LI>Watch ArgoCD Deploy new version of your applicaction
