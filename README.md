@@ -89,17 +89,20 @@ In addition, you are expected to do the following:
 <BR>Extra 2:</B> Add webhook to start the jenkins pipeline automaticly
 
 
-## Step 3
+## Part IV
 <LI>Install ArgoCD
 
 `
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
 `
 
 Patch your ArgoCD Service:
 
 `
+
 kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+
 `
 
 <LI> Create Argo Application for your project
