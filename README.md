@@ -94,15 +94,12 @@ In addition, you are expected to do the following:
 
 `
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-
 `
 
 Patch your ArgoCD Service:
 
 `
-
 kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
-
 `
 
 <LI> Create Argo Application for your project
