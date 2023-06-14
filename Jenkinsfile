@@ -24,7 +24,7 @@ echo "----------  master   -------"
 
 podTemplate(containers: [
       containerTemplate(name: 'jnlp', image: 'jenkins/inbound-agent', ttyEnabled: true),
-      containerTemplate(name: 'docker', image: 'busybox:latest', ttyEnabled: true)
+      containerTemplate(name: 'docker', image: 'docker:latest', ttyEnabled: true)
   ],
   volumes: [
      
@@ -40,6 +40,8 @@ podTemplate(containers: [
         stage('build') {
             container('docker') {
               echo "Building docker image..."
+	      echo "Original step was using docker for build."
+	      echo "You will need to use kaniko instead"
               sh "echo docker build -t $appimage --no-cache ."
               sh "echo docker login $artifactory -u admin -p password"
               sh "echo docker push $appimage"
