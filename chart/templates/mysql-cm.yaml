@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Values.mysql.appname }}-cm
+data:
+  MYSQL_ROOT_PASSWORD: "{{ .Values.mysql.env.root_password }}"
+  MYSQL_ALLOW_EMPTY_PASSWORD: "{{ .Values.mysql.env.allow_empty_password }}"
+  MYSQL_USER: "{{ .Values.mysql.env.user }}"
+  MYSQL_PASSWORD: "{{ .Values.mysql.env.db_password }}"
+  MYSQL_DATABASE: "{{ .Values.mysql.env.db_name }}"
+
+

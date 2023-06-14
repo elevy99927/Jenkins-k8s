@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.mysql.appname }}
+  labels:
+    app: {{ .Values.mysql.appname }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.mysql.appname }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.mysql.appname }}
+    spec:
+      containers:
+      - name: {{ .Values.mysql.appname }}
+        image: {{ .Values.mysql.repo}}/{{ .Values.mysql.image }}:{{ .Values.mysql.tag }}
+        ports:
+        - containerPort: {{ .Values.mysql.port }}
+        envFrom:
+          - configMapRef:
+              name: {{ .Values.mysql.appname }}-cm
