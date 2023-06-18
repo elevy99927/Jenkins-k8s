@@ -92,11 +92,11 @@ kubectl apply -f https://raw.githubusercontent.com/elevy99927/Jenkins-k8s/main/J
 use the following Jenkinsfile as your pipeline baseline:
 
 `
-https://github.com/elevy99927/Jenkins-k8s/blob/main/Part4-Jenkins/Jenkinsfile
+https://github.com/elevy99927/Jenkins-k8s/blob/main/Jenkins/Jenkinsfile
 
 `
 
-Your Jenkinsfile can't run on modern kubernetes withoud Docker engine, So you will need to fix it so it will use <A href="https://github.com/GoogleContainerTools/kaniko">Kaniko</a> instead (or any other solution you think will apply).
+Your Jenkinsfile can't run on modern kubernetes, and you will need to fix it so it will use <A href="https://github.com/GoogleContainerTools/kaniko">Kaniko</a> instead (or any other solution you think will apply).
 
 In addition, you are expected to do the following:
 <li> Save your image in a repository (for example: docker.io)
