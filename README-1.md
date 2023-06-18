@@ -9,13 +9,13 @@ Delete .git Folders metadata to remove the project from git
 Create new Git repo in your account 
 Add all the files project into your git repo (remote)
 
+<HR>
 ## PART I
-Create a MULTI STEP BUILD docker file that will:
+Create a MULTI STEP BUILD (with <B>Builder</B> and <B>Sever</B> containers)docker file that will:
 
 ### Step 1
- Run SonarQube to check the code (it’s fine that it’s not breaking the build at the moment when an issue is being discovered)
+Canceld <S>Run SonarQube to check the code (it’s fine that it’s not breaking the build at the moment when an issue is being discovered)</S>
   
-
 ### Step 2 
 Run “./mvnw package” to build the artifact
 
@@ -28,10 +28,9 @@ Create the final image with Java version 8 and use the above artifact as the CMD
 <LI>latest
 <LI>Build number
 
-
+<HR>
 ## PART II 
-<BR>Once you have your pipeline up and working,
-<BR>Create a helm chart with the following configuration
+<BR>Create a helm chart with the following configuration and save it in a <B><U>DIFFERENT</U></B> git  repository.
 
 ### Deployment Manifest
 Create a deployment Manifest for the application
@@ -58,9 +57,28 @@ Get the following from <B>VALUES</B> file
 <LI> MYSQL_PASSWORD=petclinic
 <LI> MYSQL_DATABASE=petclinic
 
-
+<HR>
 
 ## Part III
+<LI>Install ArgoCD
+
+`
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+`
+
+Patch your ArgoCD Service:
+
+`
+kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+`
+
+<LI> Create Argo Application for your project
+
+
+<HR>
+
+## Part IV
+
 Store everything in your Git account under this project.
 This will be used in our next session as part of our CD project (using ARGOCD) to complete your Continues Delivery to K8s.
 ### Step 1
@@ -88,24 +106,7 @@ In addition, you are expected to do the following:
 
 <BR>Extra 2:</B> Add webhook to start the jenkins pipeline automaticly
 
-
-## Part IV
-<LI>Install ArgoCD
-
-`
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-`
-
-Patch your ArgoCD Service:
-
-`
-kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
-`
-
-<LI> Create Argo Application for your project
-
-
-
+<HR><HR>
 # Test functionality:
 <LI>Add a file to your project
 <LI>Commit changes
