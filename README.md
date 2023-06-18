@@ -104,7 +104,7 @@ In addition, you are expected to do the following:
 
 <BR>Extra 1:</B> Add additional staps to your pipeline, For example "test", "Code Scan" etc. This steps are allowed to be empty
 
-<BR>Extra 2:</B> Add webhook to start the jenkins pipeline automaticly
+<BR>Extra 2:</B> Add webhook to start the jenkins pipeline automatically
 
 <HR><HR>
 # Test functionality:
@@ -113,7 +113,9 @@ In addition, you are expected to do the following:
 <LI>Push to remote 
 <LI>Start Jenkins job (or configure jenkins to run on every Commit in Jenkins
 <LI>Watch Jenkins build and build your image
-<LI>Watch ArgoCD Deploy new version of your applicaction
+<LI>Watch ArgoCD Deploy new version of your application
+
 <HR>
+
 # Project Topology
 <img src="files/JenkinsProject.png">

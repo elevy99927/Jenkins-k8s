@@ -115,5 +115,6 @@ In addition, you are expected to do the following:
 <LI>Watch Jenkins build and build your image
 <LI>Watch ArgoCD Deploy new version of your applicaction
 <HR>
+
 # Project Topology
 <img src="files/JenkinsProject.png">
