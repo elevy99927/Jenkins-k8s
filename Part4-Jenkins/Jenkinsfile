@@ -49,12 +49,13 @@ podTemplate(containers: [
         } //end build
        stage ('code-scan'){
            container('ash'){
+              echo "--------------------------------------------------------------------------------"
+              echo "echo ASH scan based on AWS https://github.com/awslabs/automated-security-helper"
+              echo "--------------------------------------------------------------------------------"
               sh """
-                echo code scan
                 set +e
                 ash -f -c -q --source-dir /home/jenkins/agent/workspace/code-scan/  --output-dir /tmp/dst 
                 cat /tmp/dst/aggregated_results.txt
-                sleep 9999
               """
                
            }
