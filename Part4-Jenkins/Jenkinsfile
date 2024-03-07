@@ -49,7 +49,9 @@ podTemplate(containers: [
         } //end build
        stage ('code-scan'){
            container('ash'){
-              sh "echo code scan"  
+              sh "echo code scan" 
+              sh "ash --source-dir /home/jenkins/agent/workspace/code-scan/Part1-spring-petclinic/  --output-dir /tmp/dst"
+              sh "cat aggregated_results.txt" 
               sh "sleep 9999"
                
            }
