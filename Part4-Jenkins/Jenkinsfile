@@ -4,7 +4,7 @@ def DEBUG = true
 def appname ="helloworld"
 def DEPLOY = false
 def artifactory = "docker.io" 
-def repo = "elevy99927" # ***Put your  repo here!! ***
+def repo = "elevy99927" 
 def appimage = "${artifactory}/${repo}/${appname}"
 def apptag = "${build}"
 
