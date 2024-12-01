@@ -49,7 +49,6 @@ maven-debug-lab/
 
 ### **1. Clone the Repository**
 ```bash
-git clone <repository-url>
 cd maven-debug-lab
 ```
 
