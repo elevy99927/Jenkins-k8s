@@ -4,7 +4,7 @@ Here is the `README.md` file for your project. It provides an overview of the pr
 
 ### **README.md**
 
-```markdown
+
 # Maven Debug Lab
 
 This project demonstrates how to build and debug a simple Java program using Maven and the `jdb` debugger. It includes a factorial calculation program and JUnit 5 test cases to validate its functionality.
@@ -139,7 +139,7 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 ## **Contact**
 For questions or feedback, feel free to reach out:
 - **Email**: eyal@levys.co.il
-- **GitHub**: [YourGitHubProfile](https://github.com/elevy99927)
+- **GitHub**: [https://github.com/elevy99927](https://github.com/elevy99927)
 ```
 
 ---
