@@ -105,6 +105,12 @@ Use your browser or any HTTP client (e.g., [Postman](https://www.postman.com/) o
 This project is licensed under the MIT License.
 
 ---
+## **Contact**
+For questions or feedback, feel free to reach out:
+- **Email**: eyal@levys.co.il
+- **GitHub**: [https://github.com/elevy99927](https://github.com/elevy99927)
+
+---
 
 ### **How to Use**
 1. Copy and save this content as `README.md` in the root directory of your project.
