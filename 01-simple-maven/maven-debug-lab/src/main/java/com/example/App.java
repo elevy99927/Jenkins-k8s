@@ -8,6 +8,10 @@ public class App {
         System.out.println("Factorial of " + number + " is: " + result);
     }
 
+    public static void printHello() {
+        System.out.println("Hello, Maven Lab!");
+    }
+    
     public int factorial(int n) {
         if (n < 0) {
             throw new IllegalArgumentException("Number must be non-negative");
