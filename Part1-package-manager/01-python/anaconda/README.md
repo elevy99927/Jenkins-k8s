@@ -78,6 +78,11 @@ conda --version
 
 ## **4. Basic Usage of Conda**
 
+### Check Your Current Python Version
+```bash
+python3 -V
+```
+
 ### Check Installed Packages
 ```bash
 conda list
@@ -91,14 +96,21 @@ conda update conda
 ### Create a New Environment
 Create an environment with Python 3.9:
 ```bash
-conda create --name myenv python=3.9
+conda create --name my39env python=3.9
 ```
 
 ### Activate an Environment
 Activate the new environment:
 ```bash
-conda activate myenv
+conda activate my39env
 ```
+### Check Your Python Version
+Check the python version inside the conda enviorment
+```bash
+python3 -V
+```
+you should see a differant Python version
+
 
 ### Deactivate the Current Environment
 ```bash
