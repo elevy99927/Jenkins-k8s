@@ -154,12 +154,21 @@ node-app/
 
 ---
 
-## **License**
-This project is licensed under the MIT License. Feel free to use and modify it as needed.
+## License
+
+This project is licensed under the MIT License.
+
+---
+## **Contact**
+For questions or feedback, feel free to reach out:
+- **Email**: eyal@levys.co.il
+- **GitHub**: [https://github.com/elevy99927](https://github.com/elevy99927)
+
 ---
 
 ### **How to Use**
-1. Save this content as `README.md` in the root directory of your project.
-2. Ensure all steps in the file are followed to properly run and test the application.
+1. Copy and save this content as `README.md` in the root directory of your project.
+2. Share it with your project repository or include it with your codebase.
 
-Let me know if you need additional sections or have specific requirements for the README file!
+Let me know if you'd like additional sections or details!
+
