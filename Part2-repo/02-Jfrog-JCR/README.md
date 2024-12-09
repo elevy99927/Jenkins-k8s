@@ -50,7 +50,7 @@ This exercise demonstrates how to set up JFrog Container Repository (JCR) using 
    ```
 
 ---
-- **JCR Web Interface Overview**:
+**JCR Web Interface Overview**:
 <img src="./jcr-ui.png">
 ---
 
@@ -59,8 +59,9 @@ This exercise demonstrates how to set up JFrog Container Repository (JCR) using 
 ### **What is a Remote Repository?**
 A remote repository proxies external repositories (e.g., Docker Hub). It caches artifacts locally, reducing network dependency and improving performance.
 
-- **Repository Configuration Example**:
+**Repository Configuration Example**:
 <img src="./jfrog-repo.png">
+---
 
 ### **Steps to Create a Remote Repository**:
 1. Log in to the JCR web interface.
@@ -152,12 +153,6 @@ A Helm Chart repository stores Kubernetes application configuration templates, a
   ```bash
   docker-compose -p rt logs
   ```
-
----
-
-## **Images**
-
-  `<PLACE IMAGE>`
 
 ---
 
