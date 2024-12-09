@@ -110,8 +110,9 @@ Artifacts are version-controlled and stored in repositories for easy retrieval a
 1. Navigate to the specific exercise directory.
 2. Follow the instructions in the README for that exercise.
 ---
-### **README.md**
 
+
+---
 # **Why Use a Local (Hosted) Repository?**
 
 A **local (hosted) repository** is a repository hosted on a private server or infrastructure within an organization, as opposed to relying on public or remote repositories. These repositories play a vital role in modern software development and deployment workflows, especially in enterprise environments.
