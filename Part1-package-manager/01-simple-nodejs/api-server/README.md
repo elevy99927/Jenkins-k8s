@@ -1,4 +1,3 @@
-### **README.md**
 
 # Node.js Application Example
 
