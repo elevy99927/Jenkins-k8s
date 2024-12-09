@@ -20,12 +20,26 @@ Ensure you have the following installed on your system:
 
 ---
 
+## **Project Structure**
+```
+node-app/
+├── app.js          # Main application file
+├── package.json    # Dependency and script definitions
+├── math.js         # A simple js script to sum 2 numbers
+├── app.test.js     # A test script for 'npm test' example
+├── .env            # Environment variables (create manually)
+└── README.md       # Documentation
+```
+
+---
+
+
 ## **Installation**
 
 ### Step 1: Clone the Repository
 ```bash
-git clone <repository-url>
-cd node-app
+git clone https://github.com/elevy99927/Jenkins-k8s.git
+cd ./Part1-package-manager/01-simple-nodejs/api-server
 ```
 
 ### Step 2: Install Dependencies
@@ -95,19 +109,8 @@ npm run dev
     "message": "You sent: your input data"
   }
   ```
-
 ---
 
-## **Project Structure**
-```
-node-app/
-├── app.js          # Main application file
-├── package.json    # Dependency and script definitions
-├── .env            # Environment variables (create manually)
-└── README.md       # Documentation
-```
-
----
 
 ## **Dependencies**
 ### Production:
@@ -145,6 +148,74 @@ node-app/
      "message": "You sent: test data"
    }
    ```
+---
+
+## Unit Test Example
+
+### Definition of Unit Test
+A <b>unit test</b> is a test that checks the functionality of a specific, small "unit" of code in isolation, typically a function or a method. Unit tests focus on:
+
+<b>Isolated testing:</b> No dependencies on external systems (e.g., databases, file systems, or APIs).
+<b>Targeted scope:</b> Only the logic of the unit being tested is verified.
+
+
+### Update Package.json
+Add this to your `package.json`
+```bash
+"scripts": {
+  "test": "jest"
+}
+```
+### Install Jest
+Run the following command to install Jest:
+```bash
+npm install --save-dev jest
+
+```
+
+### Create a Test File
+
+Create a test file named `app.test.js` in the root directory:
+```bash
+// app.test.js
+const { add } = require('./math'); 
+
+test('adds 1 + 2 to equal 3', () => {
+    expect(add(1, 2)).toBe(3);
+});
+
+test('adds -1 + -1 to equal -2', () => {
+    expect(add(-1, -1)).toBe(-2);
+});
+
+```
+ 
+### Run Tests
+Run the tests using the command:
+```bash
+npm test
+
+```
+
+Expected output:
+```bash
+PASS  ./npm.test.js
+✓ adds 1 + 2 to equal 3 (5 ms)
+✓ adds -1 + -1 to equal -2 (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       2 passed, 2 total
+Snapshots:   0 total
+Time:        1.2 s
+Ran all test suites.
+
+```
+
+### Summary
+<li>Jest is used as the testing framework.
+<li>A simple function add is tested for correctness.
+<li>You can expand this approach to test more complex functionalities.
+
 
 ---
 
@@ -153,6 +224,7 @@ node-app/
 - Use `npm run dev` to watch for changes and restart the server automatically.
 
 ---
+
 
 ## License
 
