@@ -25,7 +25,7 @@ This exercise demonstrates how to set up JFrog Container Repository (JCR) using 
    ```bash
    wget -O jfrog-artifactory-jcr-compose.tar.gz https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/jcr/docker/jfrog-artifactory-jcr/[RELEASE]/jfrog-artifactory-jcr-[RELEASE]-compose.tar.gz
    tar -xvf jfrog-artifactory-jcr-compose.tar.gz
-   cd jfrog-artifactory-jcr-<version>-compose
+   cd artifactory-jcr-<version>-compose
    ```
 
 3. **Run the Configuration Script**:
