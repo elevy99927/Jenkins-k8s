@@ -29,7 +29,7 @@ This exercise demonstrates how to set up JFrog Container Repository (JCR) using 
    ```
 
 3. **Run the Configuration Script**:
-   Run the interactive installation script:
+   Run the interactive installation script and follow the instructions:
    ```bash
    bash ./config.sh
    ```
@@ -46,8 +46,9 @@ This exercise demonstrates how to set up JFrog Container Repository (JCR) using 
 
 5. **Access the JCR Web Interface**:
    Open your browser and navigate to:
+   <B><I>If runing on you local machine YOUR-IP could be localhost. </I></B> 
    ```
-   http://localhost:8082/ui/
+   http://<YOUR-IP>:8082/ui/
    ```
 
 ---
