@@ -62,6 +62,7 @@ docker pull localhost:8081/dockerhub-remote/nginx
 ---
 <img src="images/docker-remote.png">
 ---
+---
 
 ## **Part 2: Virtual Docker Repository**
 
@@ -115,6 +116,18 @@ docker push localhost:8081/docker-virtual/mysql
 2. Verify that the `mysql` image is stored in the local repository.
 
 ---
+---
+
+## **Part 3: Securiry***
+### **1. Create a new user **
+Create a new user with admin privileges. 
+---
+
+### **2. Multi-factor Authentication**
+Under `Security` -> `General` <B>Enable Google Authenticator<B>
+---
+<img src="./images/qr.png">
+
 
 ## **Summary**
 This exercise demonstrated:
