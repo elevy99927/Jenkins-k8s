@@ -170,6 +170,13 @@ A Helm Chart repository stores Kubernetes application configuration templates, a
 ## **Conclusion**
 
 This guide covers setting up JCR, configuring repositories, and understanding their use cases. With JCR, you can efficiently manage and distribute artifacts for development and deployment workflows. For more advanced use cases, explore JFrog’s documentation.
+---
+
+
+# Jfrog Labs
+## LAB 1 - Docker repos using Jfrog
+<BR><a href="./Docker-Repo.md"> Lab 1 - Docker repo </A>
+
 
 ---
 ## License
