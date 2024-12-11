@@ -45,7 +45,7 @@ This exercise demonstrates how to set up JFrog Container Repository (JCR) using 
    ```
 ### output
 <I>
-```
+   ```bash
 docker compose -p rt up -d
 WARN[0000] /tmp/artifactory-jcr-7.98.10/docker-compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
 [+] Running 13/13
@@ -65,7 +65,7 @@ WARN[0000] /tmp/artifactory-jcr-7.98.10/docker-compose.yaml: the attribute `vers
 [+] Running 2/2
  ✔ Network rt_default     Created                                                                                                                                                                            0.0s 
  ✔ Container artifactory  Started                                                          
-```
+   ```
 </I>
 
 
