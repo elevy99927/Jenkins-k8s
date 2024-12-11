@@ -43,6 +43,31 @@ This exercise demonstrates how to set up JFrog Container Repository (JCR) using 
    ```bash
    docker-compose -p rt up -d
    ```
+### output
+<I>
+```
+docker compose -p rt up -d
+WARN[0000] /tmp/artifactory-jcr-7.98.10/docker-compose.yaml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
+[+] Running 13/13
+ ✔ artifactory Pulled                                                                                                                                                                                      150.9s 
+   ✔ 66fded393d71 Download complete                                                                                                                                                                          0.6s 
+   ✔ 0d554e0f887c Download complete                                                                                                                                                                        133.2s 
+   ✔ 64d0fccebbea Download complete                                                                                                                                                                          2.0s 
+   ✔ c52bf0382cf9 Download complete                                                                                                                                                                          0.6s 
+   ✔ ceaf9723d491 Download complete                                                                                                                                                                          0.5s 
+   ✔ 5dc789f95c09 Download complete                                                                                                                                                                          8.6s 
+   ✔ f8686ac81fae Download complete                                                                                                                                                                          0.6s 
+   ✔ 4f4fb700ef54 Already exists                                                                                                                                                                             0.0s 
+   ✔ 2dbfef24a294 Download complete                                                                                                                                                                          0.7s 
+   ✔ 77a0a3e82378 Download complete                                                                                                                                                                          0.6s 
+   ✔ 1ab84def28b5 Download complete                                                                                                                                                                         56.6s 
+   ✔ 1c749919731a Download complete                                                                                                                                                                          0.6s 
+[+] Running 2/2
+ ✔ Network rt_default     Created                                                                                                                                                                            0.0s 
+ ✔ Container artifactory  Started                                                          
+```
+</I>
+
 
 5. **Access the JCR Web Interface**:
    Open your browser and navigate to:
