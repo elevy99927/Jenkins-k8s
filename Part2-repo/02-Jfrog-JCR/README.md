@@ -19,11 +19,12 @@ This exercise demonstrates how to set up JFrog Container Repository (JCR) using 
 
 ### **Installation Steps**
 1. **Download JFrog JCR**:
-   Download the Docker Compose package from [JFrog's download page](https://jfrog.com/download-jfrog-platform/).
+   Download the Docker Compose package from [JFrog's download page](https://jfrog.com/download-jfrog-container-registry/).
 
 2. **Extract the Docker Compose Archive**:
    ```bash
-   tar -xvf jfrog-artifactory-jcr-<version>-compose.tar.gz
+   wget -O jfrog-artifactory-jcr-compose.tar.gz https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/jcr/docker/jfrog-artifactory-jcr/[RELEASE]/jfrog-artifactory-jcr-[RELEASE]-compose.tar.gz
+   tar -xvf jfrog-artifactory-jcr-compose.tar.gz
    cd jfrog-artifactory-jcr-<version>-compose
    ```
 
