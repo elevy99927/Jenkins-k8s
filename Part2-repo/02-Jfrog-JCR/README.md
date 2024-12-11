@@ -63,9 +63,6 @@ This exercise demonstrates how to set up JFrog Container Repository (JCR) using 
 ### **What is a Remote Repository?**
 A remote repository proxies external repositories (e.g., Docker Hub). It caches artifacts locally, reducing network dependency and improving performance.
 
-**Repository Configuration Example**:
-<img src="./jfrog-repo.png">
----
 
 ### **Steps to Create a Remote Repository**:
 1. Log in to the JCR web interface.
@@ -81,6 +78,9 @@ A remote repository proxies external repositories (e.g., Docker Hub). It caches 
 - Ensures high availability of external dependencies by caching them locally.
 - Reduces network latency and improves build performance.
 
+---
+**Repository Configuration Example**:
+<img src="./jfrog-repo.png">
 ---
 
 ## **3. Setting Up a Local Repository**
