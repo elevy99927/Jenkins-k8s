@@ -52,6 +52,15 @@ This exercise demonstrates how to set up JFrog Container Repository (JCR) using 
    ```
    http://<YOUR-IP>:8082/ui/
    ```
+---
+**JCR Login**
+<BR><B>Username:</B> admin
+<BR><B>Password:</B> password
+<img src="./login.png">
+---
+
+**Reset your admin password**
+<img src="./password.png">
 
 ---
 **JCR Web Interface Overview**:
