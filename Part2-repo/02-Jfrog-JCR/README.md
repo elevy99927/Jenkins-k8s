@@ -174,3 +174,11 @@ For questions or feedback, feel free to reach out:
 - **GitHub**: [https://github.com/elevy99927](https://github.com/elevy99927)
 
 ---
+
+## Hint: helpful commands
+```bash
+start postgresql:    docker compose -p rt-postgres -f docker-compose-postgres.yaml up -d
+stop  postgresql:    docker compose -p rt-postgres -f docker-compose-postgres.yaml down
+start:               docker compose -p rt up -d
+stop:                docker compose -p rt down
+```
