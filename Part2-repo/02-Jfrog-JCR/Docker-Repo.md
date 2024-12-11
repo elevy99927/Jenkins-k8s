@@ -60,6 +60,8 @@ docker pull localhost:8081/dockerhub-remote/nginx
 2. Verify that the image is cached in the remote repository.
 
 ---
+<img src="images/docker-remote.png">
+---
 
 ## **Part 2: Virtual Docker Repository**
 
@@ -94,6 +96,8 @@ Tag the MySQL image for your virtual repository:
 ```bash
 docker tag mysql localhost:8081/docker-virtual/mysql
 ```
+---
+<img src="images/docker-local.png">
 
 ---
 

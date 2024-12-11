@@ -44,8 +44,6 @@ This exercise demonstrates how to set up JFrog Container Repository (JCR) using 
    docker-compose -p rt up -d
    ```
 
-
-
 5. **Access the JCR Web Interface**:
    Open your browser and navigate to:
    <B><I>If runing on you local machine YOUR-IP could be localhost. </I></B> 
@@ -56,15 +54,15 @@ This exercise demonstrates how to set up JFrog Container Repository (JCR) using 
 **JCR Login**
 <BR><B>Username:</B> admin
 <BR><B>Password:</B> password
-<img src="./login.png">
+<img src="./images/login.png">
 ---
 
 **Reset your admin password**
-<img src="./password.png">
+<img src="./images/password.png">
 
 ---
 **JCR Web Interface Overview**:
-<img src="./jcr-ui.png">
+<img src="./images/jcr-ui.png">
 ---
 
 ## **2. Setting Up a Remote Repository**
@@ -89,7 +87,7 @@ A remote repository proxies external repositories (e.g., Docker Hub). It caches 
 
 ---
 **Repository Configuration Example**:
-<img src="./jfrog-repo.png">
+<img src="./imagers/jfrog-repo.png">
 ---
 
 ## **3. Setting Up a Local Repository**
