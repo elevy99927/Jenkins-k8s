@@ -108,6 +108,9 @@ Push the tagged MySQL image to the virtual repository:
 docker push localhost:8081/docker-virtual/mysql
 ```
 
+### Your push will fail!
+find out why, fix it and continue :)
+
 ---
 <img src="images/docker-local.png">
 
