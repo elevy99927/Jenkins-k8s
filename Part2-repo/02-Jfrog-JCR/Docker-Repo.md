@@ -50,7 +50,9 @@ Login Succeeded
 Pull an image from Docker Hub via your remote repository:
 ```bash
 docker pull localhost:8081/dockerhub-remote/nginx
+
 ```
+
 
 ---
 
@@ -98,9 +100,7 @@ Tag the MySQL image for your virtual repository:
 docker tag mysql localhost:8081/docker-virtual/mysql
 ```
 ---
-<img src="images/docker-local.png">
 
----
 
 ### **5. Push the MySQL Image**
 Push the tagged MySQL image to the virtual repository:
@@ -109,7 +109,9 @@ docker push localhost:8081/docker-virtual/mysql
 ```
 
 ---
+<img src="images/docker-local.png">
 
+---
 ### **6. View the Pushed Image in the Artifactory UI**
 1. Open your browser and navigate to:
    [http://localhost:8082/ui/repos/tree/General/docker-local](http://localhost:8082/ui/repos/tree/General/docker-local)
