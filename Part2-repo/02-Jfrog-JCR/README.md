@@ -25,7 +25,7 @@ This exercise demonstrates how to set up JFrog Container Repository (JCR) using 
    ```bash
    wget -O jfrog-artifactory-jcr-compose.tar.gz https://releases.jfrog.io/artifactory/bintray-artifactory/org/artifactory/jcr/docker/jfrog-artifactory-jcr/[RELEASE]/jfrog-artifactory-jcr-[RELEASE]-compose.tar.gz
    tar -xvf jfrog-artifactory-jcr-compose.tar.gz
-   cd artifactory-jcr-<version>-compose
+   cd artifactory-jcr-<version>
    ```
 
 3. **Run the Configuration Script**:
@@ -37,11 +37,11 @@ This exercise demonstrates how to set up JFrog Container Repository (JCR) using 
 4. **Start PostgreSQL and JCR Services**:
    Start the PostgreSQL database:
    ```bash
-   docker-compose -p rt-postgres -f docker-compose-postgres.yaml up -d
+   docker compose -p rt-postgres -f docker-compose-postgres.yaml up -d
    ```
    Start the JCR services:
    ```bash
-   docker-compose -p rt up -d
+   docker compose -p rt up -d
    ```
 
 5. **Access the JCR Web Interface**:
@@ -154,15 +154,15 @@ A Helm Chart repository stores Kubernetes application configuration templates, a
 ## **Common Docker Commands**
 - Start the services:
   ```bash
-  docker-compose -p rt up -d
+  docker compose -p rt up -d
   ```
 - Stop the services:
   ```bash
-  docker-compose -p rt down
+  docker compose -p rt down
   ```
 - View logs:
   ```bash
-  docker-compose -p rt logs
+  docker compose -p rt logs
   ```
 
 ---
