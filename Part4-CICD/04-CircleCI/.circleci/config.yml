@@ -1,0 +1,60 @@
+version: 2.1
+
+# Define pipeline parameters
+parameters:
+  environment:
+    type: enum
+    enum:
+      - staging
+      - production
+    default: staging
+
+jobs:
+  # Build Job
+  build:
+    docker:
+      - image: circleci/node:14
+    steps:
+      - checkout
+      - run:
+          name: Show Current Branch
+          command: echo "Building branch $CIRCLE_BRANCH"
+      - run:
+          name: Install Dependencies
+          command: npm install
+      - run:
+          name: Run Unit Tests
+          command: npm test
+
+  # Deploy Job
+  deploy:
+    docker:
+      - image: circleci/node:14
+    parameters:
+      environment:
+        type: string
+        default: staging
+    steps:
+      - checkout
+      - run:
+          name: Echo Environment
+          command: echo "Deploying to << parameters.environment >> environment"
+      - when:
+          condition: << parameters.environment >> == "production"
+          steps:
+            - run:
+                name: Deploy Production
+                command: echo "Production deployment initiated..."
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: main
+          environment: production
