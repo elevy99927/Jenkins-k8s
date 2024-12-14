@@ -96,7 +96,15 @@ This file configures the Gradle project itself, including:
 
 #### Example Snippet:
 ```groovy
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
 rootProject.name = 'GradleExample'
+include ':CSSampleApp'
 ```
 
 ---
