@@ -26,7 +26,7 @@ This section focuses on introducing popular package managers and build tools use
 
 ---
 
-### Gradle
+### <a href="./01-simple-Gradle/">Gradle</a>
 - **Description**:
   Gradle is a flexible build tool that supports Java, Kotlin, and more. It uses `build.gradle` for configurations and tasks.
 
@@ -41,7 +41,7 @@ This section focuses on introducing popular package managers and build tools use
 
 ---
 
-### Node.js
+### <a href="./01-nodejs">Node.js</a>
 - **Description**:
   Node.js is a JavaScript runtime often paired with `npm` or `yarn` for dependency management.
 
@@ -57,7 +57,7 @@ This section focuses on introducing popular package managers and build tools use
 
 ---
 
-### Python
+### <a href="./01-python">Python</a>
 - **Description**:
   Python projects use `requirements.txt` to specify dependencies. Virtual environments ensure isolated development setups.
 
