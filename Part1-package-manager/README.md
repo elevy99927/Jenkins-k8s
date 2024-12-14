@@ -11,7 +11,7 @@ This section focuses on introducing popular package managers and build tools use
 
 ---
 
-### <a href="./01-simple-maven/">Maven</A>
+### <a href="./01-maven/">Maven</A>
 - **Description**:
   Maven is a build automation tool primarily used for Java projects. It uses `pom.xml` for dependency management and build configurations.
 
@@ -26,7 +26,7 @@ This section focuses on introducing popular package managers and build tools use
 
 ---
 
-### <a href="./01-simple-Gradle/">Gradle</a>
+### <a href="./01-Gradle/">Gradle</a>
 - **Description**:
   Gradle is a flexible build tool that supports Java, Kotlin, and more. It uses `build.gradle` for configurations and tasks.
 
