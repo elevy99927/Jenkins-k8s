@@ -89,9 +89,6 @@ tasks.register('hello') {
 }
 ```
 
-#### Folder-Specific Notes:
-- Verify the `build.gradle` file in the `01-Gradle` folder to ensure it contains working dependencies and tasks similar to the example above. If not, update the file to align with this structure.
-
 ### `settings.gradle`
 This file configures the Gradle project itself, including:
 - Project name.
@@ -213,4 +210,17 @@ Extend the lab with the following challenge:
 
 ---
 
-Let me know if additional files or instructions need to be modified or clarified for this lab.
+## Additional Reading
+<a href="https://docs.gradle.org/current/userguide/gradle_basics.html">Gradle Basics</a>
+ 
+---
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+## **Contact**
+For questions or feedback, feel free to reach out:
+- **Email**: eyal@levys.co.il
+- **GitHub**: [https://github.com/elevy99927](https://github.com/elevy99927)
