@@ -1,16 +1,13 @@
-Here is the `README.md` file for your project. It provides an overview of the project, setup instructions, usage steps, and how to debug using `jdb`.
-
----
-
-### **README.md**
-
 
 # Maven Debug Lab
 
-This project demonstrates how to build and debug a simple Java program using Maven and the `jdb` debugger. It includes a factorial calculation program and JUnit 5 test cases to validate its functionality.
+## Overview
+
+This lab focuses on using the `jdb` debugger to debug a Java application. `jdb` is a command-line debugger for Java programs, part of the Java Development Kit (JDK). It allows you to debug Java programs interactively by setting breakpoints, inspecting variables, and stepping through code execution.
+
+[Learn more about `jdb`](https://docs.oracle.com/en/java/javase/11/tools/jdb.html)
 
 ---
-
 ## **Project Structure**
 ```
 maven-debug-lab/
@@ -28,111 +25,156 @@ maven-debug-lab/
 ├── pom.xml                            # Maven configuration
 └── README.md                          # Project documentation
 ```
+---
+## Objective
+
+By completing this lab, you will:
+
+1. Understand what `jdb` is and why it is useful.
+2. Learn how to run a Java application in debug mode.
+3. Attach `jdb` to a running Java application.
+4. Set breakpoints, inspect variables, and debug the application.
 
 ---
 
-## **Features**
-- **Main Application**: Calculates the factorial of a number using recursion.
-- **JUnit 5 Test Cases**: Validates the factorial logic and handles edge cases.
-- **Interactive Debugging**: Includes setup for using `jdb` to debug the program.
+## What is `jdb`?
+
+`jdb` is the Java Debugger, a tool provided with the JDK to debug Java applications. It enables developers to:
+
+- Set breakpoints to pause execution at specific lines of code.
+- Inspect variables and objects during runtime.
+- Step through code to understand program flow.
+- Diagnose and fix issues in the application.
+
+Debugging with `jdb` is especially useful when graphical IDEs are unavailable or when working in server environments.
 
 ---
 
-## **Requirements**
-- Java 8 or higher (Java 21 recommended for modern features).
-- Maven 3.6 or higher.
-- Basic understanding of Java and debugging with `jdb`.
+## Lab Instructions
+
+### Step 1: Prepare the Project
+
+1. Ensure you have the JDK installed on your system:
+   ```bash
+   java -version
+   ```
+   If not installed, download and install the JDK from the [official site](https://www.oracle.com/java/technologies/javase-downloads.html).
+
+2. Navigate to the `maven-debug-lab` folder:
+   ```bash
+   cd Part1-package-manager/01-maven/maven-debug-lab
+   ```
+
+3. Review the provided `App.java` file in `src/main/java/com/example/`:
+   ```java
+   package com.example;
+
+   public class App {
+       public static void main(String[] args) throws InterruptedException {
+           System.out.println("Starting application...");
+           for (int i = 0; i < 5; i++) {
+               System.out.println("Count: " + i);
+               Thread.sleep(1000);
+           }
+           System.out.println("Application completed.");
+       }
+   }
+   ```
+
+### Step 2: Compile the Application
+
+1. Compile the application using Maven:
+   ```bash
+   mvn clean compile
+   ```
+
+2. Package the application:
+   ```bash
+   mvn package
+   ```
+
+### Step 3: Run the Application in Debug Mode
+
+1. Start the application with debugging enabled:
+   ```bash
+   java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005 -cp target/maven-debug-lab-1.0-SNAPSHOT.jar com.example.App
+   ```
+   - `-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5005`: Enables remote debugging on port `5005`.
+   - `suspend=y`: Ensures the program pauses until a debugger is attached.
+
+2. The console should display:
+   ```
+   Listening for transport dt_socket at address: 5005
+   ```
+
+### Step 4: Attach `jdb` to the Application
+
+1. Open a new terminal and run the following command to attach `jdb`:
+   ```bash
+   jdb -attach 5005
+   ```
+
+2. Once attached, you can interact with the application:
+   - Set breakpoints:
+     ```
+     stop at com.example.App:7
+     ```
+     This sets a breakpoint at line 7 in `App.java`.
+
+   - Continue execution:
+     ```
+     cont
+     ```
+
+   - Step through the code:
+     ```
+     step
+     ```
+
+   - Inspect variables:
+     ```
+     print i
+     ```
+
+   - Exit the debugger:
+     ```
+     exit
+     ```
+
+### Step 5: Debugging Exercise
+
+1. Set breakpoints at different lines of the application.
+2. Inspect the value of the `i` variable during each iteration of the loop.
+3. Modify the application to include additional logging and re-run the debugger.
 
 ---
 
-## **Setup Instructions**
+## Challenge Step
 
-### **1. Clone the Repository**
-```bash
-cd maven-debug-lab
-```
+1. Modify `App.java` to include a division operation that could result in an `ArithmeticException`. Example:
+   ```java
+   int result = 10 / (i - 2);
+   ```
 
-### **2. Build the Project**
-```bash
-mvn clean package
-```
+2. Use `jdb` to:
+   - Set a breakpoint at the line with the division operation.
+   - Inspect the value of `i` before the operation.
+   - Catch and diagnose the exception using the `catch` command in `jdb`.
 
-This will compile the code, run the tests, and generate a JAR file in the `target/` directory.
-
-### **3. Run the Application**
-```bash
-java -jar target/maven-debug-lab-1.0-SNAPSHOT.jar
-```
-<B>Factorial of 5 is: 120</B>
-
+3. Write down your observations and steps to resolve the issue.
 
 ---
 
-## **Debugging with `jdb`**
+## Additional Resources
 
-### **1. Run the Application in Debug Mode**
-```bash
-mvn clean test
-```
-
-- `transport=dt_socket`: Uses a socket for communication.
-- `server=y`: The JVM waits for a debugger to attach.
-- `suspend=y`: The JVM suspends execution until the debugger connects.
-- `address=*:5005`: Listens for debugger connections on port 5005.
-
-### **2. Attach `jdb` to the Debugging Session**
-In a new terminal, run:
-```bash
-jdb -attach 5005
-```
-
-### **3. Set Breakpoints and Debug**
-- **Set a breakpoint in the factorial method:**
-  ```bash
-  stop in com.example.App.factorial
-  ```
-- **Start the application:**
-  ```bash
-  run
-  ```
-- **Inspect variables:**
-  ```bash
-  print n
-  ```
-- **Step through the code:**
-  ```bash
-  step
-  ```
-- **Continue execution:**
-  ```bash
-  cont
-  ```
+- [Official JDB Documentation](https://docs.oracle.com/en/java/javase/11/tools/jdb.html)
+- [Maven Documentation](https://maven.apache.org/guides/)
 
 ---
 
-## **Running Tests**
+## License
 
-To run the tests, execute:
-```bash
-mvn test
-```
-
-JUnit 5 will validate the factorial logic, including edge cases like `factorial(0)` and handling invalid inputs.
-
----
-
-## **Contributing**
-1. Fork the repository.
-2. Create a new branch (`feature/your-feature`).
-3. Commit your changes (`git commit -am 'Add a new feature'`).
-4. Push the branch (`git push origin feature/your-feature`).
-5. Open a Pull Request.
-
----
-
-## **License**
-No License :)
----
+This project is licensed under the MIT License. See the `LICENSE` file for details.
 
 ## **Contact**
 For questions or feedback, feel free to reach out:
@@ -140,12 +182,3 @@ For questions or feedback, feel free to reach out:
 - **GitHub**: [https://github.com/elevy99927](https://github.com/elevy99927)
 
 ---
-
-### **Key Features of the README**
-- **Project Overview**: Explains what the project does and its purpose.
-- **Setup and Debug Instructions**: Step-by-step guide to build, run, and debug using `jdb`.
-- **Project Structure**: Visualizes the directory layout.
-- **Contribution Guidelines**: Encourages collaboration.
-- **Contact Information**: Provides a way for others to reach out.
-
-Would you like me to generate the `LICENSE` file or add more debugging examples?
