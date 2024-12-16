@@ -59,6 +59,7 @@ This lab is designed as an introduction to Maven, a powerful build automation to
 2. Package the project:
    ```bash
    mvn package
+   ls -la target/
    ```
    This creates a `.jar` file in the `target` directory.
 
