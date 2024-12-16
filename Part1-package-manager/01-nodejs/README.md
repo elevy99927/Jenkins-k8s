@@ -26,6 +26,8 @@ In this section, you will:
 
 [Go to Lab 1: Node.js Basics](./nodejs-basics/README.md)
 
+---
+
 ### Lab 2: Advanced Node.js and Debugging
 
 - **Objective**: This lab dives deeper into Node.js features, focusing on debugging and advanced application structures.
@@ -36,6 +38,8 @@ In this section, you will:
 
 [Go to Lab 2: Advanced Node.js and Debugging](./nodejs-advanced/README.md)
 
+---
+
 ### Lab 3: Web Server
 
 - **Objective**: Learn to create and deploy a basic web server with Node.js.
@@ -44,6 +48,8 @@ In this section, you will:
   - Understanding request and response objects in Node.js.
 
 [Go to Lab 3: Web Server](./web-server/README.md)
+
+---
 
 ### Lab 4: API Server
 
