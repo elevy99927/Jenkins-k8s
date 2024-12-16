@@ -14,9 +14,8 @@ Follow the instruction on Gradle website
 #### Option 2 
 **Using docker**:
 ```bash
-docker run -it -v $PWD:/home/gradle/lab   gradle:jdk23-jammy bash
+docker run -it -v $PWD:/home/gradle   gradle:jdk23-jammy bash
 
-cd lab
 ```
 
 ---
