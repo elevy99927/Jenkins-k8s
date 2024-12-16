@@ -59,9 +59,15 @@ This lab is designed as an introduction to Maven, a powerful build automation to
 2. Package the project:
    ```bash
    mvn package
-   ls -la target/
    ```
+
    This creates a `.jar` file in the `target` directory.
+   <BR>Verify you can see the file `maven-java-lab-1.0-SNAPSHOT.jar` in the `maven-java-lab-1.0-SNAPSHOT.jar` directory
+   
+   ```bash
+   ls -la target/maven-java-lab-1.0-SNAPSHOT.jar
+   ```
+
 
 ### Step 4: Run Tests
 
