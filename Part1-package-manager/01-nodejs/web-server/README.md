@@ -27,12 +27,15 @@ Optional step, incase you need to install node using `nvm`
 ```bash
    
    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
-
+```
+```bash
    #Add nvm cli to your enviorment PATH
    export NVM_DIR="$HOME/.nvm"
    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+```
 
+```bash
    # download and install Node.js (you may need to restart the terminal)
    sudo nvm install 22
 
