@@ -29,6 +29,18 @@ cd lab
    ```
    This sets up a new Gradle project with the necessary directory structure.
 
+   ```
+   Directory will be modified and existing files may be overwritten.  Continue? (default: no) [yes, no]  <B>yes</B>
+   Enter selection (default: Application) [1..4]  1 
+   Enter selection (default: Java) [1..6]  1
+   Enter target Java version (min: 7, default: 21): 21
+   Project name (default: lab):  lab
+   Enter selection (default: Single application project) [1..2] 
+   Enter selection (default: Kotlin) [1..2] 2 <B>(Groovy!!!)</B>
+   Enter selection (default: JUnit Jupiter) [1..4] 1
+   Generate build using new APIs and behavior (some features may change in the next minor release)? (default: no) [yes, no]  no
+   ```
+
 2. **View available tasks**:
    ```bash
    gradle tasks
@@ -131,6 +143,11 @@ cd lab
    ```
    src/main/java/com/example/App.java
    src/test/java/com/example/AppTest.java
+   ```
+   **Hint**
+   ```bash
+   mkdir -p src/main/java/com/example/
+   mkdir -p src/test/java/com/example/
    ```
 
 2. Write the sample application in `App.java`:
