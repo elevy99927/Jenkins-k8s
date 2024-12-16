@@ -1,226 +1,184 @@
-# Lab: Introduction to Gradle
+# Gradle Lab and Documentation
 
-Gradle is a powerful build tool for Java and other JVM-based languages, as well as other platforms. It is known for its flexibility, performance, and ease of use. Gradle uses a domain-specific language (DSL) based on Groovy or Kotlin for its configuration scripts.
+## Overview
 
-## Resources
-- Official Gradle Website: [https://gradle.org/](https://gradle.org/)
+This lab focuses on Gradle, a powerful build automation tool used for Java, Kotlin, and Groovy projects. Gradle simplifies dependency management, builds, and testing processes with a declarative approach.
 
----
-
-## Objective
-This lab focuses on:
-1. Setting up and exploring Gradle.
-2. Understanding and using basic Gradle commands.
-3. Learning about the `build.gradle` and `settings.gradle` files.
-4. Completing a challenge task to enhance learning.
+[Learn more about Gradle](https://gradle.org/)
 
 ---
 
 ## Part 1: Basic Gradle Commands
 
-Navigate to the `Part1-package-manager/01-Gradle` folder to complete this lab.
-
-### Commands
-1. **Initialize a Gradle Project**:
+1. **Initialize a Gradle project**:
    ```bash
    gradle init
    ```
-   - Creates a new Gradle project with basic configuration files.
+   This sets up a new Gradle project with the necessary directory structure.
 
-2. **List Available Tasks**:
+2. **View available tasks**:
    ```bash
    gradle tasks
    ```
-   - Displays all the tasks available in the project.
+   Lists all tasks defined in your project, including build and test tasks.
 
-3. **Build the Project**:
+3. **Build the project**:
    ```bash
    gradle build
    ```
-   - Compiles the code, runs tests, and generates build artifacts.
+   Compiles the code, runs tests, and packages the application.
 
-4. **Run the Project**:
-   ```bash
-   gradle run
-   ```
-   - Executes the main class of the application.
-
-5. **Test the Project**:
+4. **Run tests**:
    ```bash
    gradle test
    ```
-   - Runs all the tests defined in the project.
+   Executes all unit tests in the `src/test` directory.
 
-6. **Clean the Project**:
+5. **Run the application**:
    ```bash
-   gradle clean
+   gradle run
    ```
-   - Removes all build artifacts.
+   Runs the application if the `application` plugin is applied.
 
 ---
 
-## Part 2: Understanding the Configuration Files
+## Part 2: Understanding Configuration Files
 
-### `build.gradle`
-This file contains the build configuration for the project, including:
-- Dependencies: Libraries or tools the project relies on.
-- Plugins: Add functionalities like Java support or application support.
-- Tasks: Custom tasks that define specific actions in the build lifecycle.
+1. **`build.gradle`**
+   - Core configuration file for Gradle projects.
+   - Contains dependencies, plugins, and custom tasks.
 
-#### Example Snippet:
-```groovy
-plugins {
-    id 'application'
-}
+   Example:
+   ```groovy
+   plugins {
+       id 'java'
+   }
 
-application {
-    mainClass = 'com.example.App'
-}
+   repositories {
+       mavenCentral()
+   }
 
-dependencies {
-    implementation 'org.apache.commons:commons-lang3:3.12.0'
-    testImplementation 'junit:junit:4.13.2'
-}
+   dependencies {
+       testImplementation 'org.junit.jupiter:junit-jupiter:5.9.3'
+   }
 
-tasks.register('hello') {
-    doLast {
-        println 'Hello Gradle!'
-    }
-}
-```
+   tasks.register('customTask') {
+       doLast {
+           println 'Executing custom Gradle task!'
+       }
+   }
+   ```
 
-### `settings.gradle`
-This file configures the Gradle project itself, including:
-- Project name.
-- Subprojects (if it's a multi-module project).
+2. **`settings.gradle`**
+   - Defines project settings and includes subprojects if applicable.
 
-#### Example Snippet:
-```groovy
-pluginManagement {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
-rootProject.name = 'GradleExample'
-include ':CSSampleApp'
-```
+   Example:
+   ```groovy
+   rootProject.name = 'GradleLab'
+   ```
 
 ---
 
 ## Part 3: Lab Instructions
 
-### Step-by-Step Instructions (in terminal)
-
-#### Project Setup
-1. **Create the Project Directory**:
+### Step 1: Create the Project Directory
+1. Open your terminal and create a directory for the project:
    ```bash
-   mkdir GradleLab && cd GradleLab
+   mkdir GradleLab
+   cd GradleLab
    ```
 
-2. **Initialize a Gradle Project**:
+2. Initialize the Gradle project:
    ```bash
    gradle init
    ```
-   Select the application project type and default configurations.
+   Select the following options during initialization:
+   - Type: `application`
+   - Language: `Java`
+   - Build script DSL: `Groovy`
+   - Test framework: `JUnit`
 
-3. **Modify `build.gradle` and Add a Custom Task**:
-   Open the `build.gradle` file and add the following custom task:
+### Step 2: Modify `build.gradle` and Add a Custom Task
+1. Open `build.gradle` and add a custom task:
    ```groovy
-   tasks.register('customTask') {
+   tasks.register('hello') {
        doLast {
-           println 'Executing Custom Task!'
+           println 'Hello from Gradle!'
        }
    }
    ```
 
-4. **Write Sample Code**:
-   Create a sample application file:
+2. Save the file and verify the custom task:
    ```bash
-   mkdir -p src/main/java/com/example
+   gradle hello
    ```
-   Add the following code to `src/main/java/com/example/App.java`:
+
+### Step 3: Write Sample Code
+1. Create the following file structure:
+   ```
+   src/main/java/com/example/App.java
+   src/test/java/com/example/AppTest.java
+   ```
+
+2. Write the sample application in `App.java`:
    ```java
    package com.example;
 
    public class App {
        public static void main(String[] args) {
-           System.out.println("Hello, Gradle Lab!");
+           System.out.println("Hello, Gradle!");
        }
    }
    ```
 
-5. **Write Test Code**:
-   Create a test file:
-   ```bash
-   mkdir -p src/test/java/com/example
-   ```
-   Add the following code to `src/test/java/com/example/AppTest.java`:
+3. Write a unit test in `AppTest.java`:
    ```java
    package com.example;
 
-   import org.junit.Test;
-   import static org.junit.Assert.*;
+   import org.junit.jupiter.api.Test;
+   import static org.junit.jupiter.api.Assertions.*;
 
    public class AppTest {
        @Test
-       public void testApp() {
-           assertTrue(true);
+       void testMain() {
+           assertEquals(1, 1); // Simple test
        }
    }
    ```
 
-6. **Run Gradle Commands**:
-   - Build the project: `gradle build`
-   - Run the application: `gradle run`
-   - Execute custom task: `gradle customTask`
-
-7. **Deploy the Application (Mock Deploy)**:
-   Simulate deployment by creating a `build/distributions` directory:
+4. Run the tests:
    ```bash
-   mkdir -p build/distributions
-   cp -r src/main/java/com/example build/distributions/
-   echo "Application deployed to mock server!"
+   gradle test
+   ```
+
+### Step 4: Deploy the Application (Mock Deploy)
+1. Create a `deploy` task in `build.gradle`:
+   ```groovy
+   tasks.register('deploy') {
+       doLast {
+           println 'Deploying application...'
+       }
+   }
+   ```
+
+2. Execute the deploy task:
+   ```bash
+   gradle deploy
    ```
 
 ---
 
 ## Part 4: Challenge Step
 
-Extend the lab with the following challenge:
+### Challenge
+Add a custom Gradle task that does the following:
+1. Compiles the project.
+2. Runs tests.
+3. Generates a custom report file in the `build/reports` directory with the text "Build and Test Successful".
 
-1. **Add Another Custom Task**:
-   - Create a task called `deployTask` in `build.gradle`:
-     ```groovy
-     tasks.register('deployTask') {
-         doLast {
-             println 'Deploying Application...'
-         }
-     }
-     ```
+### Solution
+<A href="Solution.md">[text](Solution.md)</A>
 
-2. **Enhance the Sample Application**:
-   - Add a new feature in `App.java` that calculates and prints the factorial of a number.
-
-3. **Write Tests for the New Feature**:
-   - Extend `AppTest.java` to test the factorial function.
-
-4. **Run and Validate**:
-   - Build, test, and deploy the updated application using Gradle.
-
----
-
-## Submission
-- Provide the updated `build.gradle` and all Java files.
-- Share screenshots of the terminal commands and outputs.
-- Document any challenges faced during the process.
-
----
-
-## Additional Reading
-<a href="https://docs.gradle.org/current/userguide/gradle_basics.html">Gradle Basics</a>
- 
 ---
 
 ## License
@@ -232,3 +190,5 @@ This project is licensed under the MIT License.
 For questions or feedback, feel free to reach out:
 - **Email**: eyal@levys.co.il
 - **GitHub**: [https://github.com/elevy99927](https://github.com/elevy99927)
+
+
