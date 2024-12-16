@@ -59,22 +59,38 @@ To install nvm, follow the instructions on the [official nvm repository](https:/
 ### Step 3: Write the Web Server Code
 
 1. Create a new file `index.js` in the project directory.
-2. Add the following code to set up a basic web server:
+2. edit your `.env` file, chage the port to `3000`
+3. Add the following code to set up a basic web server:
    ```javascript
-   const express = require('express');
-   const app = express();
+   // Import the built-in HTTP module
+  const http = require('http');
 
-   app.get('/', (req, res) => {
-       res.send('Welcome to the Web Server Lab!');
-   });
+  // Define the server logic
+  const server = http.createServer((req, res) => {
+      // Set the response header
+      res.setHeader('Content-Type', 'text/plain');
 
-   app.get('/about', (req, res) => {
-       res.send('This is a basic web server built with Node.js and Express.');
-   });
+      // Route handling
+      if (req.url === '/') {
+          res.statusCode = 200; // OK
+          res.end('This is a test page');
+      } else if (req.url === '/hi') {
+          res.statusCode = 200; // OK
+          res.end('Hello');
+      } else if (req.url === '/bye') {
+          res.statusCode = 200; // OK
+          res.end('Bye Bye');
+      } else {
+          res.statusCode = 404; // Not Found
+          res.end('Page not found');
+      }
+  });
 
-   app.listen(3000, () => {
-       console.log('Server is running on http://localhost:3000');
-   });
+  // Start the server
+  const PORT = 8000; // You can change this port
+  server.listen(PORT, () => {
+      console.log(`Server running at http://localhost:${PORT}/`);
+  }); 
    ```
 
 ### Step 4: Run the Server
