@@ -109,7 +109,7 @@ Debugging with `jdb` is especially useful when graphical IDEs are unavailable or
 
 ### Step 4: Attach `jdb` to the Application
 
-1. Open a <B><U>new</U></B> terminal and run the following command to attach `jdb`:
+1. Open a <u><B>new</B></u> terminal and run the following command to attach `jdb`:
    ```bash
    jdb -attach 5005
    ```
