@@ -80,10 +80,48 @@ This lab is designed as an introduction to Maven, a powerful build automation to
 
 ### Step 5: Run the Application
 
-1. Execute the packaged `.jar` file (if applicable):
+1. Execute the packaged `.jar` file (it will fail. why?):
    ```bash
    java -jar target/maven-java-lab-1.0-SNAPSHOT.jar
    ```
+
+
+### Step 6: Fix your Application and re-run
+1. Create a file named `App.java` under `src/main/java/com/example/` with the following content:
+   ```java
+   package com.example;
+
+   public class App {
+       public static void main(String[] args) {
+           System.out.println("Hello, Maven!");
+       }
+   }
+   ```
+
+2. Clean and compile the project:
+   ```bash
+   mvn clean compile
+   ```
+
+3. Package the project:
+   ```bash
+   mvn package
+   ```
+   This creates a `.jar` file in the `target` directory.
+
+
+4. Run the unit tests included in the project:
+   ```bash
+   mvn test
+   ```
+
+5. Execute the packaged `.jar` file:
+   ```bash
+   java -cp target/maven-java-lab-1.0-SNAPSHOT.jar com.example.App
+   ```
+
+
+
 
 ---
 
