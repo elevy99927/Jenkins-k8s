@@ -20,6 +20,29 @@ To install nvm, follow the instructions on the [official nvm repository](https:/
 ---
 
 ## Prerequisites
+0. **using nvm**
+Optional step, incase you need to install node using `nvm`
+<B>installs nvm (Node Version Manager)</B>
+
+```bash
+   
+   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash
+
+   #Add nvm cli to your enviorment PATH
+   export NVM_DIR="$HOME/.nvm"
+   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+   # download and install Node.js (you may need to restart the terminal)
+   sudo nvm install 22
+
+   # verifies the right Node.js version is in the environment
+   node -v # should print `v22.12.0`
+
+   # verifies the right npm version is in the environment
+   npm -v # should print `10.9.0`
+
+```
 
 1. **Node.js**:
    - Install Node.js using nvm or directly from the [official Node.js website](https://nodejs.org/).
