@@ -1,108 +1,131 @@
-### **README.md**
+# Lab 3: Web Server
 
-# Simple Node.js Web Server
+## Objective
+This lab focuses on creating and deploying a basic web server using Node.js. 
+By the end of this lab, you will understand how to serve HTML content and handle HTTP requests and responses in Node.js.
 
-This is a simple Node.js web server application that serves different responses based on the accessed URL. The server includes the following endpoints:
-- `/` -> Displays: "This is a test page"
-- `/hi` -> Displays: "Hello"
-- `/bye` -> Displays: "Bye Bye"
-- Any other route returns a 404 with: "Page not found"
+---
+
+## What is Node.js?
+Node.js is a JavaScript runtime built on Chrome's V8 JavaScript engine. 
+It is designed for building scalable network applications and can be used to create web servers, APIs, and more.
+
+[Learn more about Node.js](https://nodejs.org/)
+
+## What is nvm?
+NVM (Node Version Manager) is a tool that allows you to manage multiple versions of Node.js on a single machine. With NVM, you can easily switch between Node.js versions, making it especially useful for projects requiring specific versions.
+
+To install nvm, follow the instructions on the [official nvm repository](https://github.com/nvm-sh/nvm).
+
+---
 
 ## Prerequisites
 
-1. Install **nvm** (Node Version Manager) to manage Node.js versions.
-2. Install **Node.js 20** using nvm.
+1. **Node.js**:
+   - Install Node.js using nvm or directly from the [official Node.js website](https://nodejs.org/).
+   - Verify installation:
+     ```bash
+     node -v
+     npm -v
+     ```
 
-## Installing nvm
+2. **Text Editor**: Use a code editor like Visual Studio Code or any editor of your choice.
 
-To install nvm, run the following command:
+---
 
-### Linux/macOS:
-```bash
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
-```
+## Lab Instructions
 
-After installation, restart your terminal and verify:
-```bash
-nvm --version
-```
+### Step 1: Initialize the Project
 
-### Windows:
-Download and install [nvm for Windows](https://github.com/coreybutler/nvm-windows/releases).
+1. Create a new directory for the project and navigate to it:
+   ```bash
+   mkdir web-server-lab
+   cd web-server-lab
+   ```
 
-## Installing Node.js
+2. Initialize a new Node.js project:
+   ```bash
+   npm init -y
+   ```
+   This command generates a `package.json` file with default settings.
 
-Using nvm, install Node.js version 20:
-```bash
-nvm install 20
-```
+### Step 2: Install Dependencies
 
-Set Node.js 20 as the default version:
-```bash
-nvm use 20
-nvm alias default 20
-```
+1. Install the `express` package to simplify creating the web server:
+   ```bash
+   npm install express
+   ```
 
-Verify Node.js installation:
-```bash
-node -v
-npm -v
-```
+### Step 3: Write the Web Server Code
 
-## Running the Application
+1. Create a new file `index.js` in the project directory.
+2. Add the following code to set up a basic web server:
+   ```javascript
+   const express = require('express');
+   const app = express();
 
-1. Clone this repository or copy the `server.js` file into your project directory.
+   app.get('/', (req, res) => {
+       res.send('Welcome to the Web Server Lab!');
+   });
 
-2. Navigate to the directory containing the `server.js` file:
-```bash
-cd /path/to/directory
-```
+   app.get('/about', (req, res) => {
+       res.send('This is a basic web server built with Node.js and Express.');
+   });
 
-3. Start the server:
-```bash
-node server.js
-```
+   app.listen(3000, () => {
+       console.log('Server is running on http://localhost:3000');
+   });
+   ```
 
-4. The server will start and listen on `http://localhost:3000`.
+### Step 4: Run the Server
 
-## Testing the Application
-Use your browser or any HTTP client (e.g., [Postman](https://www.postman.com/) or `curl`) to test the endpoints:
-<I>Please refer to the 'install-node.txt' file </I>
+1. Start the server:
+   ```bash
+   node index.js
+   ```
 
-### Endpoints:
-- Access `/`:
-  ```bash
-  curl http://localhost:3000/
-  ```
-  Response: `This is a test page`
+2. Open your browser and navigate to:
+   - `http://localhost:3000` for the homepage.
+   - `http://localhost:3000/about` for the about page.
 
-- Access `/hi`:
-  ```bash
-  curl http://localhost:3000/hi
-  ```
-  Response: `Hello`
+---
 
-- Access `/bye`:
-  ```bash
-  curl http://localhost:3000/bye
-  ```
-  Response: `Bye Bye`
+## Challenge Step
 
-- Access an unknown route:
-  ```bash
-  curl http://localhost:3000/unknown
-  ```
-  Response: `Page not found`
+Enhance the web server to include:
 
-## Future Enhancements
+1. A `/contact` route that returns contact information (e.g., `Contact me at: eyal@levys.co.il`).
+2. A `/time` route that dynamically returns the current server time.
 
-- Add JSON responses.
-- Use the Express framework for more advanced route handling.
-- Implement unit tests for the application.
+**Solution**:
+1. Modify `index.js` to include the new routes:
+   ```javascript
+   app.get('/contact', (req, res) => {
+       res.send('Contact me at: eyal@levys.co.il');
+   });
+
+   app.get('/time', (req, res) => {
+       const currentTime = new Date().toLocaleTimeString();
+       res.send(`The current server time is: ${currentTime}`);
+   });
+   ```
+2. Restart the server and test the new routes:
+   - `http://localhost:3000/contact`
+   - `http://localhost:3000/time`
+
+---
+
+## Additional Resources
+
+- [Node.js Documentation](https://nodejs.org/en/docs/)
+- [Express.js Documentation](https://expressjs.com/)
+- [nvm GitHub Repository](https://github.com/nvm-sh/nvm)
+
+---
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. See the `LICENSE` file for details.
 
 ---
 ## **Contact**
@@ -111,9 +134,3 @@ For questions or feedback, feel free to reach out:
 - **GitHub**: [https://github.com/elevy99927](https://github.com/elevy99927)
 
 ---
-
-### **How to Use**
-1. Copy and save this content as `README.md` in the root directory of your project.
-2. Share it with your project repository or include it with your codebase.
-
-Let me know if you'd like additional sections or details!
