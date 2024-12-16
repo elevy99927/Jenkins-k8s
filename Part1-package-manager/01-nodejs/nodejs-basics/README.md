@@ -102,30 +102,7 @@ In this lab, you'll learn how to set up a Node.js project, understand the struct
 
 ## Challenge Step
 
-1. Modify `app.js` to include two additional routes:
-
-   - `/hi`: Returns "Hi there!"
-   - `/bye`: Returns "Goodbye!"
-
-2. Update your `package.json` to include a custom script to start your application:
-
-   ```json
-   "scripts": {
-       "start": "node app.js"
-   }
-   ```
-
-3. Run the application using npm:
-
-   ```bash
-   npm start
-   ```
-
-4. Test all routes in your browser:
-
-   - `http://localhost:3000/`
-   - `http://localhost:3000/hi`
-   - `http://localhost:3000/bye`
+Please refer to <a href="/web-server">web server lab</a>.
 
 ---
 
