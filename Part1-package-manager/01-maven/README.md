@@ -77,11 +77,11 @@ This folder contains two labs to practice and understand Maven:
 
 Each lab includes detailed step-by-step instructions in their respective subfolder README files. Below is an overview of the labs:
 
-### Lab 1: Maven Debug Lab
-   - Focus: Learn to debug a Maven-based Java application by attaching a debugger to the application process and diagnosing runtime issues.
-
-### Lab 2: Maven Java Lab
+### Lab 1: <A href="./maven-java-lab">Maven Java Lab</a>
    - Focus: Build and package a Java project using Maven while exploring key concepts such as the POM file, dependency management, and running packaged applications.
+
+### Lab 2: <a href="./maven-debug-lab">Maven Debug Lab</a>
+   - Focus: Learn to debug a Maven-based Java application by attaching a debugger to the application process and diagnosing runtime issues.
 
 ---
 
@@ -94,52 +94,7 @@ Enhance the `maven-java-lab` project to:
 2. Create a new class `JsonParser` that uses the library to parse a JSON string.
 3. Write a unit test for `JsonParser`.
 
-### Solution
-
-1. **Update `pom.xml`**:
-   ```xml
-   <dependency>
-       <groupId>com.fasterxml.jackson.core</groupId>
-       <artifactId>jackson-databind</artifactId>
-       <version>2.15.0</version>
-   </dependency>
-   ```
-
-2. **Create `JsonParser.java`**:
-   ```java
-   package com.example;
-
-   import com.fasterxml.jackson.databind.ObjectMapper;
-   import java.io.IOException;
-
-   public class JsonParser {
-       public static String parse(String json) throws IOException {
-           ObjectMapper mapper = new ObjectMapper();
-           return mapper.readTree(json).toString();
-       }
-   }
-   ```
-
-3. **Write `JsonParserTest.java`**:
-   ```java
-   package com.example;
-
-   import org.junit.jupiter.api.Test;
-   import static org.junit.jupiter.api.Assertions.*;
-
-   public class JsonParserTest {
-       @Test
-       void testParse() throws Exception {
-           String json = "{\"key\":\"value\"}";
-           assertEquals("{\"key\":\"value\"}", JsonParser.parse(json));
-       }
-   }
-   ```
-
-4. **Run the tests**:
-   ```bash
-   mvn test
-   ```
+### <a href="./Part3-Solution.md">Solution</a>
 
 ---
 ## Additional Resources
