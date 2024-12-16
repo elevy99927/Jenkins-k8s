@@ -46,7 +46,7 @@ By completing this lab, you will:
 - Step through code to understand program flow.
 - Diagnose and fix issues in the application.
 
-Debugging with `jdb` is especially useful when graphical IDEs are unavailable or when working in server environments.
+Debugging with `jdb` is especially useful when graphical IDEs are unavailable or when working in server environments (for example in kubernetes pods).
 
 ---
 
