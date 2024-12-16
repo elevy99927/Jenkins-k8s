@@ -102,7 +102,7 @@ In this lab, you'll learn how to set up a Node.js project, understand the struct
 
 ## Challenge Step
 
-Please refer to <a href="/web-server">web server lab</a>.
+Please refer to <a href="../web-server">web server lab</a>.
 
 ---
 
