@@ -6,6 +6,19 @@ This lab focuses on Gradle, a powerful build automation tool used for Java, Kotl
 
 [Learn more about Gradle](https://gradle.org/)
 
+### Preparations
+#### Option 1
+**Local installation**:
+Follow the instruction on Gradle website
+
+#### Option 2 
+**Using docker**:
+```bash
+docker run -it -v $PWD:/home/gradle/lab   gradle:jdk23-jammy bash
+
+cd lab
+```
+
 ---
 
 ## Part 1: Basic Gradle Commands
