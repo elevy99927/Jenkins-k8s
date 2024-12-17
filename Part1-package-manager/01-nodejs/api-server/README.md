@@ -1,6 +1,3 @@
-Here is the **README.md** file for the `api-server` lab in the directory `Part1-package-manager/01-nodejs/api-server`. This README introduces **GET** and **POST** methods and demonstrates how to test them using `curl`.
-
----
 
 # Lab: Node.js API Server
 
