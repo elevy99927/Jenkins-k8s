@@ -45,8 +45,8 @@ This lab focuses on creating and testing a simple API server using **Node.js** a
 
 ## Step 2: Create the API Server
 
-1. Create a file named `server.js` in the root directory and add the following code. :
-<B>Don't forget to check the `.env` file.</B> 
+1. Create a file named `server.js` in the root directory and add the following code:
+<BR><B>Don't forget to check the `.env` file.</B> 
 
    ```javascript
    const express = require('express');
