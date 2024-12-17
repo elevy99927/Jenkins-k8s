@@ -1,233 +1,178 @@
-
-# Node.js Application Example
-
-This is a simple Node.js application built using **Express**, designed to demonstrate basic functionality such as handling GET and POST requests. The app also utilizes **dotenv** for managing environment variables, **cors** for handling cross-origin requests, and includes **nodemon** as a development dependency for easier debugging.
+Here is the **README.md** file for the `api-server` lab in the directory `Part1-package-manager/01-nodejs/api-server`. This README introduces **GET** and **POST** methods and demonstrates how to test them using `curl`.
 
 ---
 
-## **Features**
-- Serves a welcome message at the root endpoint (`/`).
-- Handles GET requests at `/api/hello` to return a JSON message.
-- Handles POST requests at `/api/data` to receive and respond with JSON data.
+# Lab: Node.js API Server
+
+## Objective
+
+This lab focuses on creating and testing a simple API server using **Node.js** and **Express**. By the end of this lab, you will:
+
+1. Understand how to set up a Node.js project with **Express**.
+2. Learn how to handle **GET** and **POST** requests.
+3. Use **curl** to test your API endpoints.
 
 ---
 
-## **Prerequisites**
-Ensure you have the following installed on your system:
-- **Node.js** (Version 22 or later)
-- **npm** (Node Package Manager, included with Node.js)
+## Prerequisites
+
+1. **Node.js** installed on your system.
+   - [Download Node.js](https://nodejs.org/en/)
+2. A code editor (e.g., VSCode).
+3. Basic understanding of the command line and HTTP requests.
 
 ---
 
-## **Project Structure**
-```
-node-app/
-├── app.js          # Main application file
-├── package.json    # Dependency and script definitions
-├── math.js         # A simple js script to sum 2 numbers
-├── app.test.js     # A test script for 'npm test' example
-├── .env            # Environment variables (create manually)
-└── README.md       # Documentation
-```
+## Step 1: Set Up the Project
 
----
-
-
-## **Installation**
-
-### Step 1: Clone the Repository
-```bash
-git clone https://github.com/elevy99927/Jenkins-k8s.git
-cd ./Part1-package-manager/01-simple-nodejs/api-server
-```
-
-### Step 2: Install Dependencies
-Install all required dependencies listed in the `package.json` file:
-```bash
-npm install
-```
-
-### Step 3: Configure Environment Variables
-Create a `.env` file in the root of the project and add the following:
-```env
-PORT=3000
-```
-This allows you to define the port the application will run on.
-
----
-
-## **Running the Application**
-
-### To Start the Application:
-Run the following command:
-```bash
-npm start
-```
-The server will start and listen on the port defined in your `.env` file (default is `3000`).
-
-### To Run in Development Mode:
-Use `nodemon` to automatically restart the server upon file changes:
-```bash
-npm run dev
-```
-
----
-
-## **Endpoints**
-
-### 1. **GET /** 
-- **URL:** `http://localhost:3000/`
-- **Description:** Returns a welcome message.
-- **Response:** 
-  ```
-  Welcome to the Node.js App!
-  ```
-
-### 2. **GET /api/hello**
-- **URL:** `http://localhost:3000/api/hello`
-- **Description:** Returns a JSON message.
-- **Response:**
-  ```json
-  {
-    "message": "Hello, World!"
-  }
-  ```
-
-### 3. **POST /api/data**
-- **URL:** `http://localhost:3000/api/data`
-- **Description:** Accepts JSON data and returns it as part of the response.
-- **Request Body:**
-  ```json
-  {
-    "data": "your input data"
-  }
-  ```
-- **Response:**
-  ```json
-  {
-    "message": "You sent: your input data"
-  }
-  ```
----
-
-
-## **Dependencies**
-### Production:
-- **express**: Handles routing and server responses.
-- **dotenv**: Loads environment variables from a `.env` file.
-- **cors**: Enables Cross-Origin Resource Sharing.
-
-### Development:
-- **nodemon**: Restarts the server automatically when changes are made.
-
----
-
-## **Example Usage**
-
-1. **Testing GET Request**:
-   Use a browser or a tool like `curl`:
+1. Create a project directory:
    ```bash
-   curl http://localhost:3000/api/hello
-   ```
-   Response:
-   ```json
-   {
-     "message": "Hello, World!"
-   }
+   mkdir api-server-lab
+   cd api-server-lab
    ```
 
-2. **Testing POST Request**:
-   Send a POST request with JSON data:
+2. Initialize a new Node.js project:
    ```bash
-   curl -X POST http://localhost:3000/api/data -H "Content-Type: application/json" -d '{"data":"test data"}'
+   npm init -y
    ```
-   Response:
-   ```json
-   {
-     "message": "You sent: test data"
-   }
+
+3. Install **Express**:
+   ```bash
+   npm install express
    ```
+
 ---
 
-## Unit Test Example
+## Step 2: Create the API Server
 
-### Definition of Unit Test
-A <b>unit test</b> is a test that checks the functionality of a specific, small "unit" of code in isolation, typically a function or a method. Unit tests focus on:
+1. Create a file named `server.js` in the root directory and add the following code. :
+<B>Don't forget to check the `.env` file.</B> 
 
-<b>Isolated testing:</b> No dependencies on external systems (e.g., databases, file systems, or APIs).
-<b>Targeted scope:</b> Only the logic of the unit being tested is verified.
+   ```javascript
+   const express = require('express');
+   const app = express();
+   const PORT = 5000;
 
+   // Middleware to parse JSON data
+   app.use(express.json());
 
-### Update Package.json
-Add this to your `package.json`
+   // GET endpoint
+   app.get('/', (req, res) => {
+       res.send('Welcome to the API Server Lab!');
+   });
+
+   app.get('/api/hello', (req, res) => {
+       res.json({ message: 'Hello, World!' });
+   });
+
+   // POST endpoint
+   app.post('/api/data', (req, res) => {
+       const inputData = req.body.data;
+       res.json({ message: `You sent: ${inputData}` });
+   });
+
+   // Start the server
+   app.listen(PORT, () => {
+       console.log(`Server is running on http://localhost:${PORT}`);
+   });
+   ```
+
+---
+
+## Step 3: Run the Server
+
+1. Start the server:
+   ```bash
+   node server.js
+   ```
+
+2. The server will run on `http://localhost:3000`.
+
+---
+
+## Step 4: Test the API Using `curl`
+
+Use the following `curl` commands to test the endpoints.
+
+### 1. Test the Root Endpoint (`GET /`)
+
+Run:
 ```bash
-"scripts": {
-  "test": "jest"
+curl http://localhost:3000/
+```
+Response:
+```
+Welcome to the API Server Lab!
+```
+
+### 2. Test the `GET /api/hello` Endpoint
+
+Run:
+```bash
+curl http://localhost:3000/api/hello
+```
+Response:
+```json
+{
+  "message": "Hello, World!"
 }
 ```
-### Install Jest
-Run the following command to install Jest:
+
+### 3. Test the `POST /api/data` Endpoint
+
+Run:
 ```bash
-npm install --save-dev jest
-
+curl -X POST http://localhost:3000/api/data -H "Content-Type: application/json" -d '{"data": "test input"}'
 ```
-
-### Create a Test File
-
-Create a test file named `app.test.js` in the root directory:
-```bash
-// app.test.js
-const { add } = require('./math'); 
-
-test('adds 1 + 2 to equal 3', () => {
-    expect(add(1, 2)).toBe(3);
-});
-
-test('adds -1 + -1 to equal -2', () => {
-    expect(add(-1, -1)).toBe(-2);
-});
-
+Response:
+```json
+{
+  "message": "You sent: test input"
+}
 ```
- 
-### Run Tests
-Run the tests using the command:
-```bash
-npm test
-
-```
-
-Expected output:
-```bash
-PASS  ./npm.test.js
-✓ adds 1 + 2 to equal 3 (5 ms)
-✓ adds -1 + -1 to equal -2 (1 ms)
-
-Test Suites: 1 passed, 1 total
-Tests:       2 passed, 2 total
-Snapshots:   0 total
-Time:        1.2 s
-Ran all test suites.
-
-```
-
-### Summary
-<li>Jest is used as the testing framework.
-<li>A simple function add is tested for correctness.
-<li>You can expand this approach to test more complex functionalities.
-
 
 ---
 
-## **Development**
-- To edit the application, make changes in `app.js`.
-- Use `npm run dev` to watch for changes and restart the server automatically.
+## Challenge Step
+
+1. Modify the API server to include the following endpoints:
+   - **GET /api/time**: Returns the current server time.
+   - **POST /api/echo**: Returns the same JSON data sent in the request.
+
+2. Test the new endpoints using `curl`:
+   ```bash
+   curl http://localhost:3000/api/time
+   curl -X POST http://localhost:3000/api/echo -H "Content-Type: application/json" -d '{"key": "value"}'
+   ```
+
+**Solution Example**:
+
+Add these routes to `server.js`:
+
+```javascript
+app.get('/api/time', (req, res) => {
+    const currentTime = new Date().toISOString();
+    res.json({ time: currentTime });
+});
+
+app.post('/api/echo', (req, res) => {
+    res.json(req.body);
+});
+```
 
 ---
 
+## Additional Resources
+
+- [Node.js Documentation](https://nodejs.org/en/docs/)
+- [Express.js Documentation](https://expressjs.com/)
+- [curl Command Reference](https://curl.se/docs/manual.html)
+
+---
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the **MIT License**.
 
 ---
 ## **Contact**
@@ -236,10 +181,4 @@ For questions or feedback, feel free to reach out:
 - **GitHub**: [https://github.com/elevy99927](https://github.com/elevy99927)
 
 ---
-
-### **How to Use**
-1. Copy and save this content as `README.md` in the root directory of your project.
-2. Share it with your project repository or include it with your codebase.
-
-Let me know if you'd like additional sections or details!
 
