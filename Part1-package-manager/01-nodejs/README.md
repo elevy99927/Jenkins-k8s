@@ -90,7 +90,6 @@ To complete these labs, ensure you have the following installed:
 ---
 
 ## License
-
 This project is licensed under the MIT License. See the `LICENSE` file for details.
 
 ---
@@ -98,5 +97,4 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 For questions or feedback, feel free to reach out:
 - **Email**: eyal@levys.co.il
 - **GitHub**: [https://github.com/elevy99927](https://github.com/elevy99927)
-
 ---
