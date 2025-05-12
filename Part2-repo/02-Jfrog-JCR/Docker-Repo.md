@@ -97,7 +97,7 @@ docker pull mysql
 ### **4. Tag the MySQL Image**
 Tag the MySQL image for your virtual repository:
 ```bash
-docker tag mysql localhost:8081/docker-virtual/mysql
+docker tag mysql localhost:8081/docker-remote/mysql
 ```
 ---
 
@@ -105,18 +105,34 @@ docker tag mysql localhost:8081/docker-virtual/mysql
 ### **5. Push the MySQL Image**
 Push the tagged MySQL image to the virtual repository:
 ```bash
-docker push localhost:8081/docker-virtual/mysql
+docker push localhost:8081/docker-remote/mysql
 ```
 
 ---
 ## Your push will fail!
 find out why, fix it and continue :)
 
+### Solution
+
+### **6. Tag the MySQL Image**
+Tag the MySQL image for your virtual repository:
+```bash
+docker tag mysql localhost:8081/docker-virtual/mysql
+```
+---
+
+
+### **7. Push the MySQL Image**
+Push the tagged MySQL image to the virtual repository:
+```bash
+docker push localhost:8081/docker-virtual/mysql
+```
+
 ---
 <img src="images/docker-local.png">
 
 ---
-### **6. View the Pushed Image in the Artifactory UI**
+### **8. View the Pushed Image in the Artifactory UI**
 1. Open your browser and navigate to:
    [http://localhost:8082/ui/repos/tree/General/docker-local](http://localhost:8082/ui/repos/tree/General/docker-local)
 2. Verify that the `mysql` image is stored in the local repository.
