@@ -112,7 +112,7 @@ docker push localhost:8081/docker-remote/mysql
 ## Your push will fail!
 find out why, fix it and continue :)
 
-### Solution
+## Solution
 
 ### **6. Tag the MySQL Image**
 Tag the MySQL image for your virtual repository:
