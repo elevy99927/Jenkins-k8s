@@ -49,7 +49,7 @@ This exercise demonstrates how to set up JFrog Container Repository (JCR) using 
    Open your browser and navigate to:
    <B><I>If runing on you local machine YOUR-IP could be localhost. </I></B> 
    ```
-   http://<YOUR-IP>:8082/ui/
+   http://<YOUR-IP>:8081/ui/
    ```
 ---
 **JCR Login**
