@@ -98,4 +98,4 @@ use the admin password from [Step 3](https://github.com/elevy99927/Jenkins-k8s/t
 
 ---
 ### **Next Steps**
-<A href="../02-manage/README.md">Manage Jenkins</A>
+<a href="../02-manage/README.md">Manage Jenkins</a>
