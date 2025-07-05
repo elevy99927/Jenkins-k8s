@@ -12,17 +12,22 @@
 helm repo add jenkinsci https://charts.jenkins.io
 helm repo update
 ```
+---
 
 ### 2. Install Jenkins
 ```bash
 helm install jenkins jenkinsci/jenkins
 ```
 
+---
+
 ### 3. Get Admin Password
 ```bash
 kubectl exec --namespace default -it svc/jenkins -c jenkins -- /bin/cat /run/secrets/additional/chart-admin-password && echo
 ```
 **KEEP YOUR ADMIN PASSWORD!!**
+
+---
 
 ### 4. Access Jenkins
 
@@ -56,10 +61,12 @@ helm install jenkins jenkinsci/jenkins -f values.yaml
 
 For more details, visit: https://artifacthub.io/packages/helm/jenkinsci/jenkins
 
-
+---
 ### 5. Work with Jenkins
 
 **Login**
+use the admin password from [Step 3](https://github.com/elevy99927/Jenkins-k8s/tree/main/Part4-CICD/04-Jenkins/01-install#3-get-admin-password)
 
 <img src="./images/login.png" border="1">
 
+---
