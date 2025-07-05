@@ -22,6 +22,7 @@ helm install jenkins jenkinsci/jenkins
 ```bash
 kubectl exec --namespace default -it svc/jenkins -c jenkins -- /bin/cat /run/secrets/additional/chart-admin-password && echo
 ```
+**KEEP YOUR ADMIN PASSWORD!!**
 
 ### 4. Access Jenkins
 
@@ -36,6 +37,10 @@ Then open http://localhost:8080 in your browser.
 kubectl get svc jenkins --namespace default
 ```
 Use the EXTERNAL-IP from the LoadBalancer service to access Jenkins.
+
+### Login: ###
+<img src="./images/login.png">
+
 
 ## Configuration Options
 
