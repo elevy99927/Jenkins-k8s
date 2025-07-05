@@ -39,7 +39,7 @@ kubectl get svc jenkins --namespace default
 Use the EXTERNAL-IP from the LoadBalancer service to access Jenkins.
 
 ### Login: ###
-<img src="./images/login.png">
+<img src="./images/login.png" border="1">
 
 
 ## Configuration Options
