@@ -38,9 +38,6 @@ kubectl get svc jenkins --namespace default
 ```
 Use the EXTERNAL-IP from the LoadBalancer service to access Jenkins.
 
-### Login: ###
-<img src="./images/login.png" border="1">
-
 
 ## Configuration Options
 
@@ -58,3 +55,11 @@ helm install jenkins jenkinsci/jenkins -f values.yaml
 - **Status**: `helm status jenkins`
 
 For more details, visit: https://artifacthub.io/packages/helm/jenkinsci/jenkins
+
+
+### 5. Work with Jenkins
+
+**Login**
+
+<img src="./images/login.png" border="1">
+
