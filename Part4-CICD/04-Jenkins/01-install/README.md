@@ -19,6 +19,13 @@ helm repo update
 helm install jenkins jenkinsci/jenkins
 ```
 
+### 2.1. Check Installation Status
+```bash
+kubectl get pods --namespace default -l "app.kubernetes.io/instance=jenkins"
+helm status jenkins
+```
+Wait for the pod to be in "Running" state before proceeding.
+
 ---
 
 ### 3. Get Admin Password
@@ -37,19 +44,34 @@ kubectl --namespace default port-forward svc/jenkins 8080:8080
 ```
 Then open http://localhost:8080 in your browser.
 
-#### Option 2: AWS (Load Balancer)
+#### Option 2: AWS (Service Access)
+
+**LoadBalancer (Recommended for Production)**
 ```bash
 kubectl get svc jenkins --namespace default
 ```
 Use the EXTERNAL-IP from the LoadBalancer service to access Jenkins.
+- **Pros**: Automatic external IP, built-in load balancing
+- **Cons**: Costs money, requires cloud provider support
+
+**NodePort (Alternative)**
+```bash
+kubectl get nodes -o wide
+kubectl get svc jenkins --namespace default
+```
+Access via `<NODE-IP>:<NODE-PORT>`
+- **Pros**: Free, works on any Kubernetes cluster
+- **Cons**: Manual port management, less secure
+
+**Required Ports:**
+- **8080**: Jenkins web UI
+- **50000**: Jenkins agent communication (JNLP)
 
 
 ## Configuration Options
 
-For custom configuration, create a values.yaml file:
+For custom configuration, see [VALUES.md](./VALUES.md) for common examples:
 ```bash
-helm show values jenkinsci/jenkins > values.yaml
-# Edit values.yaml as needed
 helm install jenkins jenkinsci/jenkins -f values.yaml
 ```
 
