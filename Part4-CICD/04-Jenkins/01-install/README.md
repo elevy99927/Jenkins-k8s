@@ -70,3 +70,10 @@ use the admin password from [Step 3](https://github.com/elevy99927/Jenkins-k8s/t
 <img src="./images/login.png" border="1">
 
 ---
+**Welcome to Jenkins!**
+<img src="./images/welcome.png" border="1">
+
+
+---
+### **Next Steps**
+<A href="../02-manage/README.md">Manage Jenkins</A>
