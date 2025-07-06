@@ -133,6 +133,7 @@ The Jenkins ecosystem has thousands of community-contributed plugins available t
    **Pipeline Plugins:**
    - `workflow-aggregator` - Core pipeline functionality and syntax
    - `pipeline-stage-view` - Visual pipeline stage representation
+   - `blueocean` - Modern Jenkins UI with better pipeline visualization
 
    **Git Support:**
    - `git` - Git repository integration and SCM support
@@ -151,4 +152,30 @@ The Jenkins ecosystem has thousands of community-contributed plugins available t
    Dashboard → Manage Jenkins → Plugins → Installed
    ```
    Search for the installed plugins to confirm they are active.
+
+### Troubleshooting: Can't See Pipeline Steps (Green/Red)
+
+**Problem**: Pipeline steps don't show visual status (colors) or stage view.
+
+**Solutions:**
+
+1. **Install Blue Ocean Plugin:**
+   - Go to: Dashboard → Manage Jenkins → Plugins → Available
+   - Search for: `blueocean`
+   - Install and restart Jenkins
+   - Access via: Dashboard → Open Blue Ocean
+
+2. **Install Pipeline Stage View Plugin:**
+   - Search for: `pipeline-stage-view`
+   - This provides the classic stage view with colors
+
+3. **Access Different Views:**
+   - **Classic View**: Click on build number → Console Output
+   - **Stage View**: Main pipeline page shows stages with colors
+   - **Blue Ocean**: Modern UI with better visualization
+
+4. **Check Browser:**
+   - Clear browser cache
+   - Try different browser
+   - Disable ad blockers that might block CSS/JS
 
