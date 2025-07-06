@@ -25,6 +25,7 @@ Configure agent nodes to distribute build workloads across multiple machines.
 Set up labels, executors, and node-specific configurations for optimal job distribution.
 
 <img src="./images/sys-config.png">
+
 ---
 
 ### Configuration as Code
@@ -77,6 +78,7 @@ Set up custom CSS and JavaScript for advanced UI modifications.
 
 
 ---
+
 
 ## 2. Security
 
