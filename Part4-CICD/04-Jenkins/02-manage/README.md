@@ -2,12 +2,12 @@
 
 Access Jenkins management through **Dashboard → Manage Jenkins** to configure your Jenkins instance.
 
-## Management & Configuration
+## 1. Management & Configuration
 
 ### System
-Configure global settings and paths for your Jenkins instance.
+Configure **global settings** and paths for your Jenkins instance.
 Set system properties, environment variables, and global tool configurations.
-Define Jenkins URL, admin email, and system message settings.
+Define `Jenkins URL`, `admin email`, and `system message settings`.
 
 ### Tools
 Configure tools, their locations and automatic installers.
@@ -27,7 +27,7 @@ Set up labels, executors, and node-specific configurations for optimal job distr
 <img src="./images/sys-config.png">
 ---
 
-## Configuration as Code
+### Configuration as Code
 Reload your configuration or update configuration source.
 Manage Jenkins configuration through YAML files instead of manual UI configuration.
 Enable version control and automated deployment of Jenkins settings.
@@ -78,7 +78,7 @@ Set up custom CSS and JavaScript for advanced UI modifications.
 
 ---
 
-## Security
+## 2. Security
 
 ### Security
 Secure Jenkins; define who is allowed to access/use the system.
@@ -101,3 +101,52 @@ Manage user accounts, permissions, and group memberships.
 Configure user-specific settings and access controls for Jenkins resources.
 
 <img src="./images/sec.png">
+
+---
+
+
+## 3. Plugins
+
+Jenkins plugins extend the core functionality by adding new features, integrations, and capabilities.
+Plugins enable Jenkins to work with various tools, cloud providers, build systems, and deployment platforms.
+The Jenkins ecosystem has thousands of community-contributed plugins available through the Plugin Manager.
+
+### Where to Find Plugins
+- **Jenkins UI**: Dashboard → Manage Jenkins → Plugins → Available
+- **Plugin Site**: https://plugins.jenkins.io/
+- **GitHub**: Most plugins are open-source and hosted on GitHub
+
+### Hands-On: Install Required Plugins
+
+1. **Navigate to Plugin Manager**
+   ```
+   Dashboard → Manage Jenkins → Plugins → Available
+   ```
+
+2. **Search and Install the Following Plugins:**
+
+   **Kubernetes Plugins:**
+   - `kubernetes` - Enables Jenkins agents on Kubernetes pods
+
+   **Pipeline Plugins:**
+   - `workflow-aggregator` - Core pipeline functionality and syntax
+   - `pipeline-stage-view` - Visual pipeline stage representation
+
+   **Git Support:**
+   - `git` - Git repository integration and SCM support
+
+   **Additional Plugins:**
+   - `docker-workflow` - Docker pipeline steps and integration
+
+3. **Installation Steps:**
+   - Check the checkbox next to each plugin name
+   - Click "Install without restart" or "Download now and install after restart"
+   - Wait for installation to complete
+   - Restart Jenkins if required
+
+4. **Verify Installation:**
+   ```
+   Dashboard → Manage Jenkins → Plugins → Installed
+   ```
+   Search for the installed plugins to confirm they are active.
+
