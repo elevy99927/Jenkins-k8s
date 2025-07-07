@@ -25,6 +25,7 @@ podTemplate(containers: [
 
 ### Step 1: Login to Github
 Login to `github` or any othe public git reposiroty.
+<BR>
 <img src="./images/github-login.png">
 
 ### Step 2: Fork hello-newapp repo
@@ -128,20 +129,53 @@ git push origin main
 
 ### Docker Registry Secret (config.json)
 
-**The config.json contains Docker registry authentication:**
+The `config.json` contains Docker registry authentication for Kaniko to push images to Docker Hub. <BR>
+For example <A Href="https://hub.docker.com/">https://hub.docker.com</a>
+
+#### Step-by-Step Creation:
+
+**1. Create Base64 Encoded Credentials:**
+```bash
+# Replace YOUR_USERNAME and YOUR_PASSWORD with actual Docker Hub credentials
+echo -n "YOUR_USERNAME:YOUR_PASSWORD" | base64
+```
+
+**2. Create config.json file:**
 ```json
 {
     "auths": {
         "https://index.docker.io/v1/": {
-            "auth": "base64-encoded-username:password"
+            "auth": "YOUR_BASE64_ENCODED_CREDENTIALS_HERE"
         }
     }
 }
 ```
 
-**Create Kubernetes ConfigMap:**
+**Example:**
+- Username: `myuser`
+- Password: `mypassword`
+- Command: `echo -n "myuser:mypassword" | base64`
+- Result: `bXl1c2VyOm15cGFzc3dvcmQ=`
+
+**Final config.json:**
+```json
+{
+    "auths": {
+        "https://index.docker.io/v1/": {
+            "auth": "bXl1c2VyOm15cGFzc3dvcmQ="
+        }
+    }
+}
+```
+
+**3. Create Kubernetes ConfigMap:**
 ```bash
 kubectl create configmap docker-cred --from-file=config.json
+```
+
+**4. Verify ConfigMap:**
+```bash
+kubectl get configmap docker-cred -o yaml
 ```
 
 ### Complete Advanced Jenkinsfile
