@@ -23,7 +23,15 @@ podTemplate(containers: [
 
 ## 2. Build Advanced Pipeline
 
-### Step 1: Create New Repository
+### Step 1: Login to Github
+Login to `github` or any othe public git reposiroty.
+<img src="./images/github-login.png">
+
+### Step 2: Fork hello-newapp repo
+<a href="https://github.com/elevy99927/hello-newapp"></a>
+
+
+### Step 3: Create New Repository
 
 1. **Create GitHub Repository**
    - Go to GitHub and create new repository: `hello-newapp`
@@ -34,7 +42,7 @@ podTemplate(containers: [
    cd hello-newapp
    ```
 
-### Step 2: Create Dockerfile and Jenkinsfile
+### Step 4: Create Dockerfile and Jenkinsfile
 
 **Create Dockerfile:**
 ```dockerfile
@@ -94,7 +102,7 @@ git commit -m "Add Dockerfile and Jenkinsfile"
 git push origin main
 ```
 
-### Step 3: Create Jenkins Pipeline from SCM
+### Step 5: Create Jenkins Pipeline from SCM
 
 1. **Create New Pipeline Job**
    - Dashboard → New Item → Pipeline
