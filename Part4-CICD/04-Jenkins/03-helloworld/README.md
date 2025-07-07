@@ -145,3 +145,7 @@ Finished: SUCCESS
 | Learning Curve | Easier | Steeper |
 | Validation | Built-in | Manual |
 | Recommended | Yes | Advanced use |
+
+## Improve Steps Visability with Stage View
+install the following plugin
+ - `pipeline: stage view` - Visual pipeline stage representation

@@ -131,15 +131,8 @@ The Jenkins ecosystem has thousands of community-contributed plugins available t
    - `kubernetes` - Enables Jenkins agents on Kubernetes pods
 
    **Pipeline Plugins:**
-   - `workflow-aggregator` - Core pipeline functionality and syntax
-   - `pipeline-stage-view` - Visual pipeline stage representation
    - `blueocean` - Modern Jenkins UI with better pipeline visualization
 
-   **Git Support:**
-   - `git` - Git repository integration and SCM support
-
-   **Additional Plugins:**
-   - `docker-workflow` - Docker pipeline steps and integration
 
 3. **Installation Steps:**
    - Check the checkbox next to each plugin name
