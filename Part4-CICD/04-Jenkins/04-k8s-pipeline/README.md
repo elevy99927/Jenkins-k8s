@@ -29,7 +29,7 @@ Login to `github` or any othe public git reposiroty.
 <img src="./images/github-login.png">
 
 ### Step 2: Fork hello-newapp repo
-<a href="https://github.com/elevy99927/hello-newapp"></a>
+[Hello Newapp repo](https://github.com/elevy99927/hello-newapp)
 
 
 ### Step 3: Create New Repository
