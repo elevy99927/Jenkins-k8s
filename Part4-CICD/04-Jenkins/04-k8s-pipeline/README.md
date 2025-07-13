@@ -231,6 +231,7 @@ podTemplate(containers: [
            }
         } //end deploy
     }
+    /*
     post {
         always {
             echo 'Pipeline completed!'
@@ -245,6 +246,14 @@ podTemplate(containers: [
             echo 'send error email'
         }
     }
+    */
 }
 ```
 
+
+
+# Jenkins Kubernetes Lab:
+Based on the `Complete Advanced Jenkinsfile` Do the following steps:
+- **Kaniko**: Use [kaniko](https://github.com/GoogleContainerTools/kaniko) to build your image
+- **Helm**: Create [helm](https://helm.sh/docs/intro/install/) Chart in your `git repo`
+- **Helm install**: Install Helm in your pod template and run `echo helm install newapp`
