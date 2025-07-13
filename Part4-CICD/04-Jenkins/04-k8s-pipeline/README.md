@@ -66,6 +66,7 @@ CMD ["nginx", "-g", "daemon off;"]
 ```
 
 **Create Jenkinsfile:**
+In your Hello-newapp Repo, Create `Jenkinsfile`
 ```groovy
 def appname = "hello-newapp"
 def repo = "elevy99927"  // Replace with your DockerHub username
@@ -74,7 +75,7 @@ def apptag = "${env.BUILD_NUMBER}"
 
 podTemplate(containers: [
       containerTemplate(name: 'jnlp', image: 'jenkins/inbound-agent', ttyEnabled: true),
-      containerTemplate(name: 'docker', image: 'gcr.io/kaniko-project/executor:debug-v0.19.0', command: "/busybox/cat", ttyEnabled: true)
+      containerTemplate(name: 'docker', image: 'gcr.io/kaniko-project/executor:v1.23.0-debug', command: '/busybox/cat', ttyEnabled: true)
   ])
   {
     node(POD_LABEL) {
@@ -116,12 +117,18 @@ git push origin main
    - Branch: `*/main`
    - Script Path: `Jenkinsfile`
 
+<img src="./images/scm.png">
+
+<BR>
+<BR>
+<BR>
+
 3. **Save and Build**
    - Click "Save"
    - Click "Build Now"
 
 ### Check your pipeline
-<img srg="./images/stage-view.png">
+<img src="./images/stage-view.png">
 
 
 ---
