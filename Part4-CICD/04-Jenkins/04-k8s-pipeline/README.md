@@ -32,7 +32,7 @@ Login to `github` or any othe public git reposiroty.
 [Hello Newapp repo](https://github.com/elevy99927/hello-newapp)
 
 
-### Step 3: Create New Repository
+### Step 3: OR Create New Repository
 
 1. **Create GitHub Repository**
    - Go to GitHub and create new repository: `hello-newapp`
