@@ -133,6 +133,9 @@ The Jenkins ecosystem has thousands of community-contributed plugins available t
    **Pipeline Plugins:**
    - `blueocean` - Modern Jenkins UI with better pipeline visualization
 
+   **Pipeline Stage View:**
+   - `Pipeline: Stage View` - Adds the Pipeline step stage to delineate portions of a build.
+
 
 3. **Installation Steps:**
    - Check the checkbox next to each plugin name
