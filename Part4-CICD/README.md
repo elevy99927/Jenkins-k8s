@@ -2,6 +2,11 @@
 
 This repository is a structured guide for hands-on training in DevOps practices, with a focus on CI/CD pipelines. It is divided into several parts, each covering essential tools and methodologies for modern software development and deployment workflows.
 
+## CI/CD Tools
+
+- [CircleCI](./04-CircleCI)
+- [Jenkins](./04-Jenkins)
+
 
 ## Open in Google Cloud Shell
 
