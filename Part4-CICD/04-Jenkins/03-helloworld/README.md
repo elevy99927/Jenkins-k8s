@@ -149,3 +149,9 @@ Finished: SUCCESS
 ## Improve Steps Visability with Stage View
 install the following plugin
  - `pipeline: stage view` - Visual pipeline stage representation
+
+
+
+---
+### **Next Steps**
+<a href="../04-k8s-pipeline/README.md">Kubernetes Pipeline</a>
