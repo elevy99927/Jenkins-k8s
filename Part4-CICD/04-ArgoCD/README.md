@@ -253,6 +253,7 @@ Deploy the `podinfo` Helm chart (version `6.5.0`) using ArgoCD with no need to m
 ### Lab 3: ###
 Upgrade the deployed Helm chart to version `6.6.0` by updating the `Application` definition.
 
+---
 
 ### **Lab 4:**
 
@@ -274,11 +275,89 @@ This lab demonstrates how to change the Git branch ArgoCD pulls from, simulating
 **Solution:**
 [Lab 4 Solution - application.yaml](https://github.com/elevy99927/Jenkins-k8s/blob/main/Part4-CICD/04-ArgoCD/04-multi-branch/application.yaml)
 
+---
+---
 
 ## Part 4: Advanced Hands-On Lab
 
+### **ApplicationSet**
+
+**What is ApplicationSet?**
+ApplicationSet is a controller that extends ArgoCD, enabling you to manage **multiple ArgoCD Application resources dynamically**. Instead of defining dozens of separate `Application` manifests, you can use a single `ApplicationSet` with a generator (like Git, list, or cluster) to produce many applications automatically.
+
+**Why use ApplicationSet?**
+
+* Simplifies management of large-scale, multi-environment deployments
+* Supports DRY (Don't Repeat Yourself) principles by templating app definitions
+* Useful for GitOps patterns where many environments share similar structures
+
+**Example: ApplicationSet with List Generator**
+
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: example-applicationset
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - cluster: dev
+            project: project-1
+          - cluster: qa
+            project: project-1
+  template:
+    metadata:
+      name: '{{project}}-{{cluster}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/elevy99927/argo-demo-repo.git
+        targetRevision: application
+        path: '{{project}}/k8s-{{cluster}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{project}}-{{cluster}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+```
+
 ---
-10. Lab Overview
-11. Prerequisites
-12. Step-by-Step Instructions
-13. Validation & Testing
+---
+### **ApplicationSet Lab**
+* **Step 1** In the remote repository `argo-demo-repo`, create a new branch named `application`.
+* **Step 2** Within that branch, create two folders: `project-1/` and `project-2/`.
+* **Step 3** Inside each project folder, create three subfolders: `dev/`, `qa/`, and `prod/`, each containing a simple Kubernetes application YAML (e.g., a Pod or Deployment).
+
+```
+├── README.md
+├── hello-newapp.yaml
+├── project-1
+│   ├── k8s-dev
+│   ├── k8s-qa
+│   └── k8s-prd
+└── project-2
+    ├── k8s-dev
+    ├── k8s-qa
+    └── k8s-prd
+```
+
+**Step 4** For each project (e.g., `project-1-dev`, `project-1-qa`, etc.) Create `ApplicationSet`.
+* Assume we are working in QA enviorment.
+* Your new `path:` shloud be `path: '{{.project}}/{{.cluster}}'
+
+
+### Solution: ###
+[ApplicationSet.yaml](https://github.com/elevy99927/Jenkins-k8s/blob/main/Part4-CICD/04-ArgoCD/05-ApplicationSet/applicationSet.yaml)
+
+
+Define multiple ArgoCD Applications, each targeting one of these environments (e.g., `project-1-dev`, `project-1-qa`, etc.), and manage them through ArgoCD’s UI or Git.
+
+
+
+By the end of this lab, students should be able to manage multiple ArgoCD applications, understand the differences between Git-synced apps and Helm-based apps, and modify applications declaratively using Git workflows.
+
+
