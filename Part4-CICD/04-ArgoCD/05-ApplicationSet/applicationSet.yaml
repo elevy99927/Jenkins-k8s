@@ -9,22 +9,22 @@ spec:
   generators:
     - list:
         elements:
-          - project: project-1
+          - app: service-1
             cluster: k8s-qa
-          - project: project-2
+          - app: project-2
             cluster: k8s-qa
   template:
     metadata:
-      name: '{{.project}}-{{.cluster}}'
+      name: '{{.app}}-{{.cluster}}'
     spec:
       project: default
       source:
         repoURL: https://github.com/elevy99927/argo-demo-repo.git
         targetRevision: application
-        path: '{{.project}}/{{.cluster}}'
+        path: '{{.app}}/{{.cluster}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{.project}}-{{.cluster}}'
+        namespace: '{{.app}}-{{.cluster}}'
       syncPolicy:
         automated:
           prune: true
