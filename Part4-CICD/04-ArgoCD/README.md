@@ -234,20 +234,20 @@ spec:
 ---
 
 ### Lab 2: ###
-Deploy the Bitnami `nginx` Helm chart (version `21.0.0`) using ArgoCD with no need to manage the chart source locally.
+Deploy the `podinfo` Helm chart (version `6.5.0`) using ArgoCD with no need to manage the chart source locally.
 * The only referance you have is this link:
-<BR>[Artifact hub](https://artifacthub.io/packages/helm/bitnami/nginx)
+<BR>[Artifact hub](https://artifacthub.io/packages/helm/podinfo/podinfo?modal=install)
 
 * **Task 1:** Create application in ArgoCD using the `Application` CRD.
 ```yaml
   source:
-    repoURL: https://charts.bitnami.com/bitnami
-    chart: nginx
-    targetRevision: 21.0.0
+    repoURL: https://stefanprodan.github.io/podinfo
+    chart: podinfo
+    targetRevision: 6.5.0
 ```
 
 * **Hints:**
-* [Application Example](https://github.com/elevy99927/Jenkins-k8s/blob/main/Part4-CICD/04-ArgoCD/01-simpleapp/nginx-app.yaml)
+* [Application Example](https://github.com/elevy99927/Jenkins-k8s/blob/main/Part4-CICD/04-ArgoCD/02-multi-repo/podinfo-app.yaml)
 ---
 
 ### Lab 3: ###
