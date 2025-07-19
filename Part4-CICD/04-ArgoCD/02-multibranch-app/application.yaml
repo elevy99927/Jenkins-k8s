@@ -7,7 +7,8 @@ spec:
   project: my-project
   source:
     repoURL: https://github.com/elevy99927/argo-demo-repo.git
-    path: .
+    targetRevision: main
+    path: k8s/base
   destination:
     server: https://kubernetes.default.svc
     namespace: default

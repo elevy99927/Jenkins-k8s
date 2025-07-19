@@ -133,10 +133,6 @@ spec:
       server: https://kubernetes.default.svc
   sourceNamespaces:
     - '*'
-  sourceRestrictions:
-    repositories:
-      - repo: https://github.com/elevy99927/argo-demo-repo.git
-        branch: main
 ```
 
 > Note: ArgoCD does not natively enforce branch-level restrictions within the `sourceRepos` field directly, so the above `sourceRestrictions` is illustrative and may require enforcement via tooling or custom policy admission controllers.
@@ -159,8 +155,7 @@ spec:
   project: my-project
   source:
     repoURL: https://github.com/elevy99927/argo-demo-repo.git
-    targetRevision: main
-    path: k8s/base
+    path: .
   destination:
     server: https://kubernetes.default.svc
     namespace: default
@@ -197,15 +192,14 @@ kubectl apply -f app-demo.yaml
 
 ## Part 3: Hands-On Lab
 
-10. Lab Overview
+### Lab Overview ###
 
 This hands-on lab is designed to provide students with practical experience using ArgoCD for both GitOps-style synchronization from their own repositories and direct deployment of Helm charts from remote sources. The lab is divided into basic and advanced sections to gradually build up capabilities.
 
-### **Objectives:**
+---
 
-**Basic Lab:**
-
-1. Create a personal GitHub repository containing Kubernetes manifests, connect it to ArgoCD, and synchronize it as an ArgoCD Application.
+### LAB 1. ###
+Create a personal GitHub repository containing Kubernetes manifests, connect it to ArgoCD, and synchronize it as an ArgoCD Application.
 * **Task 1:** Create Project in ArgoCD using the `AppProject` CRD.
 * **Task 2:** Create application in ArgoCD using the `Application` CRD.
 * **Project Name:** `my-project`
@@ -238,6 +232,26 @@ spec:
 * [Application Example](https://github.com/elevy99927/Jenkins-k8s/blob/main/Part4-CICD/04-ArgoCD/01-simpleapp/application.yaml)
 
 ---
+
+### Lab 2: ###
+Deploy the Bitnami `nginx` Helm chart (version `21.0.0`) using ArgoCD with no need to manage the chart source locally.
+* The only referance you have is this link:
+<BR>[Artifact hub](https://artifacthub.io/packages/helm/bitnami/nginx)
+
+* **Task 1:** Create application in ArgoCD using the `Application` CRD.
+```yaml
+  source:
+    repoURL: https://charts.bitnami.com/bitnami
+    chart: nginx
+    targetRevision: 21.0.0
+```
+
+* **Hints:**
+* [Application Example](https://github.com/elevy99927/Jenkins-k8s/blob/main/Part4-CICD/04-ArgoCD/01-simpleapp/nginx-app.yaml)
+---
+
+### Lab 3: ###
+Modify the ArgoCD Application to switch from the `main` branch to a `dev` branch.
 
 
 
