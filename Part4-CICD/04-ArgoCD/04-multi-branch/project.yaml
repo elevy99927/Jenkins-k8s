@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: my-project
+  namespace: argocd
+spec:
+  description: Project allowing apps from a specific Git repo
+  sourceRepos:
+    - https://github.com/elevy99927/*
+    - https://stefanprodan.github.io/podinfo
+  destinations:
+    - namespace: '*'
+      server: https://kubernetes.default.svc

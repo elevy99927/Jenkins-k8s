@@ -251,6 +251,10 @@ Deploy the `podinfo` Helm chart (version `6.5.0`) using ArgoCD with no need to m
 ---
 
 ### Lab 3: ###
+Upgrade the deployed Helm chart to version `6.6.0` by updating the `Application` definition.
+
+
+### Lab 4: ###
 Modify the ArgoCD Application to switch from the `main` branch to a `dev` branch.
 
 
