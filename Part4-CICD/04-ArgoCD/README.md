@@ -254,10 +254,28 @@ Deploy the `podinfo` Helm chart (version `6.5.0`) using ArgoCD with no need to m
 Upgrade the deployed Helm chart to version `6.6.0` by updating the `Application` definition.
 
 
-### Lab 4: ###
-Modify the ArgoCD Application to switch from the `main` branch to a `dev` branch.
+### **Lab 4:**
+
+This lab demonstrates how to change the Git branch ArgoCD pulls from, simulating real-world scenarios such as promoting changes from dev to prod. It is essential for managing multi-environment pipelines using Git branches.
+
+**TASK 1:** In your application repo in guthub `argo-demo-repo` create a new branch named dev. with a new `deployment.yaml`
+**TASK 2:** Modify the ArgoCD Application to switch from the `main` branch to a `dev` branch.
+
+**Hint:**
+
+```yaml
+  source:
+    repoURL: https://github.com/elevy99927/argo-demo-repo.git
+    ## add pull from branch dev
+    targetRevision: dev
+    path: .
+```
+
+**Solution:**
+[Lab 4 Solution - application.yaml](https://github.com/elevy99927/Jenkins-k8s/blob/main/Part4-CICD/04-ArgoCD/04-multi-branch/application.yaml)
 
 
+## Part 4: Advanced Hands-On Lab
 
 ---
 10. Lab Overview
