@@ -193,8 +193,55 @@ kubectl apply -f app-demo.yaml
 ---
 
 
+
+
 ## Part 3: Hands-On Lab
 
+10. Lab Overview
+
+This hands-on lab is designed to provide students with practical experience using ArgoCD for both GitOps-style synchronization from their own repositories and direct deployment of Helm charts from remote sources. The lab is divided into basic and advanced sections to gradually build up capabilities.
+
+### **Objectives:**
+
+**Basic Lab:**
+
+1. Create a personal GitHub repository containing Kubernetes manifests, connect it to ArgoCD, and synchronize it as an ArgoCD Application.
+* **Task 1:** Create Project in ArgoCD using the `AppProject` CRD.
+* **Task 2:** Create application in ArgoCD using the `Application` CRD.
+* **Project Name:** `my-project`
+* **Application Name:** `demo-app`
+* **Example Yaml:**
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: color-deploy
+spec:
+  selector:
+    matchLabels:
+      app: color
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: color
+    spec:
+      containers:
+      - name: color
+        image: elevy99927/color:red
+        ports:
+        - containerPort: 80
+
+```
+* **Hints:**
+* [AppProject Example](https://github.com/elevy99927/Jenkins-k8s/blob/main/Part4-CICD/04-ArgoCD/01-simpleapp/project.yaml)
+* [Application Example](https://github.com/elevy99927/Jenkins-k8s/blob/main/Part4-CICD/04-ArgoCD/01-simpleapp/application.yaml)
+
+---
+
+
+
+---
 10. Lab Overview
 11. Prerequisites
 12. Step-by-Step Instructions
