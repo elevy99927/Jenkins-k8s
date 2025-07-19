@@ -18,24 +18,42 @@ In contrast, ArgoCD focuses purely on the CD part and embraces a **declarative**
 
 This separation improves reliability, auditability, and clarity in managing complex Kubernetes environments.
 
-## 3. **ArgoCD Architecture and Components**
-   ArgoCD follows a modular architecture designed to support high-availability GitOps workflows for Kubernetes. The main components are:
+3. **ArgoCD Architecture and Components** ArgoCD follows a modular architecture designed to support high-availability GitOps workflows for Kubernetes. The architecture is composed of four logical layers:
 
 <img src="./images/topology.png">
 
 
-* **UI**: A web-based graphical interface that allows users to visually inspect applications, sync states, and trigger actions.
-* **API Server**: The main entry point for interacting with ArgoCD. It handles user requests, enforces RBAC policies, and communicates with other internal components.
-* **Repository Server**: Clones Git repositories, parses manifests, and performs diff comparisons between the desired (Git) and live (cluster) states.
-* **Application Controller**: Continuously monitors application resources and triggers sync operations if discrepancies are detected.
-* **Dex (optional)**: Provides Single Sign-On (SSO) integration via external identity providers like GitHub, LDAP, or SAML.
-* **Redis**: Used for caching and performance enhancement.
+* **UI Layer**: This is the presentation layer. Users interact with ArgoCD mainly via the Web UI, which provides:
+
+  * Application status visibility
+  * Manual or automatic sync control
+  * Health and status monitoring
+  * Operational management actions
+
+* **Application Layer**: This layer provides the logic and capabilities needed to support UI interactions. It handles:
+
+  * Application definitions
+  * Sync and deployment policies
+  * Authorization and RBAC enforcement
+  * Integration between Git and Kubernetes
+
+* **Core Layer**: The central GitOps engine of ArgoCD. Key components here include:
+
+  * **Application Controller** – performs the reconciliation loop, ensuring that the desired state in Git matches the live cluster
+  * **Repository Server** – fetches Git content, renders manifests, and computes diffs
+  * Supports rollback, sync, and status reporting
+
+* **Infrastructure Layer (Infra)**: The dependencies ArgoCD requires to function:
+
+  * **Redis** – caching layer to improve responsiveness and reduce load
+  * **Dex (optional)** – for Single Sign-On (SSO) via GitHub, LDAP, or SAML
+  * **Kubernetes** – as the runtime environment for all ArgoCD components
 
 These components work together to provide a continuous reconciliation loop between Git and the Kubernetes cluster. Applications in ArgoCD are declarative resources that specify the source (Git), target (cluster/namespace), and sync policy (manual or automatic).
 
+
+
 4. ArgoCD Authentication and Access Control
-
-
 
 
 ## Part 2: **Installing ArgoCD**
@@ -57,10 +75,11 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 
 ---
 
-   Define ArgoCD as `inscure` (due to **Google** cloudshell limitations)
+**⚠ NOTE for Google Cloudshell**  <BR> Define ArgoCD as `inscure` (due to **Google** cloudshell limitations)
 ```sh
 kubectl patch configmap argocd-cmd-params-cm -n argocd --patch '{"data":{"server.insecure":"true"}}'
-```
+kubectl delete pod -n argocd -l app.kubernetes.io/name=argocd-server
+ ```
 ---
 
 
@@ -96,11 +115,85 @@ Access it at: [https://localhost:8080](https://localhost:8080)
 
 
 ### 6. **Configuring Access to a Git Repository**
-### 7. **Managing Applications with ArgoCD**
+
+To restrict which repositories a project is allowed to use, ArgoCD provides the `AppProject` custom resource. Below is an example of a project that explicitly allows the repository `https://github.com/elevy99927/argo-demo-repo.git` and restricts access to a specific branch (`main`):
+
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: my-project
+  namespace: argocd
+spec:
+  description: Allow access to a specific Git repository and branch
+  sourceRepos:
+    - https://github.com/elevy99927/argo-demo-repo.git
+  destinations:
+    - namespace: '*'
+      server: https://kubernetes.default.svc
+  sourceNamespaces:
+    - '*'
+  sourceRestrictions:
+    repositories:
+      - repo: https://github.com/elevy99927/argo-demo-repo.git
+        branch: main
+```
+
+> Note: ArgoCD does not natively enforce branch-level restrictions within the `sourceRepos` field directly, so the above `sourceRestrictions` is illustrative and may require enforcement via tooling or custom policy admission controllers.
+
+> Important: The repository must also be added to ArgoCD via CLI or UI (`argocd repo add`).
+
+### 7. Managing Applications with ArgoCD
+
+To define and manage an application in ArgoCD, you need to create an `Application` resource that links your Git repository (and branch), the target cluster, and the desired namespace.
+
+Below is an example of an ArgoCD `Application` YAML definition that uses the previously defined `demo-project` and deploys from the `main` branch:
+
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo-app
+  namespace: argocd
+spec:
+  project: my-project
+  source:
+    repoURL: https://github.com/elevy99927/argo-demo-repo.git
+    targetRevision: main
+    path: k8s/base
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+```
+
+### Explanation:
+
+* **metadata.name**: Logical name of the application inside ArgoCD.
+* **spec.project**: Must match the `AppProject` name (e.g., `demo-project`).
+* **source.repoURL**: The Git repository URL.
+* **source.targetRevision**: Git branch or tag (e.g., `main`).
+* **source.path**: Path in the repository where the Kubernetes manifests reside.
+* **destination.server**: The Kubernetes API server to deploy to.
+* **destination.namespace**: The namespace in the target cluster.
+* **syncPolicy.automated**: Enables automatic syncing, pruning (deleting removed resources), and self-healing.
+* **syncOptions**: Allows automatic creation of the namespace if it doesn't exist.
+
+Apply this manifest to register and sync the application with ArgoCD:
+
+```sh
+kubectl apply -f app-demo.yaml
+```
 
 ---
 
-### **Part 2: Hands-On Lab** *(To Be Defined)*
+
+## Part 3: Hands-On Lab
 
 10. Lab Overview
 11. Prerequisites
