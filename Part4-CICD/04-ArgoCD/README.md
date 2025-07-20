@@ -330,23 +330,22 @@ spec:
 ---
 ### **ApplicationSet Lab**
 * **Step 1** In the remote repository `argo-demo-repo`, create a new branch named `application`.
-* **Step 2** Within that branch, create two folders: `project-1/` and `project-2/`.
+* **Step 2** Within that branch, create two folders: `app-1/` and `app-2/`.
 * **Step 3** Inside each project folder, create three subfolders: `dev/`, `qa/`, and `prod/`, each containing a simple Kubernetes application YAML (e.g., a Pod or Deployment).
 
 ```
 ├── README.md
-├── hello-newapp.yaml
-├── project-1
+├── app-1
 │   ├── k8s-dev
 │   ├── k8s-qa
 │   └── k8s-prd
-└── project-2
+└── app-2
     ├── k8s-dev
     ├── k8s-qa
     └── k8s-prd
 ```
 
-**Step 4** For each project (e.g., `project-1-dev`, `project-1-qa`, etc.) Create `ApplicationSet`.
+**Step 4** For each project (e.g., `app-1-dev`, `app-1-qa`, etc.) Create `ApplicationSet`.
 * Assume we are working in QA enviorment.
 * Your new `path:` shloud be `path: '{{.project}}/{{.cluster}}'
 
