@@ -347,7 +347,7 @@ spec:
 
 **Step 4** For each project (e.g., `app-1-dev`, `app-1-qa`, etc.) Create `ApplicationSet`.
 * Assume we are working in QA enviorment.
-* Your new `path:` shloud be `path: '{{.project}}/{{.cluster}}'
+* Your new `path:` shloud be `path: '{{.project}}/{{.cluster}}'`
 
 
 ### Solution: ###
