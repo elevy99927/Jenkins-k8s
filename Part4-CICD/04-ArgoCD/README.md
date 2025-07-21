@@ -231,6 +231,7 @@ spec:
 * **Hints:**
 * [AppProject Example](https://github.com/elevy99927/Jenkins-k8s/blob/main/Part4-CICD/04-ArgoCD/01-simpleapp/project.yaml)
 * [Application Example](https://github.com/elevy99927/Jenkins-k8s/blob/main/Part4-CICD/04-ArgoCD/01-simpleapp/application.yaml)
+* [Argo Demo App](https://github.com/elevy99927/argo-demo-repo/tree/main)
 
 ---
 
