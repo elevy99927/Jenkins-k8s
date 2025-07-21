@@ -328,7 +328,7 @@ spec:
 
 ---
 ---
-### **ApplicationSet Lab**
+### **ApplicationSet Lab (Lab 5)**
 * **Step 1** In the remote repository `argo-demo-repo`, create a new branch named `application`.
 * **Step 2** Within that branch, create two folders: `app-1/` and `app-2/`.
 * **Step 3** Inside each project folder, create three subfolders: `dev/`, `qa/`, and `prod/`, each containing a simple Kubernetes application YAML (e.g., a Pod or Deployment).
@@ -360,4 +360,24 @@ Define multiple ArgoCD Applications, each targeting one of these environments (e
 
 By the end of this lab, students should be able to manage multiple ArgoCD applications, understand the differences between Git-synced apps and Helm-based apps, and modify applications declaratively using Git workflows.
 
+---
+---
+### **User Managment (Lab 6)**
 
+---
+---
+## Open in Google Cloud Shell
+
+You can directly open this repository in Google Cloud Shell to start exploring the examples:
+
+[![Open in Google Cloud Shell](https://camo.githubusercontent.com/198b1d237c4023111c3f163552130daf552a0a684ea7a8ed1adc98c9b7f59659/68747470733a2f2f677374617469632e636f6d2f636c6f75647373682f696d616765732f6f70656e2d62746e2e737667)](https://shell.cloud.google.com/cloudshell/editor?cloudshell_git_repo=https://github.com/elevy99927/Jenkins-k8s)
+
+
+---
+---
+## Contact
+
+For questions or feedback, feel free to reach out:
+
+- **Email**: eyal@levys.co.il
+- **GitHub**: [https://github.com/elevy99927](https://github.com/elevy99927)
