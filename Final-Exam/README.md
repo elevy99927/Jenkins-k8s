@@ -11,16 +11,23 @@ You are required to build an infrastructure with two logical environments within
 
 ### VPC 1 - ALM Environment (Application Lifecycle Management)
 - Intended for development and integration tools: Jenkins, GitHub, DockerHub
-- Must include:
+- **Must include:**
   - Jenkins Server (on EC2 or deployed in EKS)
   - Internet access for pulling source code and pushing Docker images
   - Secure networking allowing restricted external access
 
 ### VPC 2 - Production Environment
-- Must include:
+- **Must include:**
   - Managed Kubernetes cluster (EKS)
   - ArgoCD installed as a GitOps Controller
   - External ALB (Application Load Balancer) to expose services
+
+- **Nice To Have:** (better if installed as IaC)
+  - Cert Manager
+  - Velero backups to S3
+  - Route 53
+
+
 ---
 ```mermaid
 graph TD
