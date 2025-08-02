@@ -7,15 +7,19 @@
 * Kafka marks the message as "read" at the time of pull.
 * If B crashes after pulling but before processing – the message may be lost and not processed again.
 
----
 
-## Advanced Exercise:
 
-### Question:
+#### Question:
 
 > Find a way to ensure the message is not lost if Service B crashes after consuming it but before finishing processing.
 
-#### Guiding Questions:
+
+
+---
+---
+---
+
+#### Hints:
 
 1. What is the difference between at-least-once and exactly-once?
 
@@ -58,3 +62,8 @@ graph LR
 3. What mechanisms can help with failed message processing?
 4. Can checkpointing or a transactional outbox be used?
 
+
+
+
+
+**[MICROSERVICES - Solution](https://github.com/elevy99927/Jenkins-k8s/blob/main/Final-Exam/MicroServices/Solution.md)**
