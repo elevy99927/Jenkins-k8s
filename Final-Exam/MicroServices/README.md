@@ -31,4 +31,4 @@ flowchart TD
 ---
 
 
-**[MICROSERVICES PART 2](https://github.com/elevy99927/Jenkins-k8s/edit/main/Final-Exam/MicroServices/MS-Part2.md)**
+**[MICROSERVICES PART 2](https://github.com/elevy99927/Jenkins-k8s/blob/main/Final-Exam/MicroServices/MS-Part2.md)**
