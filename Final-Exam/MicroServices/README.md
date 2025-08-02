@@ -16,12 +16,10 @@ In a microservices architecture, services must communicate with each other. Sync
 #### Mermaid Diagram:
 
 ```mermaid
-sequenceDiagram
-    participant A as Service A
-    participant B as Service B
+flowchart TD
+    A -- PING --> B
+    B -- PONG --> A
 
-    A->>B: HTTP ping
-    B->>A: HTTP pong
 ```
 
 #### Issues:
@@ -31,3 +29,6 @@ sequenceDiagram
 3. Synchronous HTTP communication creates tight dependency, reducing system stability.
 
 ---
+
+
+**[MICROSERVICES PART 2](https://github.com/elevy99927/Jenkins-k8s/edit/main/Final-Exam/MicroServices/MS-Part2.md)**
