@@ -74,3 +74,38 @@ sequenceDiagram
 ```
 
 ---
+
+## Solution 3: Acknowledgment via Secondary Topic
+
+In this pattern, Service A (the producer) sends a message to Kafka Topic 1. Service B (the consumer) processes the message and then sends an acknowledgment to Kafka Topic 2. Service A monitors Topic 2 for confirmations. If no acknowledgment is received within X seconds, A retries the message.
+
+### Pros:
+
+* Ensures reliability via acknowledgment
+* A can control retries based on timeout
+* No need for Kafka transactions
+
+### Cons:
+
+* Adds complexity (requires monitoring acknowledgments)
+* Messages may be processed more than once unless B is idempotent
+
+#### Mermaid Diagram:
+
+```mermaid
+sequenceDiagram
+    participant A as Service A
+    participant T1 as Kafka Topic 1
+    participant B as Service B
+    participant T2 as Kafka Topic 2
+
+    A->>T1: Send message
+    B-->>T1: Consume message
+    B->>T2: Send ACK
+    A-->>T2: Listen for ACK
+    alt No ACK in time X
+        A->>T1: Retry message
+    end
+```
+
+---
