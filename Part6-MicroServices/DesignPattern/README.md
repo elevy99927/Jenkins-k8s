@@ -46,7 +46,7 @@ Below is a classification and evaluation of architectural design patterns releva
 
 ## Design Patterns
 
-### 1. Database per Service
+### 1. [Database per Service](./db-per-svc.md)
 
 **Description:**
 Each microservice has its own dedicated database, fully isolated from others.

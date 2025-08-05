@@ -8,7 +8,7 @@ The platform consists of several independent microservices:
 * **Order Service** – processes and tracks orders
 * **Product Service** – maintains product catalog, pricing, and stock
 
-### 🗄️ Service-wise Database Isolation
+### Service-wise Database Isolation
 
 | Microservice    | Database Type | Data Stored                             |
 | --------------- | ------------- | --------------------------------------- |
@@ -29,7 +29,7 @@ The platform consists of several independent microservices:
 * No joins between services → complex queries require orchestration
 * Requires patterns like CQRS or event-driven sync for cross-data access
 
-### 📊 Architecture Diagram (Mermaid)
+### Architecture Diagram (Mermaid)
 
 ```mermaid
 graph TD
