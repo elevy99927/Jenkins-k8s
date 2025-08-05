@@ -37,7 +37,7 @@
 
 
 ---
-### 🧱 1. Database per Service
+### 1. Database per Service
 
 **תיאור:**
 לכל מיקרו-שירות יש מסד נתונים משלו, מנותק ממסדי נתונים של שירותים אחרים.
@@ -59,7 +59,7 @@
 
 ---
 
-### 🧱 2. Shared Database per Service
+### 2. Shared Database per Service
 
 **תיאור:**
 כל השירותים (או כל רכיבי המערכת) משתמשים במסד נתונים מרכזי אחד.
@@ -80,7 +80,7 @@
 
 ---
 
-### 🧱 3. Event Sourcing
+### 3. Event Sourcing
 
 **תיאור:**
 כל שינוי במידע נשמר כאירוע בלוג, במקום לשמור את המצב הנוכחי בלבד.
@@ -101,7 +101,7 @@
 
 ---
 
-### 🧱 4. Saga
+### 4. Saga
 
 **תיאור:**
 ניהול טרנזקציות מבוזרות באמצעות סדרת פעולות + פעולות פיצוי במקרה של כשל.
@@ -122,7 +122,7 @@
 
 ---
 
-### 🧱 5. Bulkhead
+### 5. Bulkhead
 
 **תיאור:**
 בידוד משאבים כך שכל שירות או רכיב לא יפגע באחרים במקרה של תקלה או עומס.
@@ -143,7 +143,7 @@
 
 ---
 
-### 🧱 6. Circuit Breaker
+### 6. Circuit Breaker
 
 **תיאור:**
 מונע קריאות לשירותים לא זמינים ע"י פתיחת "מעגל" לזמן קצוב לאחר שגיאות חוזרות.
@@ -164,7 +164,7 @@
 
 ---
 
-### 🧱 7. API Gateway
+### 7. API Gateway
 
 **תיאור:**
 שכבת תיווך שמרכזת את הבקשות מהממשקים החיצוניים ומנתבת אותן לשירותים הרלוונטיים.
