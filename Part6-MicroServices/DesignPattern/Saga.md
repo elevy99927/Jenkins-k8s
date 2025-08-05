@@ -3,9 +3,8 @@
 **Scenario background:**
 User places an order on an e-commerce platform (similar to Amazon)
 
-### Step-by-Step Flow (Saga Execution)
-
-#### 1. New User Registration (Saga Example 1)
+---
+### 1. New User Registration (Saga Example 1)
 
 1. **User submits registration form**
    * Input: name, email, password
@@ -53,6 +52,7 @@ graph TD
 ```
 
 ---
+### 1. Submit New Order (Saga Example 2)
 
 1. **User submits an order**
 
