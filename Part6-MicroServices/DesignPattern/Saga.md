@@ -1,10 +1,10 @@
-## Saga Design Pattern – Exercise Example
+# Saga Design Pattern – Exercise Example
 
 **Scenario background:**
 User places an order on an e-commerce platform (similar to Amazon)
 
 ---
-### 1. New User Registration (Saga Example 1)
+## New User Registration (Saga Example 1)
 
 1. **User submits registration form**
    * Input: name, email, password
@@ -52,7 +52,7 @@ graph TD
 ```
 
 ---
-### 1. Submit New Order (Saga Example 2)
+## Submit New Order (Saga Example 2)
 
 1. **User submits an order**
 
