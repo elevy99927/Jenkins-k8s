@@ -203,13 +203,11 @@ Separates configuration settings from code by storing them in external sources s
 In any system that needs to support multiple environments (dev, staging, production) or dynamic reconfiguration.
 
 **Advantages:**
-
 * Enables configuration per environment without code changes
 * Improves security by separating secrets
 * Simplifies deployment pipelines
 
 **Disadvantages:**
-
 * Adds dependency on external config providers
 * Requires synchronization between services and config sources
 
@@ -224,12 +222,10 @@ Blocks access to failing services temporarily to avoid cascading failures.
 When dependencies are unstable or under failure.
 
 **Advantages:**
-
 * Protects system stability
 * Supports fallback behavior
 
 **Disadvantages:**
-
 * Needs precise tuning
 * Can mistakenly block working services
 
@@ -244,13 +240,11 @@ Manages distributed transactions by breaking them into local steps and compensat
 In place of ACID transactions across services where eventual consistency is acceptable.
 
 **Advantages:**
-
 * Eventually consistent across services
 * Microservices-friendly
 * Supports rollback via compensation
 
 **Disadvantages:**
-
 * Logic is complex
 * Error handling is tricky
 
@@ -265,12 +259,10 @@ Dynamically adds functionality to content or objects (e.g., tags, ratings, overl
 When additional behavior needs to be layered onto a component without altering its core logic.
 
 **Advantages:**
-
 * Flexible and reusable wrappers
 * Follows Open-Closed principle
 
 **Disadvantages:**
-
 * Can lead to many small classes
 * May be harder to trace behavior
 
@@ -289,8 +281,7 @@ For real-time updates or loosely coupled publish/subscribe communication.
 * Promotes decoupling
 * Supports reactive design
 
-**Disadvantages:**
-
+**Disadvantages:** 
 * Harder to debug and test
 * Risk of memory leaks if observers aren’t cleaned up
 
@@ -305,7 +296,6 @@ Encapsulates algorithms to allow them to be interchanged dynamically at runtime.
 When the behavior of an object needs to vary depending on context or strategy.
 
 **Advantages:**
-
 * Promotes reusability and testability
 * Adheres to Strategy Pattern principles
 
@@ -337,7 +327,7 @@ List 3–5 possible microservices in the system (e.g., content service, recommen
 
 **Design Pattern Mapping:**
 
-Select at least 5 design patterns from the course document.
+Select at least 3-5 design patterns from the course document.
 
 For each pattern, answer:
 - In which component will you use it?
