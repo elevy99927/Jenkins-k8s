@@ -7,41 +7,36 @@ sequenceDiagram
     participant NetEng as Network Engineer
     participant Cfg as Config System
     participant BGP as BGP Routers (FB AS)
-    participant DNS as Facebook Authoritative DNS
-    participant IGW as Internet (Other AS / ISPs)
-    participant User as Users/Clients
-    participant Internal as Internal Tools & Access
+    participant DNS as Authoritative DNS
+    participant IGW as Internet (ISPs)
+    participant User as Users
+    participant Tools as Internal Tools
 
-    Note over NetEng,Cfg: Maintenance window — apply network config change
-    NetEng->>Cfg: Push config change
-    Cfg-->>BGP: Update BGP/Control-plane configuration
-    BGP-->>IGW: Withdraw BGP routes for FB prefixes
+    Note over NetEng,Cfg: Maintenance window - apply network change
+    NetEng->>Cfg: Push config
+    Cfg->>BGP: Update control-plane
+    BGP-->>IGW: Withdraw routes (FB prefixes)
 
-    Note over IGW,BGP: Internet no longer sees routes to Facebook IP ranges
-    IGW-->>User: FB prefixes unreachable
+    Note over IGW,BGP: Internet cannot reach FB IP ranges
+    User->>DNS: Resolve facebook.com
+    DNS-->>User: Timeout / Unreachable
 
-    User->>DNS: Resolve facebook.com / whatsapp.com
-    DNS-->>User: ❌ Unreachable (DNS hosted on same network)
+    User->>IGW: HTTPS to services
+    IGW-->>User: No route
 
-    Note over User,DNS: DNS timeouts + no route to FB IPs
+    Note over Tools,BGP: Internal access depends on same network
+    Tools->>BGP: Try rollback
+    BGP-->>Tools: No access
 
-    User->>IGW: Connect to Facebook services (HTTPS)
-    IGW-->>User: ❌ Connection fails (no route)
+    Note over NetEng,BGP: Use OOB access / on-site
+    NetEng->>BGP: Restore baseline config
+    BGP-->>IGW: Announce routes
 
-    Note over Internal,BGP: Internal control & tools rely on same network
-    Internal->>BGP: Attempt rollback / access
-    BGP-->>Internal: ❌ No access (mgmt path impacted)
-
-    Note over NetEng,Internal: Engineers escalate; need out-of-band (OOB) access and physical presence
-    NetEng->>BGP: OOB/physical access — restore baseline config
-    BGP-->>IGW: Announce routes for FB prefixes
-
-    IGW-->>DNS: Paths restored; authoritative DNS reachable
+    IGW-->>DNS: Paths restored
     User->>DNS: Resolve domains
-    DNS-->>User: ✅ IPs returned
+    DNS-->>User: IPs returned
 
     User->>IGW: Connect to services
-    IGW-->>User: ✅ Traffic flows to FB infra
+    IGW-->>User: Traffic flows
 
-    Note over NetEng,User: Postmortem — guardrails for config, change validation, mgmt-plane isolation, multi-provider DNS
 ```
