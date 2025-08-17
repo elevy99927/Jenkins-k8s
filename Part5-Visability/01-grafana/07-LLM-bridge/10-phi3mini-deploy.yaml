@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: phi3mini
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: phi3mini }
+  template:
+    metadata:
+      labels: { app: phi3mini }
+    spec:
+      securityContext:
+        fsGroup: 1000              # מבטיח שלקבוצה יש כתיבה ל-/models (תלוי ב-PV)
+      containers:
+      - name: ollama
+        image: ollama/ollama:latest
+        env:
+        - name: OLLAMA_MODELS
+          value: "/models"
+        command: ["/bin/sh","-c"]
+        args:
+          - >-
+            /bin/ollama serve ;
+            tail -f /dev/null
+        ports:
+        - name: http
+          containerPort: 11434
+        volumeMounts:
+        - name: model-vol
+          mountPath: /models       # כעת כתיב
+          readOnly: false
+        readinessProbe:
+          httpGet:
+            path: /api/version
+            port: http
+          initialDelaySeconds: 5
+          periodSeconds: 5
+        livenessProbe:
+          httpGet:
+            path: /api/version
+            port: http
+          initialDelaySeconds: 20
+          periodSeconds: 10
+      volumes:
+      - name: model-vol
+        persistentVolumeClaim:
+          claimName: local-pvc

@@ -1,0 +1,12 @@
+# 11-phi3mini-svc.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: phi3mini
+spec:
+  selector: { app: phi3mini }
+  ports:
+    - name: http
+      port: 11434
+      targetPort: 11434
+  type: ClusterIP

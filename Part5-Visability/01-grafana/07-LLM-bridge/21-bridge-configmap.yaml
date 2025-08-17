@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: metrics-ai-bridge-config
+data:
+  PROM_URL: "http://prometheus-kube-prometheus-prometheus:9090"
+  OLLAMA_URL: "http://phi3mini:11434"
+  CACHE_TTL: "1200"  # 5 minutes
+  MODEL_NAME: "gemma:2b"

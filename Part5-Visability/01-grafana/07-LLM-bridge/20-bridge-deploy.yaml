@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: metrics-ai-bridge
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: metrics-ai-bridge
+  template:
+    metadata:
+      labels:
+        app: metrics-ai-bridge
+    spec:
+      containers:
+        - name: bridge
+          image: elevy99927/metrics-ai-bridge:0.0.5
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - configMapRef:
+                name: metrics-ai-bridge-config
+          ports:
+            - containerPort: 8080
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 20
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: metrics-ai-bridge
+spec:
+  selector:
+    app: metrics-ai-bridge
+  ports:
+    - port: 8080
+      targetPort: 8080
+  type: ClusterIP
