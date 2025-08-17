@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: bridge
-          image: elevy99927/metrics-ai-bridge:0.0.5
+          image: elevy99927/metrics-ai-bridge:0.0.6
           imagePullPolicy: IfNotPresent
           envFrom:
             - configMapRef:
