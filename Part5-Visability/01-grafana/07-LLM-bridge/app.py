@@ -10,6 +10,7 @@ import hashlib
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
+# Default values can be overite in `21-bridge-configmap.yaml`
 PROM = os.getenv("PROM_URL", "http://prometheus-server:80")
 OLLAMA = os.getenv("OLLAMA_URL", "http://phi3mini:11434")
 CACHE_TTL = int(os.getenv("CACHE_TTL", "300"))  # 5 minutes default
