@@ -11,3 +11,4 @@ target
 *.class
 models
 __pycache__
+api-config.json
