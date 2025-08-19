@@ -15,6 +15,7 @@ PROM = os.getenv("PROM_URL", "http://prometheus-server:80")
 OLLAMA = os.getenv("OLLAMA_URL", "http://phi3mini:11434")
 CACHE_TTL = int(os.getenv("CACHE_TTL", "300"))  # 5 minutes default
 MODEL_NAME = os.getenv("MODEL_NAME", "gemma:2b")
+BEDROCK_KEY = os.getenv("BEDROCK_KEY","")
 
 api = FastAPI()
 client = httpx.AsyncClient(timeout=60)
@@ -102,7 +103,7 @@ Provide a brief and practical summary."""
                                               "model": MODEL_NAME,
                                               "stream": False,
                                               "messages": [
-                                                  {"role": "system", "content": "You are a DevOps metrics analyst. Be concise and practical."},
+                                                  {"role": "system", "content": "You are a Senior SRE and DevOps metrics analyst. Be concise and practical. Your tast is to analyze the metrics, and provide insights."},
                                                   {"role": "user", "content": prompt}
                                               ]
                                           })
@@ -112,11 +113,13 @@ Provide a brief and practical summary."""
         ai_summary = result.get("message", {}).get("content", "No response received from model")
                     
     except (httpx.RequestError, httpx.HTTPStatusError) as e:
-        logger.error(f"phi3:mini connection error: {e}")
-        ai_summary = f"Error connecting to phi3:mini: {str(e)}"
+        # print the model name with connection error
+        logger.error(f"{MODEL_NAME} connection error: {e}")
+        ai_summary = f"Error connecting to {MODEL_NAME}: {str(e)}"
     except json.JSONDecodeError as e:
-        logger.error(f"phi3:mini JSON decode error: {e}")
-        ai_summary = "Invalid response from phi3:mini"
+        logger.error(f"{MODEL_NAME} JSON decode error: {e}")
+        ai_summary = f"Invalid response from {MODEL_NAME}"
+
 
     result = {
         "summary": ai_summary,

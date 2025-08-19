@@ -12,3 +12,4 @@ target
 models
 __pycache__
 api-config.json
+api-keys.json
