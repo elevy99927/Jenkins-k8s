@@ -1,5 +1,5 @@
 FROM python:3.11-slim
-RUN pip install fastapi uvicorn httpx numpy
+RUN pip install fastapi uvicorn httpx numpy boto3
 WORKDIR /app
 COPY app.py /app/app.py
 EXPOSE 8080

@@ -1,0 +1,1472 @@
+<html lang="en-US"><head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name="theme-color" content="#000">
+
+    <title>View panel - AI-Enhanced Metrics Dashboard - Dashboards - Grafana</title>
+
+    <base href="/">
+
+    <link rel="icon" type="image/png" href="public/img/fav32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="public/img/apple-touch-icon.png">
+    <link rel="mask-icon" href="public/img/grafana_mask_icon.svg" color="#F05A28">
+
+    
+      <link rel="stylesheet" href="public/build/grafana.app.236e53eabc3f6ade9d45.css">
+    
+
+    
+    
+    <link rel="stylesheet" href="public/build/grafana.dark.23c5425b7a9e1580d499.css">
+    
+
+    <script nonce="">
+      performance.mark('frontend_boot_css_time_seconds');
+    </script>
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="msapplication-TileColor" content="#2b5797">
+    <meta name="msapplication-config" content="public/img/browserconfig.xml">
+  <style data-emotion="css" data-s=""></style><style data-emotion="css-global" data-s=""></style><link rel="stylesheet" type="text/css" href="public/build/grafana.DashboardPageProxy.a66335f88cd003e4a44f.css"><style data-emotion="css" data-s=""></style><link rel="stylesheet" type="text/css" href="public/build/grafana.react-monaco-editor.ffb3a9cd952d3cd7471b.css"><style type="text/css" media="screen" class="monaco-colors">.codicon-add:before { content: '\ea60'; }
+.codicon-plus:before { content: '\ea60'; }
+.codicon-gist-new:before { content: '\ea60'; }
+.codicon-repo-create:before { content: '\ea60'; }
+.codicon-lightbulb:before { content: '\ea61'; }
+.codicon-light-bulb:before { content: '\ea61'; }
+.codicon-repo:before { content: '\ea62'; }
+.codicon-repo-delete:before { content: '\ea62'; }
+.codicon-gist-fork:before { content: '\ea63'; }
+.codicon-repo-forked:before { content: '\ea63'; }
+.codicon-git-pull-request:before { content: '\ea64'; }
+.codicon-git-pull-request-abandoned:before { content: '\ea64'; }
+.codicon-record-keys:before { content: '\ea65'; }
+.codicon-keyboard:before { content: '\ea65'; }
+.codicon-tag:before { content: '\ea66'; }
+.codicon-tag-add:before { content: '\ea66'; }
+.codicon-tag-remove:before { content: '\ea66'; }
+.codicon-person:before { content: '\ea67'; }
+.codicon-person-follow:before { content: '\ea67'; }
+.codicon-person-outline:before { content: '\ea67'; }
+.codicon-person-filled:before { content: '\ea67'; }
+.codicon-git-branch:before { content: '\ea68'; }
+.codicon-git-branch-create:before { content: '\ea68'; }
+.codicon-git-branch-delete:before { content: '\ea68'; }
+.codicon-source-control:before { content: '\ea68'; }
+.codicon-mirror:before { content: '\ea69'; }
+.codicon-mirror-public:before { content: '\ea69'; }
+.codicon-star:before { content: '\ea6a'; }
+.codicon-star-add:before { content: '\ea6a'; }
+.codicon-star-delete:before { content: '\ea6a'; }
+.codicon-star-empty:before { content: '\ea6a'; }
+.codicon-comment:before { content: '\ea6b'; }
+.codicon-comment-add:before { content: '\ea6b'; }
+.codicon-alert:before { content: '\ea6c'; }
+.codicon-warning:before { content: '\ea6c'; }
+.codicon-search:before { content: '\ea6d'; }
+.codicon-search-save:before { content: '\ea6d'; }
+.codicon-log-out:before { content: '\ea6e'; }
+.codicon-sign-out:before { content: '\ea6e'; }
+.codicon-log-in:before { content: '\ea6f'; }
+.codicon-sign-in:before { content: '\ea6f'; }
+.codicon-eye:before { content: '\ea70'; }
+.codicon-eye-unwatch:before { content: '\ea70'; }
+.codicon-eye-watch:before { content: '\ea70'; }
+.codicon-circle-filled:before { content: '\ea71'; }
+.codicon-primitive-dot:before { content: '\ea71'; }
+.codicon-close-dirty:before { content: '\ea71'; }
+.codicon-debug-breakpoint:before { content: '\ea71'; }
+.codicon-debug-breakpoint-disabled:before { content: '\ea71'; }
+.codicon-debug-hint:before { content: '\ea71'; }
+.codicon-primitive-square:before { content: '\ea72'; }
+.codicon-edit:before { content: '\ea73'; }
+.codicon-pencil:before { content: '\ea73'; }
+.codicon-info:before { content: '\ea74'; }
+.codicon-issue-opened:before { content: '\ea74'; }
+.codicon-gist-private:before { content: '\ea75'; }
+.codicon-git-fork-private:before { content: '\ea75'; }
+.codicon-lock:before { content: '\ea75'; }
+.codicon-mirror-private:before { content: '\ea75'; }
+.codicon-close:before { content: '\ea76'; }
+.codicon-remove-close:before { content: '\ea76'; }
+.codicon-x:before { content: '\ea76'; }
+.codicon-repo-sync:before { content: '\ea77'; }
+.codicon-sync:before { content: '\ea77'; }
+.codicon-clone:before { content: '\ea78'; }
+.codicon-desktop-download:before { content: '\ea78'; }
+.codicon-beaker:before { content: '\ea79'; }
+.codicon-microscope:before { content: '\ea79'; }
+.codicon-vm:before { content: '\ea7a'; }
+.codicon-device-desktop:before { content: '\ea7a'; }
+.codicon-file:before { content: '\ea7b'; }
+.codicon-file-text:before { content: '\ea7b'; }
+.codicon-more:before { content: '\ea7c'; }
+.codicon-ellipsis:before { content: '\ea7c'; }
+.codicon-kebab-horizontal:before { content: '\ea7c'; }
+.codicon-mail-reply:before { content: '\ea7d'; }
+.codicon-reply:before { content: '\ea7d'; }
+.codicon-organization:before { content: '\ea7e'; }
+.codicon-organization-filled:before { content: '\ea7e'; }
+.codicon-organization-outline:before { content: '\ea7e'; }
+.codicon-new-file:before { content: '\ea7f'; }
+.codicon-file-add:before { content: '\ea7f'; }
+.codicon-new-folder:before { content: '\ea80'; }
+.codicon-file-directory-create:before { content: '\ea80'; }
+.codicon-trash:before { content: '\ea81'; }
+.codicon-trashcan:before { content: '\ea81'; }
+.codicon-history:before { content: '\ea82'; }
+.codicon-clock:before { content: '\ea82'; }
+.codicon-folder:before { content: '\ea83'; }
+.codicon-file-directory:before { content: '\ea83'; }
+.codicon-symbol-folder:before { content: '\ea83'; }
+.codicon-logo-github:before { content: '\ea84'; }
+.codicon-mark-github:before { content: '\ea84'; }
+.codicon-github:before { content: '\ea84'; }
+.codicon-terminal:before { content: '\ea85'; }
+.codicon-console:before { content: '\ea85'; }
+.codicon-repl:before { content: '\ea85'; }
+.codicon-zap:before { content: '\ea86'; }
+.codicon-symbol-event:before { content: '\ea86'; }
+.codicon-error:before { content: '\ea87'; }
+.codicon-stop:before { content: '\ea87'; }
+.codicon-variable:before { content: '\ea88'; }
+.codicon-symbol-variable:before { content: '\ea88'; }
+.codicon-array:before { content: '\ea8a'; }
+.codicon-symbol-array:before { content: '\ea8a'; }
+.codicon-symbol-module:before { content: '\ea8b'; }
+.codicon-symbol-package:before { content: '\ea8b'; }
+.codicon-symbol-namespace:before { content: '\ea8b'; }
+.codicon-symbol-object:before { content: '\ea8b'; }
+.codicon-symbol-method:before { content: '\ea8c'; }
+.codicon-symbol-function:before { content: '\ea8c'; }
+.codicon-symbol-constructor:before { content: '\ea8c'; }
+.codicon-symbol-boolean:before { content: '\ea8f'; }
+.codicon-symbol-null:before { content: '\ea8f'; }
+.codicon-symbol-numeric:before { content: '\ea90'; }
+.codicon-symbol-number:before { content: '\ea90'; }
+.codicon-symbol-structure:before { content: '\ea91'; }
+.codicon-symbol-struct:before { content: '\ea91'; }
+.codicon-symbol-parameter:before { content: '\ea92'; }
+.codicon-symbol-type-parameter:before { content: '\ea92'; }
+.codicon-symbol-key:before { content: '\ea93'; }
+.codicon-symbol-text:before { content: '\ea93'; }
+.codicon-symbol-reference:before { content: '\ea94'; }
+.codicon-go-to-file:before { content: '\ea94'; }
+.codicon-symbol-enum:before { content: '\ea95'; }
+.codicon-symbol-value:before { content: '\ea95'; }
+.codicon-symbol-ruler:before { content: '\ea96'; }
+.codicon-symbol-unit:before { content: '\ea96'; }
+.codicon-activate-breakpoints:before { content: '\ea97'; }
+.codicon-archive:before { content: '\ea98'; }
+.codicon-arrow-both:before { content: '\ea99'; }
+.codicon-arrow-down:before { content: '\ea9a'; }
+.codicon-arrow-left:before { content: '\ea9b'; }
+.codicon-arrow-right:before { content: '\ea9c'; }
+.codicon-arrow-small-down:before { content: '\ea9d'; }
+.codicon-arrow-small-left:before { content: '\ea9e'; }
+.codicon-arrow-small-right:before { content: '\ea9f'; }
+.codicon-arrow-small-up:before { content: '\eaa0'; }
+.codicon-arrow-up:before { content: '\eaa1'; }
+.codicon-bell:before { content: '\eaa2'; }
+.codicon-bold:before { content: '\eaa3'; }
+.codicon-book:before { content: '\eaa4'; }
+.codicon-bookmark:before { content: '\eaa5'; }
+.codicon-debug-breakpoint-conditional-unverified:before { content: '\eaa6'; }
+.codicon-debug-breakpoint-conditional:before { content: '\eaa7'; }
+.codicon-debug-breakpoint-conditional-disabled:before { content: '\eaa7'; }
+.codicon-debug-breakpoint-data-unverified:before { content: '\eaa8'; }
+.codicon-debug-breakpoint-data:before { content: '\eaa9'; }
+.codicon-debug-breakpoint-data-disabled:before { content: '\eaa9'; }
+.codicon-debug-breakpoint-log-unverified:before { content: '\eaaa'; }
+.codicon-debug-breakpoint-log:before { content: '\eaab'; }
+.codicon-debug-breakpoint-log-disabled:before { content: '\eaab'; }
+.codicon-briefcase:before { content: '\eaac'; }
+.codicon-broadcast:before { content: '\eaad'; }
+.codicon-browser:before { content: '\eaae'; }
+.codicon-bug:before { content: '\eaaf'; }
+.codicon-calendar:before { content: '\eab0'; }
+.codicon-case-sensitive:before { content: '\eab1'; }
+.codicon-check:before { content: '\eab2'; }
+.codicon-checklist:before { content: '\eab3'; }
+.codicon-chevron-down:before { content: '\eab4'; }
+.codicon-drop-down-button:before { content: '\eab4'; }
+.codicon-chevron-left:before { content: '\eab5'; }
+.codicon-chevron-right:before { content: '\eab6'; }
+.codicon-chevron-up:before { content: '\eab7'; }
+.codicon-chrome-close:before { content: '\eab8'; }
+.codicon-chrome-maximize:before { content: '\eab9'; }
+.codicon-chrome-minimize:before { content: '\eaba'; }
+.codicon-chrome-restore:before { content: '\eabb'; }
+.codicon-circle-outline:before { content: '\eabc'; }
+.codicon-debug-breakpoint-unverified:before { content: '\eabc'; }
+.codicon-circle-slash:before { content: '\eabd'; }
+.codicon-circuit-board:before { content: '\eabe'; }
+.codicon-clear-all:before { content: '\eabf'; }
+.codicon-clippy:before { content: '\eac0'; }
+.codicon-close-all:before { content: '\eac1'; }
+.codicon-cloud-download:before { content: '\eac2'; }
+.codicon-cloud-upload:before { content: '\eac3'; }
+.codicon-code:before { content: '\eac4'; }
+.codicon-collapse-all:before { content: '\eac5'; }
+.codicon-color-mode:before { content: '\eac6'; }
+.codicon-comment-discussion:before { content: '\eac7'; }
+.codicon-compare-changes:before { content: '\eafd'; }
+.codicon-credit-card:before { content: '\eac9'; }
+.codicon-dash:before { content: '\eacc'; }
+.codicon-dashboard:before { content: '\eacd'; }
+.codicon-database:before { content: '\eace'; }
+.codicon-debug-continue:before { content: '\eacf'; }
+.codicon-debug-disconnect:before { content: '\ead0'; }
+.codicon-debug-pause:before { content: '\ead1'; }
+.codicon-debug-restart:before { content: '\ead2'; }
+.codicon-debug-start:before { content: '\ead3'; }
+.codicon-debug-step-into:before { content: '\ead4'; }
+.codicon-debug-step-out:before { content: '\ead5'; }
+.codicon-debug-step-over:before { content: '\ead6'; }
+.codicon-debug-stop:before { content: '\ead7'; }
+.codicon-debug:before { content: '\ead8'; }
+.codicon-device-camera-video:before { content: '\ead9'; }
+.codicon-device-camera:before { content: '\eada'; }
+.codicon-device-mobile:before { content: '\eadb'; }
+.codicon-diff-added:before { content: '\eadc'; }
+.codicon-diff-ignored:before { content: '\eadd'; }
+.codicon-diff-modified:before { content: '\eade'; }
+.codicon-diff-removed:before { content: '\eadf'; }
+.codicon-diff-renamed:before { content: '\eae0'; }
+.codicon-diff:before { content: '\eae1'; }
+.codicon-discard:before { content: '\eae2'; }
+.codicon-editor-layout:before { content: '\eae3'; }
+.codicon-empty-window:before { content: '\eae4'; }
+.codicon-exclude:before { content: '\eae5'; }
+.codicon-extensions:before { content: '\eae6'; }
+.codicon-eye-closed:before { content: '\eae7'; }
+.codicon-file-binary:before { content: '\eae8'; }
+.codicon-file-code:before { content: '\eae9'; }
+.codicon-file-media:before { content: '\eaea'; }
+.codicon-file-pdf:before { content: '\eaeb'; }
+.codicon-file-submodule:before { content: '\eaec'; }
+.codicon-file-symlink-directory:before { content: '\eaed'; }
+.codicon-file-symlink-file:before { content: '\eaee'; }
+.codicon-file-zip:before { content: '\eaef'; }
+.codicon-files:before { content: '\eaf0'; }
+.codicon-filter:before { content: '\eaf1'; }
+.codicon-flame:before { content: '\eaf2'; }
+.codicon-fold-down:before { content: '\eaf3'; }
+.codicon-fold-up:before { content: '\eaf4'; }
+.codicon-fold:before { content: '\eaf5'; }
+.codicon-folder-active:before { content: '\eaf6'; }
+.codicon-folder-opened:before { content: '\eaf7'; }
+.codicon-gear:before { content: '\eaf8'; }
+.codicon-gift:before { content: '\eaf9'; }
+.codicon-gist-secret:before { content: '\eafa'; }
+.codicon-gist:before { content: '\eafb'; }
+.codicon-git-commit:before { content: '\eafc'; }
+.codicon-git-compare:before { content: '\eafd'; }
+.codicon-git-merge:before { content: '\eafe'; }
+.codicon-github-action:before { content: '\eaff'; }
+.codicon-github-alt:before { content: '\eb00'; }
+.codicon-globe:before { content: '\eb01'; }
+.codicon-grabber:before { content: '\eb02'; }
+.codicon-graph:before { content: '\eb03'; }
+.codicon-gripper:before { content: '\eb04'; }
+.codicon-heart:before { content: '\eb05'; }
+.codicon-home:before { content: '\eb06'; }
+.codicon-horizontal-rule:before { content: '\eb07'; }
+.codicon-hubot:before { content: '\eb08'; }
+.codicon-inbox:before { content: '\eb09'; }
+.codicon-issue-closed:before { content: '\eba4'; }
+.codicon-issue-reopened:before { content: '\eb0b'; }
+.codicon-issues:before { content: '\eb0c'; }
+.codicon-italic:before { content: '\eb0d'; }
+.codicon-jersey:before { content: '\eb0e'; }
+.codicon-json:before { content: '\eb0f'; }
+.codicon-kebab-vertical:before { content: '\eb10'; }
+.codicon-key:before { content: '\eb11'; }
+.codicon-law:before { content: '\eb12'; }
+.codicon-lightbulb-autofix:before { content: '\eb13'; }
+.codicon-link-external:before { content: '\eb14'; }
+.codicon-link:before { content: '\eb15'; }
+.codicon-list-ordered:before { content: '\eb16'; }
+.codicon-list-unordered:before { content: '\eb17'; }
+.codicon-live-share:before { content: '\eb18'; }
+.codicon-loading:before { content: '\eb19'; }
+.codicon-location:before { content: '\eb1a'; }
+.codicon-mail-read:before { content: '\eb1b'; }
+.codicon-mail:before { content: '\eb1c'; }
+.codicon-markdown:before { content: '\eb1d'; }
+.codicon-megaphone:before { content: '\eb1e'; }
+.codicon-mention:before { content: '\eb1f'; }
+.codicon-milestone:before { content: '\eb20'; }
+.codicon-mortar-board:before { content: '\eb21'; }
+.codicon-move:before { content: '\eb22'; }
+.codicon-multiple-windows:before { content: '\eb23'; }
+.codicon-mute:before { content: '\eb24'; }
+.codicon-no-newline:before { content: '\eb25'; }
+.codicon-note:before { content: '\eb26'; }
+.codicon-octoface:before { content: '\eb27'; }
+.codicon-open-preview:before { content: '\eb28'; }
+.codicon-package:before { content: '\eb29'; }
+.codicon-paintcan:before { content: '\eb2a'; }
+.codicon-pin:before { content: '\eb2b'; }
+.codicon-play:before { content: '\eb2c'; }
+.codicon-run:before { content: '\eb2c'; }
+.codicon-plug:before { content: '\eb2d'; }
+.codicon-preserve-case:before { content: '\eb2e'; }
+.codicon-preview:before { content: '\eb2f'; }
+.codicon-project:before { content: '\eb30'; }
+.codicon-pulse:before { content: '\eb31'; }
+.codicon-question:before { content: '\eb32'; }
+.codicon-quote:before { content: '\eb33'; }
+.codicon-radio-tower:before { content: '\eb34'; }
+.codicon-reactions:before { content: '\eb35'; }
+.codicon-references:before { content: '\eb36'; }
+.codicon-refresh:before { content: '\eb37'; }
+.codicon-regex:before { content: '\eb38'; }
+.codicon-remote-explorer:before { content: '\eb39'; }
+.codicon-remote:before { content: '\eb3a'; }
+.codicon-remove:before { content: '\eb3b'; }
+.codicon-replace-all:before { content: '\eb3c'; }
+.codicon-replace:before { content: '\eb3d'; }
+.codicon-repo-clone:before { content: '\eb3e'; }
+.codicon-repo-force-push:before { content: '\eb3f'; }
+.codicon-repo-pull:before { content: '\eb40'; }
+.codicon-repo-push:before { content: '\eb41'; }
+.codicon-report:before { content: '\eb42'; }
+.codicon-request-changes:before { content: '\eb43'; }
+.codicon-rocket:before { content: '\eb44'; }
+.codicon-root-folder-opened:before { content: '\eb45'; }
+.codicon-root-folder:before { content: '\eb46'; }
+.codicon-rss:before { content: '\eb47'; }
+.codicon-ruby:before { content: '\eb48'; }
+.codicon-save-all:before { content: '\eb49'; }
+.codicon-save-as:before { content: '\eb4a'; }
+.codicon-save:before { content: '\eb4b'; }
+.codicon-screen-full:before { content: '\eb4c'; }
+.codicon-screen-normal:before { content: '\eb4d'; }
+.codicon-search-stop:before { content: '\eb4e'; }
+.codicon-server:before { content: '\eb50'; }
+.codicon-settings-gear:before { content: '\eb51'; }
+.codicon-settings:before { content: '\eb52'; }
+.codicon-shield:before { content: '\eb53'; }
+.codicon-smiley:before { content: '\eb54'; }
+.codicon-sort-precedence:before { content: '\eb55'; }
+.codicon-split-horizontal:before { content: '\eb56'; }
+.codicon-split-vertical:before { content: '\eb57'; }
+.codicon-squirrel:before { content: '\eb58'; }
+.codicon-star-full:before { content: '\eb59'; }
+.codicon-star-half:before { content: '\eb5a'; }
+.codicon-symbol-class:before { content: '\eb5b'; }
+.codicon-symbol-color:before { content: '\eb5c'; }
+.codicon-symbol-customcolor:before { content: '\eb5c'; }
+.codicon-symbol-constant:before { content: '\eb5d'; }
+.codicon-symbol-enum-member:before { content: '\eb5e'; }
+.codicon-symbol-field:before { content: '\eb5f'; }
+.codicon-symbol-file:before { content: '\eb60'; }
+.codicon-symbol-interface:before { content: '\eb61'; }
+.codicon-symbol-keyword:before { content: '\eb62'; }
+.codicon-symbol-misc:before { content: '\eb63'; }
+.codicon-symbol-operator:before { content: '\eb64'; }
+.codicon-symbol-property:before { content: '\eb65'; }
+.codicon-wrench:before { content: '\eb65'; }
+.codicon-wrench-subaction:before { content: '\eb65'; }
+.codicon-symbol-snippet:before { content: '\eb66'; }
+.codicon-tasklist:before { content: '\eb67'; }
+.codicon-telescope:before { content: '\eb68'; }
+.codicon-text-size:before { content: '\eb69'; }
+.codicon-three-bars:before { content: '\eb6a'; }
+.codicon-thumbsdown:before { content: '\eb6b'; }
+.codicon-thumbsup:before { content: '\eb6c'; }
+.codicon-tools:before { content: '\eb6d'; }
+.codicon-triangle-down:before { content: '\eb6e'; }
+.codicon-triangle-left:before { content: '\eb6f'; }
+.codicon-triangle-right:before { content: '\eb70'; }
+.codicon-triangle-up:before { content: '\eb71'; }
+.codicon-twitter:before { content: '\eb72'; }
+.codicon-unfold:before { content: '\eb73'; }
+.codicon-unlock:before { content: '\eb74'; }
+.codicon-unmute:before { content: '\eb75'; }
+.codicon-unverified:before { content: '\eb76'; }
+.codicon-verified:before { content: '\eb77'; }
+.codicon-versions:before { content: '\eb78'; }
+.codicon-vm-active:before { content: '\eb79'; }
+.codicon-vm-outline:before { content: '\eb7a'; }
+.codicon-vm-running:before { content: '\eb7b'; }
+.codicon-watch:before { content: '\eb7c'; }
+.codicon-whitespace:before { content: '\eb7d'; }
+.codicon-whole-word:before { content: '\eb7e'; }
+.codicon-window:before { content: '\eb7f'; }
+.codicon-word-wrap:before { content: '\eb80'; }
+.codicon-zoom-in:before { content: '\eb81'; }
+.codicon-zoom-out:before { content: '\eb82'; }
+.codicon-list-filter:before { content: '\eb83'; }
+.codicon-list-flat:before { content: '\eb84'; }
+.codicon-list-selection:before { content: '\eb85'; }
+.codicon-selection:before { content: '\eb85'; }
+.codicon-list-tree:before { content: '\eb86'; }
+.codicon-debug-breakpoint-function-unverified:before { content: '\eb87'; }
+.codicon-debug-breakpoint-function:before { content: '\eb88'; }
+.codicon-debug-breakpoint-function-disabled:before { content: '\eb88'; }
+.codicon-debug-stackframe-active:before { content: '\eb89'; }
+.codicon-circle-small-filled:before { content: '\eb8a'; }
+.codicon-debug-stackframe-dot:before { content: '\eb8a'; }
+.codicon-debug-stackframe:before { content: '\eb8b'; }
+.codicon-debug-stackframe-focused:before { content: '\eb8b'; }
+.codicon-debug-breakpoint-unsupported:before { content: '\eb8c'; }
+.codicon-symbol-string:before { content: '\eb8d'; }
+.codicon-debug-reverse-continue:before { content: '\eb8e'; }
+.codicon-debug-step-back:before { content: '\eb8f'; }
+.codicon-debug-restart-frame:before { content: '\eb90'; }
+.codicon-call-incoming:before { content: '\eb92'; }
+.codicon-call-outgoing:before { content: '\eb93'; }
+.codicon-menu:before { content: '\eb94'; }
+.codicon-expand-all:before { content: '\eb95'; }
+.codicon-feedback:before { content: '\eb96'; }
+.codicon-group-by-ref-type:before { content: '\eb97'; }
+.codicon-ungroup-by-ref-type:before { content: '\eb98'; }
+.codicon-account:before { content: '\eb99'; }
+.codicon-bell-dot:before { content: '\eb9a'; }
+.codicon-debug-console:before { content: '\eb9b'; }
+.codicon-library:before { content: '\eb9c'; }
+.codicon-output:before { content: '\eb9d'; }
+.codicon-run-all:before { content: '\eb9e'; }
+.codicon-sync-ignored:before { content: '\eb9f'; }
+.codicon-pinned:before { content: '\eba0'; }
+.codicon-github-inverted:before { content: '\eba1'; }
+.codicon-debug-alt:before { content: '\eb91'; }
+.codicon-server-process:before { content: '\eba2'; }
+.codicon-server-environment:before { content: '\eba3'; }
+.codicon-pass:before { content: '\eba4'; }
+.codicon-stop-circle:before { content: '\eba5'; }
+.codicon-play-circle:before { content: '\eba6'; }
+.codicon-record:before { content: '\eba7'; }
+.codicon-debug-alt-small:before { content: '\eba8'; }
+.codicon-vm-connect:before { content: '\eba9'; }
+.codicon-cloud:before { content: '\ebaa'; }
+.codicon-merge:before { content: '\ebab'; }
+.codicon-export:before { content: '\ebac'; }
+.codicon-graph-left:before { content: '\ebad'; }
+.codicon-magnet:before { content: '\ebae'; }
+.codicon-notebook:before { content: '\ebaf'; }
+.codicon-redo:before { content: '\ebb0'; }
+.codicon-check-all:before { content: '\ebb1'; }
+.codicon-pinned-dirty:before { content: '\ebb2'; }
+.codicon-pass-filled:before { content: '\ebb3'; }
+.codicon-circle-large-filled:before { content: '\ebb4'; }
+.codicon-circle-large-outline:before { content: '\ebb5'; }
+.codicon-combine:before { content: '\ebb6'; }
+.codicon-gather:before { content: '\ebb6'; }
+.codicon-table:before { content: '\ebb7'; }
+.codicon-variable-group:before { content: '\ebb8'; }
+.codicon-type-hierarchy:before { content: '\ebb9'; }
+.codicon-type-hierarchy-sub:before { content: '\ebba'; }
+.codicon-type-hierarchy-super:before { content: '\ebbb'; }
+.codicon-git-pull-request-create:before { content: '\ebbc'; }
+.codicon-run-above:before { content: '\ebbd'; }
+.codicon-run-below:before { content: '\ebbe'; }
+.codicon-notebook-template:before { content: '\ebbf'; }
+.codicon-debug-rerun:before { content: '\ebc0'; }
+.codicon-workspace-trusted:before { content: '\ebc1'; }
+.codicon-workspace-untrusted:before { content: '\ebc2'; }
+.codicon-workspace-unspecified:before { content: '\ebc3'; }
+.codicon-terminal-cmd:before { content: '\ebc4'; }
+.codicon-terminal-debian:before { content: '\ebc5'; }
+.codicon-terminal-linux:before { content: '\ebc6'; }
+.codicon-terminal-powershell:before { content: '\ebc7'; }
+.codicon-terminal-tmux:before { content: '\ebc8'; }
+.codicon-terminal-ubuntu:before { content: '\ebc9'; }
+.codicon-terminal-bash:before { content: '\ebca'; }
+.codicon-arrow-swap:before { content: '\ebcb'; }
+.codicon-copy:before { content: '\ebcc'; }
+.codicon-person-add:before { content: '\ebcd'; }
+.codicon-filter-filled:before { content: '\ebce'; }
+.codicon-wand:before { content: '\ebcf'; }
+.codicon-debug-line-by-line:before { content: '\ebd0'; }
+.codicon-inspect:before { content: '\ebd1'; }
+.codicon-layers:before { content: '\ebd2'; }
+.codicon-layers-dot:before { content: '\ebd3'; }
+.codicon-layers-active:before { content: '\ebd4'; }
+.codicon-compass:before { content: '\ebd5'; }
+.codicon-compass-dot:before { content: '\ebd6'; }
+.codicon-compass-active:before { content: '\ebd7'; }
+.codicon-azure:before { content: '\ebd8'; }
+.codicon-issue-draft:before { content: '\ebd9'; }
+.codicon-git-pull-request-closed:before { content: '\ebda'; }
+.codicon-git-pull-request-draft:before { content: '\ebdb'; }
+.codicon-debug-all:before { content: '\ebdc'; }
+.codicon-debug-coverage:before { content: '\ebdd'; }
+.codicon-run-errors:before { content: '\ebde'; }
+.codicon-folder-library:before { content: '\ebdf'; }
+.codicon-debug-continue-small:before { content: '\ebe0'; }
+.codicon-beaker-stop:before { content: '\ebe1'; }
+.codicon-graph-line:before { content: '\ebe2'; }
+.codicon-graph-scatter:before { content: '\ebe3'; }
+.codicon-pie-chart:before { content: '\ebe4'; }
+.codicon-bracket:before { content: '\eb0f'; }
+.codicon-bracket-dot:before { content: '\ebe5'; }
+.codicon-bracket-error:before { content: '\ebe6'; }
+.codicon-lock-small:before { content: '\ebe7'; }
+.codicon-azure-devops:before { content: '\ebe8'; }
+.codicon-verified-filled:before { content: '\ebe9'; }
+.codicon-newline:before { content: '\ebea'; }
+.codicon-layout:before { content: '\ebeb'; }
+.codicon-layout-activitybar-left:before { content: '\ebec'; }
+.codicon-layout-activitybar-right:before { content: '\ebed'; }
+.codicon-layout-panel-left:before { content: '\ebee'; }
+.codicon-layout-panel-center:before { content: '\ebef'; }
+.codicon-layout-panel-justify:before { content: '\ebf0'; }
+.codicon-layout-panel-right:before { content: '\ebf1'; }
+.codicon-layout-panel:before { content: '\ebf2'; }
+.codicon-layout-sidebar-left:before { content: '\ebf3'; }
+.codicon-layout-sidebar-right:before { content: '\ebf4'; }
+.codicon-layout-statusbar:before { content: '\ebf5'; }
+.codicon-layout-menubar:before { content: '\ebf6'; }
+.codicon-layout-centered:before { content: '\ebf7'; }
+.codicon-layout-sidebar-right-off:before { content: '\ec00'; }
+.codicon-layout-panel-off:before { content: '\ec01'; }
+.codicon-layout-sidebar-left-off:before { content: '\ec02'; }
+.codicon-target:before { content: '\ebf8'; }
+.codicon-indent:before { content: '\ebf9'; }
+.codicon-record-small:before { content: '\ebfa'; }
+.codicon-error-small:before { content: '\ebfb'; }
+.codicon-arrow-circle-down:before { content: '\ebfc'; }
+.codicon-arrow-circle-left:before { content: '\ebfd'; }
+.codicon-arrow-circle-right:before { content: '\ebfe'; }
+.codicon-arrow-circle-up:before { content: '\ebff'; }
+.codicon-heart-filled:before { content: '\ec04'; }
+.codicon-map:before { content: '\ec05'; }
+.codicon-map-filled:before { content: '\ec06'; }
+.codicon-circle-small:before { content: '\ec07'; }
+.codicon-bell-slash:before { content: '\ec08'; }
+.codicon-bell-slash-dot:before { content: '\ec09'; }
+.codicon-comment-unresolved:before { content: '\ec0a'; }
+.codicon-git-pull-request-go-to-changes:before { content: '\ec0b'; }
+.codicon-git-pull-request-new-changes:before { content: '\ec0c'; }
+.codicon-dialog-error:before { content: '\ea87'; }
+.codicon-dialog-warning:before { content: '\ea6c'; }
+.codicon-dialog-info:before { content: '\ea74'; }
+.codicon-dialog-close:before { content: '\ea76'; }
+.codicon-tree-item-expanded:before { content: '\eab4'; }
+.codicon-tree-filter-on-type-on:before { content: '\eb83'; }
+.codicon-tree-filter-on-type-off:before { content: '\eb85'; }
+.codicon-tree-filter-clear:before { content: '\ea76'; }
+.codicon-tree-item-loading:before { content: '\eb19'; }
+.codicon-menu-selection:before { content: '\eab2'; }
+.codicon-menu-submenu:before { content: '\eab6'; }
+.codicon-menubar-more:before { content: '\ea7c'; }
+.codicon-scrollbar-button-left:before { content: '\eb6f'; }
+.codicon-scrollbar-button-right:before { content: '\eb70'; }
+.codicon-scrollbar-button-up:before { content: '\eb71'; }
+.codicon-scrollbar-button-down:before { content: '\eb6e'; }
+.codicon-toolbar-more:before { content: '\ea7c'; }
+.codicon-quick-input-back:before { content: '\ea9b'; }
+.codicon-widget-close:before { content: '\ea76'; }
+.codicon-goto-previous-location:before { content: '\eaa1'; }
+.codicon-goto-next-location:before { content: '\ea9a'; }
+.codicon-diff-review-insert:before { content: '\ea60'; }
+.codicon-diff-review-remove:before { content: '\eb3b'; }
+.codicon-diff-review-close:before { content: '\ea76'; }
+.codicon-diff-insert:before { content: '\ea60'; }
+.codicon-diff-remove:before { content: '\eb3b'; }
+.codicon-marker-navigation-next:before { content: '\ea9a'; }
+.codicon-marker-navigation-previous:before { content: '\eaa1'; }
+.codicon-find-selection:before { content: '\eb85'; }
+.codicon-find-collapsed:before { content: '\eab6'; }
+.codicon-find-expanded:before { content: '\eab4'; }
+.codicon-find-replace:before { content: '\eb3d'; }
+.codicon-find-replace-all:before { content: '\eb3c'; }
+.codicon-find-previous-match:before { content: '\eaa1'; }
+.codicon-find-next-match:before { content: '\ea9a'; }
+.codicon-folding-expanded:before { content: '\eab4'; }
+.codicon-folding-collapsed:before { content: '\eab6'; }
+.codicon-folding-manual-collapsed:before { content: '\eab6'; }
+.codicon-folding-manual-expanded:before { content: '\eab4'; }
+.codicon-suggest-more-info:before { content: '\eab6'; }
+.codicon-parameter-hints-next:before { content: '\eab4'; }
+.codicon-parameter-hints-previous:before { content: '\eab7'; }
+.codicon-extensions-warning-message:before { content: '\ea6c'; }
+.monaco-editor, .monaco-editor-background { background-color: #111217; }
+.monaco-editor .inputarea.ime-input { background-color: #111217; }
+.monaco-editor, .monaco-editor .inputarea.ime-input { color: #d4d4d4; }
+.monaco-editor .margin { background-color: #111217; }
+.monaco-editor .rangeHighlight { background-color: rgba(255, 255, 255, 0.04); }
+.monaco-editor .symbolHighlight { background-color: rgba(234, 92, 0, 0.33); }
+.monaco-editor .mtkw { color: rgba(227, 228, 226, 0.16) !important; }
+.monaco-editor .mtkz { color: rgba(227, 228, 226, 0.16) !important; }
+.monaco-editor .line-numbers { color: #858585; }
+.monaco-editor .line-numbers.active-line-number { color: #c6c6c6; }
+.monaco-editor .view-overlays .current-line { border: 2px solid #282828; }
+.monaco-editor .margin-view-overlays .current-line-margin { border: 2px solid #282828; }
+
+			.monaco-scrollable-element > .shadow.top {
+				box-shadow: #000000 0 6px 6px -6px inset;
+			}
+
+			.monaco-scrollable-element > .shadow.left {
+				box-shadow: #000000 6px 0 6px -6px inset;
+			}
+
+			.monaco-scrollable-element > .shadow.top.left {
+				box-shadow: #000000 6px 6px 6px -6px inset;
+			}
+		
+
+			.monaco-scrollable-element > .scrollbar > .slider {
+				background: rgba(121, 121, 121, 0.4);
+			}
+		
+
+			.monaco-scrollable-element > .scrollbar > .slider:hover {
+				background: rgba(100, 100, 100, 0.7);
+			}
+		
+
+			.monaco-scrollable-element > .scrollbar > .slider.active {
+				background: rgba(191, 191, 191, 0.4);
+			}
+		
+.monaco-editor .lines-content .core-guide-indent { box-shadow: 1px 0 0 0 #404040 inset; }
+.monaco-editor .lines-content .core-guide-indent-active { box-shadow: 1px 0 0 0 #707070 inset; }
+.monaco-editor .bracket-indent-guide.lvl-0 { --guide-color: rgba(255, 215, 0, 0.3); --guide-color-active: #ffd700; }
+.monaco-editor .bracket-indent-guide.lvl-1 { --guide-color: rgba(218, 112, 214, 0.3); --guide-color-active: #da70d6; }
+.monaco-editor .bracket-indent-guide.lvl-2 { --guide-color: rgba(23, 159, 255, 0.3); --guide-color-active: #179fff; }
+.monaco-editor .bracket-indent-guide.lvl-3 { --guide-color: rgba(255, 215, 0, 0.3); --guide-color-active: #ffd700; }
+.monaco-editor .bracket-indent-guide.lvl-4 { --guide-color: rgba(218, 112, 214, 0.3); --guide-color-active: #da70d6; }
+.monaco-editor .bracket-indent-guide.lvl-5 { --guide-color: rgba(23, 159, 255, 0.3); --guide-color-active: #179fff; }
+.monaco-editor .bracket-indent-guide.lvl-6 { --guide-color: rgba(255, 215, 0, 0.3); --guide-color-active: #ffd700; }
+.monaco-editor .bracket-indent-guide.lvl-7 { --guide-color: rgba(218, 112, 214, 0.3); --guide-color-active: #da70d6; }
+.monaco-editor .bracket-indent-guide.lvl-8 { --guide-color: rgba(23, 159, 255, 0.3); --guide-color-active: #179fff; }
+.monaco-editor .bracket-indent-guide.lvl-9 { --guide-color: rgba(255, 215, 0, 0.3); --guide-color-active: #ffd700; }
+.monaco-editor .bracket-indent-guide.lvl-10 { --guide-color: rgba(218, 112, 214, 0.3); --guide-color-active: #da70d6; }
+.monaco-editor .bracket-indent-guide.lvl-11 { --guide-color: rgba(23, 159, 255, 0.3); --guide-color-active: #179fff; }
+.monaco-editor .bracket-indent-guide.lvl-12 { --guide-color: rgba(255, 215, 0, 0.3); --guide-color-active: #ffd700; }
+.monaco-editor .bracket-indent-guide.lvl-13 { --guide-color: rgba(218, 112, 214, 0.3); --guide-color-active: #da70d6; }
+.monaco-editor .bracket-indent-guide.lvl-14 { --guide-color: rgba(23, 159, 255, 0.3); --guide-color-active: #179fff; }
+.monaco-editor .bracket-indent-guide.lvl-15 { --guide-color: rgba(255, 215, 0, 0.3); --guide-color-active: #ffd700; }
+.monaco-editor .bracket-indent-guide.lvl-16 { --guide-color: rgba(218, 112, 214, 0.3); --guide-color-active: #da70d6; }
+.monaco-editor .bracket-indent-guide.lvl-17 { --guide-color: rgba(23, 159, 255, 0.3); --guide-color-active: #179fff; }
+.monaco-editor .bracket-indent-guide.lvl-18 { --guide-color: rgba(255, 215, 0, 0.3); --guide-color-active: #ffd700; }
+.monaco-editor .bracket-indent-guide.lvl-19 { --guide-color: rgba(218, 112, 214, 0.3); --guide-color-active: #da70d6; }
+.monaco-editor .bracket-indent-guide.lvl-20 { --guide-color: rgba(23, 159, 255, 0.3); --guide-color-active: #179fff; }
+.monaco-editor .bracket-indent-guide.lvl-21 { --guide-color: rgba(255, 215, 0, 0.3); --guide-color-active: #ffd700; }
+.monaco-editor .bracket-indent-guide.lvl-22 { --guide-color: rgba(218, 112, 214, 0.3); --guide-color-active: #da70d6; }
+.monaco-editor .bracket-indent-guide.lvl-23 { --guide-color: rgba(23, 159, 255, 0.3); --guide-color-active: #179fff; }
+.monaco-editor .bracket-indent-guide.lvl-24 { --guide-color: rgba(255, 215, 0, 0.3); --guide-color-active: #ffd700; }
+.monaco-editor .bracket-indent-guide.lvl-25 { --guide-color: rgba(218, 112, 214, 0.3); --guide-color-active: #da70d6; }
+.monaco-editor .bracket-indent-guide.lvl-26 { --guide-color: rgba(23, 159, 255, 0.3); --guide-color-active: #179fff; }
+.monaco-editor .bracket-indent-guide.lvl-27 { --guide-color: rgba(255, 215, 0, 0.3); --guide-color-active: #ffd700; }
+.monaco-editor .bracket-indent-guide.lvl-28 { --guide-color: rgba(218, 112, 214, 0.3); --guide-color-active: #da70d6; }
+.monaco-editor .bracket-indent-guide.lvl-29 { --guide-color: rgba(23, 159, 255, 0.3); --guide-color-active: #179fff; }
+.monaco-editor .vertical { box-shadow: 1px 0 0 0 var(--guide-color) inset; }
+.monaco-editor .horizontal-top { border-top: 1px solid var(--guide-color); }
+.monaco-editor .horizontal-bottom { border-bottom: 1px solid var(--guide-color); }
+.monaco-editor .vertical.indent-active { box-shadow: 1px 0 0 0 var(--guide-color-active) inset; }
+.monaco-editor .horizontal-top.indent-active { border-top: 1px solid var(--guide-color-active); }
+.monaco-editor .horizontal-bottom.indent-active { border-bottom: 1px solid var(--guide-color-active); }
+.monaco-editor .minimap-slider .minimap-slider-horizontal { background: rgba(121, 121, 121, 0.2); }
+.monaco-editor .minimap-slider:hover .minimap-slider-horizontal { background: rgba(100, 100, 100, 0.35); }
+.monaco-editor .minimap-slider.active .minimap-slider-horizontal { background: rgba(191, 191, 191, 0.2); }
+.monaco-editor .minimap-shadow-visible { box-shadow: #000000 -6px 0 6px -6px inset; }
+.monaco-editor .view-ruler { box-shadow: 1px 0 0 0 #5a5a5a inset; }
+.monaco-editor .scroll-decoration { box-shadow: #000000 0 6px 6px -6px inset; }
+.monaco-editor .focused .selected-text { background-color: #264f78; }
+.monaco-editor .selected-text { background-color: #3a3d41; }
+.monaco-editor .inputarea.ime-input { caret-color: #aeafad; }
+.monaco-editor .cursors-layer .cursor { background-color: #aeafad; border-color: #aeafad; color: #515052; }
+.monaco-editor .unexpected-closing-bracket { color: rgba(255, 18, 18, 0.8); }
+.monaco-editor .bracket-highlighting-0 { color: #ffd700; }
+.monaco-editor .bracket-highlighting-1 { color: #da70d6; }
+.monaco-editor .bracket-highlighting-2 { color: #179fff; }
+.monaco-editor .bracket-highlighting-3 { color: #ffd700; }
+.monaco-editor .bracket-highlighting-4 { color: #da70d6; }
+.monaco-editor .bracket-highlighting-5 { color: #179fff; }
+.monaco-editor .bracket-highlighting-6 { color: #ffd700; }
+.monaco-editor .bracket-highlighting-7 { color: #da70d6; }
+.monaco-editor .bracket-highlighting-8 { color: #179fff; }
+.monaco-editor .bracket-highlighting-9 { color: #ffd700; }
+.monaco-editor .bracket-highlighting-10 { color: #da70d6; }
+.monaco-editor .bracket-highlighting-11 { color: #179fff; }
+.monaco-editor .bracket-highlighting-12 { color: #ffd700; }
+.monaco-editor .bracket-highlighting-13 { color: #da70d6; }
+.monaco-editor .bracket-highlighting-14 { color: #179fff; }
+.monaco-editor .bracket-highlighting-15 { color: #ffd700; }
+.monaco-editor .bracket-highlighting-16 { color: #da70d6; }
+.monaco-editor .bracket-highlighting-17 { color: #179fff; }
+.monaco-editor .bracket-highlighting-18 { color: #ffd700; }
+.monaco-editor .bracket-highlighting-19 { color: #da70d6; }
+.monaco-editor .bracket-highlighting-20 { color: #179fff; }
+.monaco-editor .bracket-highlighting-21 { color: #ffd700; }
+.monaco-editor .bracket-highlighting-22 { color: #da70d6; }
+.monaco-editor .bracket-highlighting-23 { color: #179fff; }
+.monaco-editor .bracket-highlighting-24 { color: #ffd700; }
+.monaco-editor .bracket-highlighting-25 { color: #da70d6; }
+.monaco-editor .bracket-highlighting-26 { color: #179fff; }
+.monaco-editor .bracket-highlighting-27 { color: #ffd700; }
+.monaco-editor .bracket-highlighting-28 { color: #da70d6; }
+.monaco-editor .bracket-highlighting-29 { color: #179fff; }
+.monaco-editor .squiggly-error { background: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%206%203'%20enable-background%3D'new%200%200%206%203'%20height%3D'3'%20width%3D'6'%3E%3Cg%20fill%3D'%23f14c4c'%3E%3Cpolygon%20points%3D'5.5%2C0%202.5%2C3%201.1%2C3%204.1%2C0'%2F%3E%3Cpolygon%20points%3D'4%2C0%206%2C2%206%2C0.6%205.4%2C0'%2F%3E%3Cpolygon%20points%3D'0%2C2%201%2C3%202.4%2C3%200%2C0.6'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") repeat-x bottom left; }
+.monaco-editor .squiggly-warning { background: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%206%203'%20enable-background%3D'new%200%200%206%203'%20height%3D'3'%20width%3D'6'%3E%3Cg%20fill%3D'%23cca700'%3E%3Cpolygon%20points%3D'5.5%2C0%202.5%2C3%201.1%2C3%204.1%2C0'%2F%3E%3Cpolygon%20points%3D'4%2C0%206%2C2%206%2C0.6%205.4%2C0'%2F%3E%3Cpolygon%20points%3D'0%2C2%201%2C3%202.4%2C3%200%2C0.6'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") repeat-x bottom left; }
+.monaco-editor .squiggly-info { background: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%206%203'%20enable-background%3D'new%200%200%206%203'%20height%3D'3'%20width%3D'6'%3E%3Cg%20fill%3D'%233794ff'%3E%3Cpolygon%20points%3D'5.5%2C0%202.5%2C3%201.1%2C3%204.1%2C0'%2F%3E%3Cpolygon%20points%3D'4%2C0%206%2C2%206%2C0.6%205.4%2C0'%2F%3E%3Cpolygon%20points%3D'0%2C2%201%2C3%202.4%2C3%200%2C0.6'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") repeat-x bottom left; }
+.monaco-editor .squiggly-hint { background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20height%3D%223%22%20width%3D%2212%22%3E%3Cg%20fill%3D%22rgba(238%2C%20238%2C%20238%2C%200.7)%22%3E%3Ccircle%20cx%3D%221%22%20cy%3D%221%22%20r%3D%221%22%2F%3E%3Ccircle%20cx%3D%225%22%20cy%3D%221%22%20r%3D%221%22%2F%3E%3Ccircle%20cx%3D%229%22%20cy%3D%221%22%20r%3D%221%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E") no-repeat bottom left; }
+.monaco-editor.showUnused .squiggly-inline-unnecessary { opacity: 0.667; }
+.monaco-editor.showDeprecated .squiggly-inline-deprecated { text-decoration: line-through; text-decoration-color: #d4d4d4}
+.monaco-diff-editor .diff-review-line-number { color: #858585; }
+.monaco-diff-editor .diff-review-shadow { box-shadow: #000000 0 -6px 6px -6px inset; }
+.monaco-editor .char-insert, .monaco-diff-editor .char-insert { background-color: rgba(156, 204, 44, 0.2); }
+.monaco-editor .line-insert, .monaco-diff-editor .line-insert { background-color: rgba(155, 185, 85, 0.2); }
+.monaco-editor .inline-added-margin-view-zone { background-color: rgba(155, 185, 85, 0.2); }
+.monaco-editor .gutter-insert, .monaco-diff-editor .gutter-insert { background-color: rgba(155, 185, 85, 0.2); }
+.monaco-editor .char-delete, .monaco-diff-editor .char-delete { background-color: rgba(255, 0, 0, 0.4); }
+.monaco-editor .line-delete, .monaco-diff-editor .line-delete { background-color: rgba(255, 0, 0, 0.2); }
+.monaco-editor .inline-deleted-margin-view-zone { background-color: rgba(255, 0, 0, 0.2); }
+.monaco-editor .gutter-delete, .monaco-diff-editor .gutter-delete { background-color: rgba(255, 0, 0, 0.2); }
+.monaco-diff-editor.side-by-side .editor.modified { box-shadow: -6px 0 5px -5px #000000; }
+
+			.monaco-diff-editor .diffViewport {
+				background: rgba(121, 121, 121, 0.4);
+			}
+		
+
+			.monaco-diff-editor .diffViewport:hover {
+				background: rgba(100, 100, 100, 0.7);
+			}
+		
+
+			.monaco-diff-editor .diffViewport:active {
+				background: rgba(191, 191, 191, 0.4);
+			}
+		
+
+	.monaco-editor .diagonal-fill {
+		background-image: linear-gradient(
+			-45deg,
+			rgba(204, 204, 204, 0.2) 12.5%,
+			#0000 12.5%, #0000 50%,
+			rgba(204, 204, 204, 0.2) 50%, rgba(204, 204, 204, 0.2) 62.5%,
+			#0000 62.5%, #0000 100%
+		);
+		background-size: 8px 8px;
+	}
+	
+.monaco-editor .bracket-match { background-color: rgba(0, 100, 0, 0.1); }
+.monaco-editor .bracket-match { border: 1px solid #888888; }
+
+		.monaco-editor .contentWidgets .codicon.codicon-light-bulb {
+			color: #ffcc00;
+			background-color: rgba(17, 18, 23, 0.7);
+		}
+
+		.monaco-editor .contentWidgets .codicon.codicon-lightbulb-autofix {
+			color: #75beff;
+			background-color: rgba(17, 18, 23, 0.7);
+		}
+.monaco-editor .goto-definition-link { color: #4e94ce !important; }
+
+			.monaco-editor .zone-widget .codicon.codicon-error,
+			.markers-panel .marker-icon.codicon.codicon-error,
+			.text-search-provider-messages .providerMessage .codicon.codicon-error,
+			.extensions-viewlet > .extensions .codicon.codicon-error {
+				color: #f14c4c;
+			}
+		
+
+			.monaco-editor .zone-widget .codicon.codicon-warning,
+			.markers-panel .marker-icon.codicon.codicon-warning,
+			.extensions-viewlet > .extensions .codicon.codicon-warning,
+			.extension-editor .codicon.codicon-warning,
+			.text-search-provider-messages .providerMessage .codicon.codicon-warning,
+			.preferences-editor .codicon.codicon-warning {
+				color: #cca700;
+			}
+		
+
+			.monaco-editor .zone-widget .codicon.codicon-info,
+			.markers-panel .marker-icon.codicon.codicon-info,
+			.extensions-viewlet > .extensions .codicon.codicon-info,
+			.text-search-provider-messages .providerMessage .codicon.codicon-info,
+			.extension-editor .codicon.codicon-info {
+				color: #3794ff;
+			}
+		
+.monaco-hover .hover-contents a.code-link span { color: #3794ff; }
+.monaco-hover .hover-contents a.code-link span:hover { color: #3794ff; }
+.monaco-editor .hoverHighlight { background-color: rgba(38, 79, 120, 0.25); }
+.monaco-editor .monaco-hover { background-color: #252526; }
+.monaco-editor .monaco-hover { border: 1px solid #454545; }
+.monaco-editor .monaco-hover .hover-row:not(:first-child):not(:empty) { border-top: 1px solid rgba(69, 69, 69, 0.5); }
+.monaco-editor .monaco-hover hr { border-top: 1px solid rgba(69, 69, 69, 0.5); }
+.monaco-editor .monaco-hover hr { border-bottom: 0px solid rgba(69, 69, 69, 0.5); }
+.monaco-editor .monaco-hover a { color: #3794ff; }
+.monaco-editor .monaco-hover a:hover { color: #3794ff; }
+.monaco-editor .monaco-hover { color: #cccccc; }
+.monaco-editor .monaco-hover .hover-row .actions { background-color: #2c2c2d; }
+.monaco-editor .monaco-hover code { background-color: rgba(10, 10, 10, 0.4); }
+.monaco-editor .findOptionsWidget { background-color: #252526; }
+.monaco-editor .findOptionsWidget { color: #cccccc; }
+.monaco-editor .findOptionsWidget { box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.36); }
+.monaco-editor .findMatch { background-color: rgba(234, 92, 0, 0.33); }
+.monaco-editor .currentFindMatch { background-color: #515c6a; }
+.monaco-editor .findScope { background-color: rgba(58, 61, 65, 0.4); }
+.monaco-editor .find-widget { background-color: #252526; }
+.monaco-editor .find-widget { box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.36); }
+.monaco-editor .find-widget { color: #cccccc; }
+.monaco-editor .find-widget.no-results .matchesCount { color: #f48771; }
+.monaco-editor .find-widget .monaco-sash { background-color: #454545; }
+
+		.monaco-editor .find-widget .button:not(.disabled):hover,
+		.monaco-editor .find-widget .codicon-find-selection:hover {
+			background-color: rgba(90, 93, 94, 0.31) !important;
+		}
+	
+.monaco-editor .find-widget .monaco-inputbox.synthetic-focus { outline-color: #007fd4; }
+.monaco-editor .folded-background { background-color: rgba(38, 79, 120, 0.3); }
+
+		.monaco-editor .cldr.codicon.codicon-folding-expanded,
+		.monaco-editor .cldr.codicon.codicon-folding-collapsed,
+		.monaco-editor .cldr.codicon.codicon-folding-manual-expanded,
+		.monaco-editor .cldr.codicon.codicon-folding-manual-collapsed {
+			color: #c5c5c5 !important;
+		}
+		
+.codicon.codicon-symbol-array { color: #cccccc; }
+.codicon.codicon-symbol-boolean { color: #cccccc; }
+.codicon.codicon-symbol-class { color: #ee9d28; }
+.codicon.codicon-symbol-method { color: #b180d7; }
+.codicon.codicon-symbol-color { color: #cccccc; }
+.codicon.codicon-symbol-constant { color: #cccccc; }
+.codicon.codicon-symbol-constructor { color: #b180d7; }
+
+			.codicon.codicon-symbol-value,.codicon.codicon-symbol-enum { color: #ee9d28; }
+.codicon.codicon-symbol-enum-member { color: #75beff; }
+.codicon.codicon-symbol-event { color: #ee9d28; }
+.codicon.codicon-symbol-field { color: #75beff; }
+.codicon.codicon-symbol-file { color: #cccccc; }
+.codicon.codicon-symbol-folder { color: #cccccc; }
+.codicon.codicon-symbol-function { color: #b180d7; }
+.codicon.codicon-symbol-interface { color: #75beff; }
+.codicon.codicon-symbol-key { color: #cccccc; }
+.codicon.codicon-symbol-keyword { color: #cccccc; }
+.codicon.codicon-symbol-module { color: #cccccc; }
+.codicon.codicon-symbol-namespace { color: #cccccc; }
+.codicon.codicon-symbol-null { color: #cccccc; }
+.codicon.codicon-symbol-number { color: #cccccc; }
+.codicon.codicon-symbol-object { color: #cccccc; }
+.codicon.codicon-symbol-operator { color: #cccccc; }
+.codicon.codicon-symbol-package { color: #cccccc; }
+.codicon.codicon-symbol-property { color: #cccccc; }
+.codicon.codicon-symbol-reference { color: #cccccc; }
+.codicon.codicon-symbol-snippet { color: #cccccc; }
+.codicon.codicon-symbol-string { color: #cccccc; }
+.codicon.codicon-symbol-struct { color: #cccccc; }
+.codicon.codicon-symbol-text { color: #cccccc; }
+.codicon.codicon-symbol-type-parameter { color: #cccccc; }
+.codicon.codicon-symbol-unit { color: #cccccc; }
+.codicon.codicon-symbol-variable { color: #75beff; }
+.monaco-editor .ghost-text-decoration { color: rgba(255, 255, 255, 0.34) !important; }
+.monaco-editor .ghost-text-decoration-preview { color: rgba(255, 255, 255, 0.34) !important; }
+.monaco-editor .suggest-preview-text .ghost-text { color: rgba(255, 255, 255, 0.34) !important; }
+.monaco-editor.vs .valueSetReplacement { outline: solid 2px #888888; }
+.monaco-editor .linked-editing-decoration { background: rgba(255, 0, 0, 0.3); border-left-color: rgba(255, 0, 0, 0.3); }
+.monaco-editor .detected-link-active { color: #4e94ce !important; }
+.monaco-editor .parameter-hints-widget { border: 1px solid #454545; }
+.monaco-editor .parameter-hints-widget.multiple .body { border-left: 1px solid rgba(69, 69, 69, 0.5); }
+.monaco-editor .parameter-hints-widget .signature.has-docs { border-bottom: 1px solid rgba(69, 69, 69, 0.5); }
+.monaco-editor .parameter-hints-widget { background-color: #252526; }
+.monaco-editor .parameter-hints-widget a { color: #3794ff; }
+.monaco-editor .parameter-hints-widget a:hover { color: #3794ff; }
+.monaco-editor .parameter-hints-widget { color: #cccccc; }
+.monaco-editor .parameter-hints-widget code { background-color: rgba(10, 10, 10, 0.4); }
+.monaco-editor .parameter-hints-widget .parameter.active { color: #2aaaff}
+.monaco-link { color: #3794ff; }
+.monaco-link:hover { color: #3794ff; }
+.monaco-editor .focused .selectionHighlight { background-color: rgba(173, 214, 255, 0.15); }
+.monaco-editor .selectionHighlight { background-color: rgba(173, 214, 255, 0.07); }
+.monaco-editor .wordHighlight { background-color: rgba(87, 87, 87, 0.72); }
+.monaco-editor .wordHighlightStrong { background-color: rgba(0, 73, 114, 0.72); }
+.monaco-editor .accessibilityHelpWidget { background-color: #252526; }
+.monaco-editor .accessibilityHelpWidget { color: #cccccc; }
+.monaco-editor .accessibilityHelpWidget { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.36); }
+.monaco-editor .tokens-inspect-widget { border: 1px solid #454545; }
+.monaco-editor .tokens-inspect-widget .tokens-inspect-separator { background-color: #454545; }
+.monaco-editor .tokens-inspect-widget { background-color: #252526; }
+.monaco-editor .tokens-inspect-widget { color: #cccccc; }
+.monaco-editor { --vscode-foreground: #cccccc;
+--vscode-disabledForeground: rgba(204, 204, 204, 0.5);
+--vscode-errorForeground: #f48771;
+--vscode-descriptionForeground: rgba(204, 204, 204, 0.7);
+--vscode-icon-foreground: #c5c5c5;
+--vscode-focusBorder: #007fd4;
+--vscode-textSeparator-foreground: rgba(255, 255, 255, 0.18);
+--vscode-textLink-foreground: #3794ff;
+--vscode-textLink-activeForeground: #3794ff;
+--vscode-textPreformat-foreground: #d7ba7d;
+--vscode-textBlockQuote-background: rgba(127, 127, 127, 0.1);
+--vscode-textBlockQuote-border: rgba(0, 122, 204, 0.5);
+--vscode-textCodeBlock-background: rgba(10, 10, 10, 0.4);
+--vscode-widget-shadow: rgba(0, 0, 0, 0.36);
+--vscode-input-background: #3c3c3c;
+--vscode-input-foreground: #cccccc;
+--vscode-inputOption-activeBorder: rgba(0, 122, 204, 0);
+--vscode-inputOption-hoverBackground: rgba(90, 93, 94, 0.5);
+--vscode-inputOption-activeBackground: rgba(0, 127, 212, 0.4);
+--vscode-inputOption-activeForeground: #ffffff;
+--vscode-input-placeholderForeground: rgba(204, 204, 204, 0.5);
+--vscode-inputValidation-infoBackground: #063b49;
+--vscode-inputValidation-infoBorder: #007acc;
+--vscode-inputValidation-warningBackground: #352a05;
+--vscode-inputValidation-warningBorder: #b89500;
+--vscode-inputValidation-errorBackground: #5a1d1d;
+--vscode-inputValidation-errorBorder: #be1100;
+--vscode-dropdown-background: #3c3c3c;
+--vscode-dropdown-foreground: #f0f0f0;
+--vscode-dropdown-border: #3c3c3c;
+--vscode-checkbox-background: #3c3c3c;
+--vscode-checkbox-foreground: #f0f0f0;
+--vscode-checkbox-border: #3c3c3c;
+--vscode-button-foreground: #ffffff;
+--vscode-button-separator: rgba(255, 255, 255, 0.4);
+--vscode-button-background: #0e639c;
+--vscode-button-hoverBackground: #1177bb;
+--vscode-button-secondaryForeground: #ffffff;
+--vscode-button-secondaryBackground: #3a3d41;
+--vscode-button-secondaryHoverBackground: #45494e;
+--vscode-badge-background: #4d4d4d;
+--vscode-badge-foreground: #ffffff;
+--vscode-scrollbar-shadow: #000000;
+--vscode-scrollbarSlider-background: rgba(121, 121, 121, 0.4);
+--vscode-scrollbarSlider-hoverBackground: rgba(100, 100, 100, 0.7);
+--vscode-scrollbarSlider-activeBackground: rgba(191, 191, 191, 0.4);
+--vscode-progressBar-background: #0e70c0;
+--vscode-editorError-foreground: #f14c4c;
+--vscode-editorWarning-foreground: #cca700;
+--vscode-editorInfo-foreground: #3794ff;
+--vscode-editorHint-foreground: rgba(238, 238, 238, 0.7);
+--vscode-sash-hoverBorder: #007fd4;
+--vscode-editor-background: #111217;
+--vscode-editor-foreground: #d4d4d4;
+--vscode-editorStickyScroll-background: #111217;
+--vscode-editorStickyScrollHover-background: #2a2d2e;
+--vscode-editorWidget-background: #252526;
+--vscode-editorWidget-foreground: #cccccc;
+--vscode-editorWidget-border: #454545;
+--vscode-quickInput-background: #252526;
+--vscode-quickInput-foreground: #cccccc;
+--vscode-quickInputTitle-background: rgba(255, 255, 255, 0.1);
+--vscode-pickerGroup-foreground: #3794ff;
+--vscode-pickerGroup-border: #3f3f46;
+--vscode-keybindingLabel-background: rgba(128, 128, 128, 0.17);
+--vscode-keybindingLabel-foreground: #cccccc;
+--vscode-keybindingLabel-border: rgba(51, 51, 51, 0.6);
+--vscode-keybindingLabel-bottomBorder: rgba(68, 68, 68, 0.6);
+--vscode-editor-selectionBackground: #264f78;
+--vscode-editor-inactiveSelectionBackground: #3a3d41;
+--vscode-editor-selectionHighlightBackground: rgba(173, 214, 255, 0.15);
+--vscode-editor-findMatchBackground: #515c6a;
+--vscode-editor-findMatchHighlightBackground: rgba(234, 92, 0, 0.33);
+--vscode-editor-findRangeHighlightBackground: rgba(58, 61, 65, 0.4);
+--vscode-searchEditor-findMatchBackground: rgba(234, 92, 0, 0.22);
+--vscode-editor-hoverHighlightBackground: rgba(38, 79, 120, 0.25);
+--vscode-editorHoverWidget-background: #252526;
+--vscode-editorHoverWidget-foreground: #cccccc;
+--vscode-editorHoverWidget-border: #454545;
+--vscode-editorHoverWidget-statusBarBackground: #2c2c2d;
+--vscode-editorLink-activeForeground: #4e94ce;
+--vscode-editorInlayHint-foreground: rgba(255, 255, 255, 0.8);
+--vscode-editorInlayHint-background: rgba(77, 77, 77, 0.6);
+--vscode-editorInlayHint-typeForeground: rgba(255, 255, 255, 0.8);
+--vscode-editorInlayHint-typeBackground: rgba(77, 77, 77, 0.6);
+--vscode-editorInlayHint-parameterForeground: rgba(255, 255, 255, 0.8);
+--vscode-editorInlayHint-parameterBackground: rgba(77, 77, 77, 0.6);
+--vscode-editorLightBulb-foreground: #ffcc00;
+--vscode-editorLightBulbAutoFix-foreground: #75beff;
+--vscode-diffEditor-insertedTextBackground: rgba(156, 204, 44, 0.2);
+--vscode-diffEditor-removedTextBackground: rgba(255, 0, 0, 0.4);
+--vscode-diffEditor-insertedLineBackground: rgba(155, 185, 85, 0.2);
+--vscode-diffEditor-removedLineBackground: rgba(255, 0, 0, 0.2);
+--vscode-diffEditor-diagonalFill: rgba(204, 204, 204, 0.2);
+--vscode-list-focusOutline: #007fd4;
+--vscode-list-activeSelectionBackground: #04395e;
+--vscode-list-activeSelectionForeground: #ffffff;
+--vscode-list-inactiveSelectionBackground: #37373d;
+--vscode-list-hoverBackground: #2a2d2e;
+--vscode-list-dropBackground: #062f4a;
+--vscode-list-highlightForeground: #2aaaff;
+--vscode-list-focusHighlightForeground: #2aaaff;
+--vscode-list-invalidItemForeground: #b89500;
+--vscode-list-errorForeground: #f88070;
+--vscode-list-warningForeground: #cca700;
+--vscode-listFilterWidget-background: #252526;
+--vscode-listFilterWidget-outline: rgba(0, 0, 0, 0);
+--vscode-listFilterWidget-noMatchesOutline: #be1100;
+--vscode-listFilterWidget-shadow: rgba(0, 0, 0, 0.36);
+--vscode-list-filterMatchBackground: rgba(234, 92, 0, 0.33);
+--vscode-tree-indentGuidesStroke: #585858;
+--vscode-tree-tableColumnsBorder: rgba(204, 204, 204, 0.13);
+--vscode-tree-tableOddRowsBackground: rgba(204, 204, 204, 0.04);
+--vscode-list-deemphasizedForeground: #8c8c8c;
+--vscode-quickInputList-focusForeground: #ffffff;
+--vscode-quickInputList-focusBackground: #04395e;
+--vscode-menu-foreground: #f0f0f0;
+--vscode-menu-background: #3c3c3c;
+--vscode-menu-selectionForeground: #ffffff;
+--vscode-menu-selectionBackground: #04395e;
+--vscode-menu-separatorBackground: #606060;
+--vscode-toolbar-hoverBackground: rgba(90, 93, 94, 0.31);
+--vscode-toolbar-activeBackground: rgba(99, 102, 103, 0.31);
+--vscode-editor-snippetTabstopHighlightBackground: rgba(124, 124, 124, 0.3);
+--vscode-editor-snippetFinalTabstopHighlightBorder: #525252;
+--vscode-breadcrumb-foreground: rgba(204, 204, 204, 0.8);
+--vscode-breadcrumb-background: #111217;
+--vscode-breadcrumb-focusForeground: #e0e0e0;
+--vscode-breadcrumb-activeSelectionForeground: #e0e0e0;
+--vscode-breadcrumbPicker-background: #252526;
+--vscode-merge-currentHeaderBackground: rgba(64, 200, 174, 0.5);
+--vscode-merge-currentContentBackground: rgba(64, 200, 174, 0.2);
+--vscode-merge-incomingHeaderBackground: rgba(64, 166, 255, 0.5);
+--vscode-merge-incomingContentBackground: rgba(64, 166, 255, 0.2);
+--vscode-merge-commonHeaderBackground: rgba(96, 96, 96, 0.4);
+--vscode-merge-commonContentBackground: rgba(96, 96, 96, 0.16);
+--vscode-editorOverviewRuler-currentContentForeground: rgba(64, 200, 174, 0.5);
+--vscode-editorOverviewRuler-incomingContentForeground: rgba(64, 166, 255, 0.5);
+--vscode-editorOverviewRuler-commonContentForeground: rgba(96, 96, 96, 0.4);
+--vscode-editorOverviewRuler-findMatchForeground: rgba(209, 134, 22, 0.49);
+--vscode-editorOverviewRuler-selectionHighlightForeground: rgba(160, 160, 160, 0.8);
+--vscode-minimap-findMatchHighlight: #d18616;
+--vscode-minimap-selectionOccurrenceHighlight: #676767;
+--vscode-minimap-selectionHighlight: #264f78;
+--vscode-minimap-errorHighlight: rgba(255, 18, 18, 0.7);
+--vscode-minimap-warningHighlight: #cca700;
+--vscode-minimap-background: #22252b;
+--vscode-minimap-foregroundOpacity: #000000;
+--vscode-minimapSlider-background: rgba(121, 121, 121, 0.2);
+--vscode-minimapSlider-hoverBackground: rgba(100, 100, 100, 0.35);
+--vscode-minimapSlider-activeBackground: rgba(191, 191, 191, 0.2);
+--vscode-problemsErrorIcon-foreground: #f14c4c;
+--vscode-problemsWarningIcon-foreground: #cca700;
+--vscode-problemsInfoIcon-foreground: #3794ff;
+--vscode-charts-foreground: #cccccc;
+--vscode-charts-lines: rgba(204, 204, 204, 0.5);
+--vscode-charts-red: #f14c4c;
+--vscode-charts-blue: #3794ff;
+--vscode-charts-yellow: #cca700;
+--vscode-charts-orange: #d18616;
+--vscode-charts-green: #89d185;
+--vscode-charts-purple: #b180d7;
+--vscode-editor-lineHighlightBorder: #282828;
+--vscode-editor-rangeHighlightBackground: rgba(255, 255, 255, 0.04);
+--vscode-editor-symbolHighlightBackground: rgba(234, 92, 0, 0.33);
+--vscode-editorCursor-foreground: #aeafad;
+--vscode-editorWhitespace-foreground: rgba(227, 228, 226, 0.16);
+--vscode-editorIndentGuide-background: #404040;
+--vscode-editorIndentGuide-activeBackground: #707070;
+--vscode-editorLineNumber-foreground: #858585;
+--vscode-editorActiveLineNumber-foreground: #c6c6c6;
+--vscode-editorLineNumber-activeForeground: #c6c6c6;
+--vscode-editorRuler-foreground: #5a5a5a;
+--vscode-editorCodeLens-foreground: #999999;
+--vscode-editorBracketMatch-background: rgba(0, 100, 0, 0.1);
+--vscode-editorBracketMatch-border: #888888;
+--vscode-editorOverviewRuler-border: rgba(127, 127, 127, 0.3);
+--vscode-editorGutter-background: #111217;
+--vscode-editorUnnecessaryCode-opacity: rgba(0, 0, 0, 0.67);
+--vscode-editorGhostText-foreground: rgba(255, 255, 255, 0.34);
+--vscode-editorOverviewRuler-rangeHighlightForeground: rgba(0, 122, 204, 0.6);
+--vscode-editorOverviewRuler-errorForeground: rgba(255, 18, 18, 0.7);
+--vscode-editorOverviewRuler-warningForeground: #cca700;
+--vscode-editorOverviewRuler-infoForeground: #3794ff;
+--vscode-editorBracketHighlight-foreground1: #ffd700;
+--vscode-editorBracketHighlight-foreground2: #da70d6;
+--vscode-editorBracketHighlight-foreground3: #179fff;
+--vscode-editorBracketHighlight-foreground4: rgba(0, 0, 0, 0);
+--vscode-editorBracketHighlight-foreground5: rgba(0, 0, 0, 0);
+--vscode-editorBracketHighlight-foreground6: rgba(0, 0, 0, 0);
+--vscode-editorBracketHighlight-unexpectedBracket-foreground: rgba(255, 18, 18, 0.8);
+--vscode-editorBracketPairGuide-background1: rgba(0, 0, 0, 0);
+--vscode-editorBracketPairGuide-background2: rgba(0, 0, 0, 0);
+--vscode-editorBracketPairGuide-background3: rgba(0, 0, 0, 0);
+--vscode-editorBracketPairGuide-background4: rgba(0, 0, 0, 0);
+--vscode-editorBracketPairGuide-background5: rgba(0, 0, 0, 0);
+--vscode-editorBracketPairGuide-background6: rgba(0, 0, 0, 0);
+--vscode-editorBracketPairGuide-activeBackground1: rgba(0, 0, 0, 0);
+--vscode-editorBracketPairGuide-activeBackground2: rgba(0, 0, 0, 0);
+--vscode-editorBracketPairGuide-activeBackground3: rgba(0, 0, 0, 0);
+--vscode-editorBracketPairGuide-activeBackground4: rgba(0, 0, 0, 0);
+--vscode-editorBracketPairGuide-activeBackground5: rgba(0, 0, 0, 0);
+--vscode-editorBracketPairGuide-activeBackground6: rgba(0, 0, 0, 0);
+--vscode-editorUnicodeHighlight-border: #bd9b03;
+--vscode-editorUnicodeHighlight-background: rgba(189, 155, 3, 0.15);
+--vscode-editorOverviewRuler-bracketMatchForeground: #a0a0a0;
+--vscode-peekViewTitle-background: rgba(55, 148, 255, 0.1);
+--vscode-peekViewTitleLabel-foreground: #ffffff;
+--vscode-peekViewTitleDescription-foreground: rgba(204, 204, 204, 0.7);
+--vscode-peekView-border: #3794ff;
+--vscode-peekViewResult-background: #252526;
+--vscode-peekViewResult-lineForeground: #bbbbbb;
+--vscode-peekViewResult-fileForeground: #ffffff;
+--vscode-peekViewResult-selectionBackground: rgba(51, 153, 255, 0.2);
+--vscode-peekViewResult-selectionForeground: #ffffff;
+--vscode-peekViewEditor-background: #001f33;
+--vscode-peekViewEditorGutter-background: #001f33;
+--vscode-peekViewResult-matchHighlightBackground: rgba(234, 92, 0, 0.3);
+--vscode-peekViewEditor-matchHighlightBackground: rgba(255, 143, 0, 0.6);
+--vscode-editorMarkerNavigationError-background: #f14c4c;
+--vscode-editorMarkerNavigationError-headerBackground: rgba(241, 76, 76, 0.1);
+--vscode-editorMarkerNavigationWarning-background: #cca700;
+--vscode-editorMarkerNavigationWarning-headerBackground: rgba(204, 167, 0, 0.1);
+--vscode-editorMarkerNavigationInfo-background: #3794ff;
+--vscode-editorMarkerNavigationInfo-headerBackground: rgba(55, 148, 255, 0.1);
+--vscode-editorMarkerNavigation-background: #111217;
+--vscode-editor-foldBackground: rgba(38, 79, 120, 0.3);
+--vscode-editorGutter-foldingControlForeground: #c5c5c5;
+--vscode-symbolIcon-arrayForeground: #cccccc;
+--vscode-symbolIcon-booleanForeground: #cccccc;
+--vscode-symbolIcon-classForeground: #ee9d28;
+--vscode-symbolIcon-colorForeground: #cccccc;
+--vscode-symbolIcon-constantForeground: #cccccc;
+--vscode-symbolIcon-constructorForeground: #b180d7;
+--vscode-symbolIcon-enumeratorForeground: #ee9d28;
+--vscode-symbolIcon-enumeratorMemberForeground: #75beff;
+--vscode-symbolIcon-eventForeground: #ee9d28;
+--vscode-symbolIcon-fieldForeground: #75beff;
+--vscode-symbolIcon-fileForeground: #cccccc;
+--vscode-symbolIcon-folderForeground: #cccccc;
+--vscode-symbolIcon-functionForeground: #b180d7;
+--vscode-symbolIcon-interfaceForeground: #75beff;
+--vscode-symbolIcon-keyForeground: #cccccc;
+--vscode-symbolIcon-keywordForeground: #cccccc;
+--vscode-symbolIcon-methodForeground: #b180d7;
+--vscode-symbolIcon-moduleForeground: #cccccc;
+--vscode-symbolIcon-namespaceForeground: #cccccc;
+--vscode-symbolIcon-nullForeground: #cccccc;
+--vscode-symbolIcon-numberForeground: #cccccc;
+--vscode-symbolIcon-objectForeground: #cccccc;
+--vscode-symbolIcon-operatorForeground: #cccccc;
+--vscode-symbolIcon-packageForeground: #cccccc;
+--vscode-symbolIcon-propertyForeground: #cccccc;
+--vscode-symbolIcon-referenceForeground: #cccccc;
+--vscode-symbolIcon-snippetForeground: #cccccc;
+--vscode-symbolIcon-stringForeground: #cccccc;
+--vscode-symbolIcon-structForeground: #cccccc;
+--vscode-symbolIcon-textForeground: #cccccc;
+--vscode-symbolIcon-typeParameterForeground: #cccccc;
+--vscode-symbolIcon-unitForeground: #cccccc;
+--vscode-symbolIcon-variableForeground: #75beff;
+--vscode-editorSuggestWidget-background: #252526;
+--vscode-editorSuggestWidget-border: #454545;
+--vscode-editorSuggestWidget-foreground: #d4d4d4;
+--vscode-editorSuggestWidget-selectedForeground: #ffffff;
+--vscode-editorSuggestWidget-selectedBackground: #04395e;
+--vscode-editorSuggestWidget-highlightForeground: #2aaaff;
+--vscode-editorSuggestWidget-focusHighlightForeground: #2aaaff;
+--vscode-editorSuggestWidgetStatus-foreground: rgba(212, 212, 212, 0.5);
+--vscode-editor-linkedEditingBackground: rgba(255, 0, 0, 0.3);
+--vscode-editorHoverWidget-highlightForeground: #2aaaff;
+--vscode-editor-wordHighlightBackground: rgba(87, 87, 87, 0.72);
+--vscode-editor-wordHighlightStrongBackground: rgba(0, 73, 114, 0.72);
+--vscode-editorOverviewRuler-wordHighlightForeground: rgba(160, 160, 160, 0.8);
+--vscode-editorOverviewRuler-wordHighlightStrongForeground: rgba(192, 160, 192, 0.8); }
+
+.mtk1 { color: #d4d4d4; }
+.mtk2 { color: #111217; }
+.mtk3 { color: #cc6666; }
+.mtk4 { color: #9cdcfe; }
+.mtk5 { color: #ce9178; }
+.mtk6 { color: #b5cea8; }
+.mtk7 { color: #608b4e; }
+.mtk8 { color: #569cd6; }
+.mtk9 { color: #dcdcdc; }
+.mtk10 { color: #808080; }
+.mtk11 { color: #f44747; }
+.mtk12 { color: #c586c0; }
+.mtk13 { color: #a79873; }
+.mtk14 { color: #dd6a6f; }
+.mtk15 { color: #5bb498; }
+.mtk16 { color: #ff9830; }
+.mtk17 { color: #909090; }
+.mtk18 { color: #778899; }
+.mtk19 { color: #b877d9; }
+.mtk20 { color: #ff00ff; }
+.mtk21 { color: #b46695; }
+.mtk22 { color: #ff0000; }
+.mtk23 { color: #73bf69; }
+.mtk24 { color: #4f76ac; }
+.mtk25 { color: #3dc9b0; }
+.mtk26 { color: #74b0df; }
+.mtk27 { color: #4864aa; }
+.mtki { font-style: italic; }
+.mtkb { font-weight: bold; }
+.mtku { text-decoration: underline; text-underline-position: under; }
+.mtks { text-decoration: line-through; }
+.mtks.mtku { text-decoration: underline line-through; text-underline-position: under; }</style><style type="text/css" id="react-draggable-style-el">.react-draggable-transparent-selection *::-moz-selection {all: inherit;}
+.react-draggable-transparent-selection *::selection {all: inherit;}
+</style></head>
+
+  <body class="theme-dark app-grafana page-dashboard">
+    <style>
+      .preloader {
+        height: 100%;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 32px;
+      }
+
+      .preloader__enter {
+        opacity: 0;
+        animation-name: preloader-fade-in;
+        animation-iteration-count: 1;
+        animation-duration: 0.9s;
+        animation-delay: 0.5s;
+        animation-fill-mode: forwards;
+      }
+
+      .preloader__bounce {
+        text-align: center;
+        animation-name: preloader-bounce;
+        animation-duration: 0.9s;
+        animation-iteration-count: infinite;
+      }
+
+      .preloader__logo {
+        display: inline-block;
+        animation-name: preloader-squash;
+        animation-duration: 0.9s;
+        animation-iteration-count: infinite;
+        width: 60px;
+        height: 60px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-image: url('public/img/grafana_icon.svg');
+      }
+
+      .preloader__text {
+        margin-top: 16px;
+        font-weight: 500;
+        font-size: 14px;
+        font-family: Sans-serif;
+        opacity: 0;
+        animation-name: preloader-fade-in;
+        animation-duration: 0.9s;
+        animation-delay: 0.5s;
+        animation-fill-mode: forwards;
+      }
+
+      .theme-light .preloader__text {
+        color: #52545c;
+      }
+
+      .theme-dark .preloader__text {
+        color: #d8d9da;
+      }
+
+      @keyframes preloader-fade-in {
+        0% {
+          opacity: 0;
+           
+          animation-timing-function: cubic-bezier(0, 0, 0.5, 1);
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes preloader-bounce {
+        from,
+        to {
+          transform: translateY(0px);
+          animation-timing-function: cubic-bezier(0.3, 0, 0.1, 1);
+        }
+        50% {
+          transform: translateY(-50px);
+          animation-timing-function: cubic-bezier(0.9, 0, 0.7, 1);
+        }
+      }
+
+      @keyframes preloader-squash {
+        0% {
+          transform: scaleX(1.3) scaleY(0.8);
+          animation-timing-function: cubic-bezier(0.3, 0, 0.1, 1);
+        }
+        15% {
+          transform: scaleX(0.75) scaleY(1.25);
+          animation-timing-function: cubic-bezier(0, 0, 0.7, 0.75);
+        }
+        55% {
+          transform: scaleX(1.05) scaleY(0.95);
+          animation-timing-function: cubic-bezier(0.9, 0, 1, 1);
+        }
+        95% {
+          transform: scaleX(0.75) scaleY(1.25);
+          animation-timing-function: cubic-bezier(0, 0, 0, 1);
+        }
+        100% {
+          transform: scaleX(1.3) scaleY(0.8);
+          animation-timing-function: cubic-bezier(0, 0, 0.7, 1);
+        }
+      }
+
+       
+      .preloader__text--fail {
+        display: none;
+      }
+
+       
+      .preloader--done .preloader__bounce,
+      .preloader--done .preloader__logo {
+        animation-name: none;
+        display: none;
+      }
+
+      .preloader--done .preloader__logo,
+      .preloader--done .preloader__text {
+        display: none;
+        color: #ff5705 !important;
+        font-size: 15px;
+      }
+
+      .theme-light .preloader--done .preloader__text {
+        color: #52545c !important;
+      }
+
+      .preloader--done .preloader__text--fail {
+        display: block;
+      }
+
+      .preloader--done .preloader__text--fail a {
+        color: white;
+      }
+
+      .theme-light .preloader--done .preloader__text--fail a {
+        color: rgb(31, 98, 224);
+      }
+
+      .preloader--done code {
+        white-space: nowrap;
+        padding: 2px 5px;
+        margin: 0px 2px;
+        font-size: 0.8rem;
+        background-color: rgb(24, 27, 31);
+        color: rgb(204, 204, 220);
+        border: 1px solid rgba(204, 204, 220, 0.2);
+        border-radius: 4px;
+      }
+
+      .preloader__error-list li {
+        margin-bottom: 8px;
+      }
+
+      [ng\:cloak],
+      [ng-cloak],
+      .ng-cloak {
+        display: none !important;
+      }
+    </style>
+
+    
+
+    <div id="reactRoot"><div class="grafana-app"><div class="main-view"><a class="css-oddt30-button" href="#pageContent" tabindex="0"><span class="css-1riaxdn">Skip to main content</span></a><header class="css-1bgjk0t"><div class="css-xrui8j"><div class="css-zyi2ws"><button class="css-r835kn-toolbar-button" aria-label="Open menu" type="button" id="mega-menu-toggle" tabindex="0"><div class="css-1ilyui9"><div class="css-1ul4bwd"><img class="css-1m12llp" src="public/build/static/img/grafana_icon.1e0deb6b.svg" alt="Grafana"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14" class="css-1d3xu67-Icon"><path d="M17,9.17a1,1,0,0,0-1.41,0L12,12.71,8.46,9.17a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42l4.24,4.24a1,1,0,0,0,1.42,0L17,10.59A1,1,0,0,0,17,9.17Z"></path></svg></div></div></button><nav aria-label="Breadcrumbs" class="css-gmphh4"><ol class="css-1spogwh"><li class="css-1a3gl4k" style="flex-grow: 10;"><a data-testid="data-testid Home breadcrumb" class="css-egdp95" title="Home" href="/">Home</a><div class="css-1sts4md" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" class="css-1d3xu67-Icon"><path d="M14.83,11.29,10.59,7.05a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L12.71,12,9.17,15.54a1,1,0,0,0,0,1.41,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l4.24-4.24A1,1,0,0,0,14.83,11.29Z"></path></svg></div></li><li class="css-1a3gl4k" style="flex-grow: 4;"><a data-testid="data-testid Dashboards breadcrumb" class="css-egdp95" title="Dashboards" href="/dashboards">Dashboards</a><div class="css-1sts4md" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" class="css-1d3xu67-Icon"><path d="M14.83,11.29,10.59,7.05a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L12.71,12,9.17,15.54a1,1,0,0,0,0,1.41,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l4.24-4.24A1,1,0,0,0,14.83,11.29Z"></path></svg></div></li><li class="css-1a3gl4k" style="flex-grow: 10;"><a data-testid="data-testid AI-Enhanced Metrics Dashboard breadcrumb" class="css-egdp95" title="AI-Enhanced Metrics Dashboard" href="/d/a071e0bb-a928-4bab-b248-f8ca430b28e8/ai-enhanced-metrics-dashboard?orgId=1&amp;from=now-5m&amp;to=now&amp;timezone=browser">AI-Enhanced Metrics Dashboard</a><div class="css-1sts4md" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" class="css-1d3xu67-Icon"><path d="M14.83,11.29,10.59,7.05a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L12.71,12,9.17,15.54a1,1,0,0,0,0,1.41,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l4.24-4.24A1,1,0,0,0,14.83,11.29Z"></path></svg></div></li><li class="css-1a3gl4k" style="flex-grow: 10;"><span data-testid="data-testid View panel breadcrumb" class="css-1t7rg6u" aria-current="page" title="View panel">View panel</span></li></ol></nav></div><div class="css-12f01wf"><div class="css-1pibjx9-input-wrapper" data-testid="data-testid Command palette trigger"><div class="css-1kr5nyd-input-inputWrapper"><div class="css-10u460-input-prefix"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" class="css-1d3xu67-Icon"><path d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Z"></path></svg></div><button class="css-1lj8xfd-input-input">Search...</button><div class="css-4veg1o-input-suffix"><span class="css-scx4gy">⌘+k</span></div></div></div><button class="css-dgayiz-toolbar-button" aria-label="New" aria-expanded="false" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" class="css-1d3xu67-Icon"><path d="M19,11H13V5a1,1,0,0,0-2,0v6H5a1,1,0,0,0,0,2h6v6a1,1,0,0,0,2,0V13h6a1,1,0,0,0,0-2Z"></path></svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" class="css-1d3xu67-Icon"><path d="M17,9.17a1,1,0,0,0-1.41,0L12,12.71,8.46,9.17a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42l4.24,4.24a1,1,0,0,0,1.42,0L17,10.59A1,1,0,0,0,17,9.17Z"></path></svg></button><div class="css-1ju7n6r"></div><button class="css-dgayiz-toolbar-button" aria-label="Help" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" class="css-1d3xu67-Icon"><path d="M11.29,15.29a1.58,1.58,0,0,0-.12.15.76.76,0,0,0-.09.18.64.64,0,0,0-.06.18,1.36,1.36,0,0,0,0,.2.84.84,0,0,0,.08.38.9.9,0,0,0,.54.54.94.94,0,0,0,.76,0,.9.9,0,0,0,.54-.54A1,1,0,0,0,13,16a1,1,0,0,0-.29-.71A1,1,0,0,0,11.29,15.29ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8,8,0,0,1,12,20ZM12,7A3,3,0,0,0,9.4,8.5a1,1,0,1,0,1.73,1A1,1,0,0,1,12,9a1,1,0,0,1,0,2,1,1,0,0,0-1,1v1a1,1,0,0,0,2,0v-.18A3,3,0,0,0,12,7Z"></path></svg></button><div class="css-1ju7n6r"></div><button class="css-g4d2n6-toolbar-button" aria-label="Profile" type="button"><img class="css-1xlzgj9" src="/avatar/46d229b033af06a191ff2267bca9ae56" alt="User avatar"></button></div></div><div data-testid="data-testid Nav toolbar" class="css-qn8k9s"><div class="css-e85p0h"><div class="css-1mon5kp"><div class="css-ztq7l5"><div class="css-exd1zr" style="order: 0; visibility: visible;"></div><div class="css-exd1zr" style="order: 1; visibility: visible;"><div class="css-1ju7n6r"></div></div><div class="css-exd1zr" style="order: 2; visibility: visible;"><button class="css-wvbuwl-button" type="button" data-testid="data-testid Back to dashboard button" aria-disabled="false"><svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14" class="css-1d3xu67-Icon"><path d="M17,11H9.41l3.3-3.29a1,1,0,1,0-1.42-1.42l-5,5a1,1,0,0,0-.21.33,1,1,0,0,0,0,.76,1,1,0,0,0,.21.33l5,5a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42L9.41,13H17a1,1,0,0,0,0-2Z"></path></svg><span class="css-1riaxdn">Back to dashboard</span></button></div><div class="css-exd1zr" style="order: 3; visibility: visible;"><div class="css-1ju7n6r"></div></div><div class="css-exd1zr" style="order: 4; visibility: visible;"><div class="button-group css-yiuwe0" data-testid="data-testid new export button"><button class="css-wvbuwl-button" type="button" data-testid="data-testid new export button arrow menu" tabindex="0"><span class="css-1riaxdn">Export&nbsp;<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14" class="css-1d3xu67-Icon"><path d="M17,9.17a1,1,0,0,0-1.41,0L12,12.71,8.46,9.17a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42l4.24,4.24a1,1,0,0,0,1.42,0L17,10.59A1,1,0,0,0,17,9.17Z"></path></svg></span></button></div></div><div class="css-exd1zr" style="order: 5; visibility: visible;"><div class="button-group css-z5vjmk" data-testid="data-testid new share button"><button class="css-1cdcbw6-button" type="button" data-testid="data-testid new share link-button" tabindex="0"><span class="css-1riaxdn">Share</span></button><button class="css-1cdcbw6-button" type="button" aria-label="Toggle share menu" data-testid="data-testid new share button arrow menu" aria-disabled="false"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="14" height="14" class="css-qm66x3-Icon"><path d="M17,9.17a1,1,0,0,0-1.41,0L12,12.71,8.46,9.17a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42l4.24,4.24a1,1,0,0,0,1.42,0L17,10.59A1,1,0,0,0,17,9.17Z"></path></svg></button></div></div></div></div></div></div></header><div class="css-1bx2jvj-page-content"><div class="css-1xh1fv2-page-panes"><div class="css-3an9p3"></div><main class="css-1d1v5u1-page-container" id="pageContent"><div class="css-1bdu9tb-app-notifications-list"><div class="css-al7pwz"></div></div><div class="css-15uwgyz"><div class="css-ccdqkr-page-wrapper"><div class="css-lbn3k-canvas-wrapper-old"><div class="css-7g0550"><div data-testid="data-testid dashboard controls" class="css-12rf1df"><div class="css-9gcq8r"><div class="css-eod67v"></div></div><div class="css-khbk51"><div class="button-group css-1duxnhv"><button class="css-1q5vufj-toolbar-button" aria-label="Move time range backwards" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" class="css-1d3xu67-Icon"><path d="M11.29,12l3.54-3.54a1,1,0,0,0,0-1.41,1,1,0,0,0-1.42,0L9.17,11.29a1,1,0,0,0,0,1.42L13.41,17a1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41Z"></path></svg></button><button class="css-wjb99e-toolbar-button" aria-label="Time range selected: Last 5 minutes" aria-expanded="false" type="button" data-testid="data-testid TimePicker Open Button" aria-controls="TimePickerContent" tabindex="0"><svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" class="css-1d3xu67-Icon"><path d="M12,6a.99974.99974,0,0,0-1,1v4H9a1,1,0,0,0,0,2h3a.99974.99974,0,0,0,1-1V7A.99974.99974,0,0,0,12,6Zm0-4A10,10,0,1,0,22,12,10.01146,10.01146,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.00917,8.00917,0,0,1,12,20Z"></path></svg><div class="css-lwkzzz"><span class="css-kgyfkc" aria-live="polite" aria-atomic="true"><span>Last 5 minutes</span><span class="css-1ajpczl"></span></span></div><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" class="css-1d3xu67-Icon"><path d="M17,9.17a1,1,0,0,0-1.41,0L12,12.71,8.46,9.17a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42l4.24,4.24a1,1,0,0,0,1.42,0L17,10.59A1,1,0,0,0,17,9.17Z"></path></svg></button><button class="css-1q5vufj-toolbar-button" aria-label="Move time range forwards" type="button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" class="css-1d3xu67-Icon"><path d="M14.83,11.29,10.59,7.05a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L12.71,12,9.17,15.54a1,1,0,0,0,0,1.41,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l4.24-4.24A1,1,0,0,0,14.83,11.29Z"></path></svg></button><button class="css-wjb99e-toolbar-button" aria-label="Zoom out time range" type="button" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" class="css-1d3xu67-Icon"><path d="M21.71,20.29,18,16.61A9,9,0,1,0,16.61,18l3.68,3.68a1,1,0,0,0,1.42,0A1,1,0,0,0,21.71,20.29ZM11,18a7,7,0,1,1,7-7A7,7,0,0,1,11,18Zm4-8H7a1,1,0,0,0,0,2h8a1,1,0,0,0,0-2Z"></path></svg></button></div><div class="button-group css-yiuwe0 refresh-picker"><button class="css-wjb99e-toolbar-button" aria-label="Refresh" type="button" data-testid="data-testid RefreshPicker run button" style="width: 96px;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" class="css-1d3xu67-Icon"><path d="M19.91,15.51H15.38a1,1,0,0,0,0,2h2.4A8,8,0,0,1,4,12a1,1,0,0,0-2,0,10,10,0,0,0,16.88,7.23V21a1,1,0,0,0,2,0V16.5A1,1,0,0,0,19.91,15.51ZM12,2A10,10,0,0,0,5.12,4.77V3a1,1,0,0,0-2,0V7.5a1,1,0,0,0,1,1h4.5a1,1,0,0,0,0-2H6.22A8,8,0,0,1,20,12a1,1,0,0,0,2,0A10,10,0,0,0,12,2Z"></path></svg><div class="css-psgxg2">Refresh</div></button><div class="css-rmz4vk"><button class="css-d5u059-toolbar-button" aria-label="Auto refresh turned off. Choose refresh time interval" aria-expanded="false" type="button" data-testid="data-testid RefreshPicker interval button" tabindex="0"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" class="css-1d3xu67-Icon"><path d="M17,9.17a1,1,0,0,0-1.41,0L12,12.71,8.46,9.17a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42l4.24,4.24a1,1,0,0,0,1.42,0L17,10.59A1,1,0,0,0,17,9.17Z"></path></svg></button></div></div></div></div></div><div class="css-1wpe07w-body"><div class="css-1f8sh1y"><div class="css-b4kcmh" data-viz-panel-key="panel-3"><section class="css-kkenh-panel-container-panel-transparent-container" aria-labelledby="_rvt_" data-testid="data-testid Panel header AI Analysis - Service Health" tabindex="0" style="width: 1055px; height: 706px;"><div class="css-ol7v04-panel-loading-bar-container"></div><div class="css-19gv2o1-panel-header" data-testid="data-testid header-container" style="height: 32px; cursor: auto;"><div class="css-biljvk-panel-title"><h2 title="AI Analysis - Service Health" id="_rvt_" class="css-1fxx2s4">AI Analysis - Service Health</h2></div><div class="css-ab8yd1" data-testid="title-items-container"></div><div class="css-fie5ls-right-aligned-container"></div><button class="show-on-hover css-1uwvac7-toolbar-button-panel-menu" aria-label="Menu for panel AI Analysis - Service Health" type="button" title="Menu" data-testid="data-testid Panel menu AI Analysis - Service Health"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" class="css-1d3xu67-Icon"><path d="M12,7a2,2,0,1,0-2-2A2,2,0,0,0,12,7Zm0,10a2,2,0,1,0,2,2A2,2,0,0,0,12,17Zm0-7a2,2,0,1,0,2,2A2,2,0,0,0,12,10Z"></path></svg></button></div><div id=":rvs:" data-testid="data-testid panel content" class="css-kuoxoh-panel-content" style="padding: 8px;"><div role="table" class="css-1d40qib" style="width: 1037px; height: 656px;"><div class="css-rzpihd" style="position: relative; overflow: hidden; width: 100%; height: auto; min-height: 0px; max-height: 100%;"><div class="scrollbar-view" style="position: relative; overflow: scroll; margin-right: -15px; margin-bottom: -15px; max-height: calc(100% + 15px);"><div class="css-1ubebc8-tableContentWrapper"><div role="rowgroup" class="css-1y4sadw-row"><div class="css-1kfgvg7-thead" role="row" aria-label="table header" style="position: relative; width: 1037px;"><div class="css-1plr551" colspan="1" role="columnheader" style="position: absolute; top: 0px; left: 0px; width: 1037px; user-select: auto; justify-content: flex-start;"><button title="Toggle SortBy" class="css-usje0n" style="cursor: pointer;"><div>summary</div><svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 24 24" aria-hidden="true" width="18" height="18" class="css-1gb8mh2-Icon"><path d="M17.71,11.29l-5-5a1,1,0,0,0-.33-.21,1,1,0,0,0-.76,0,1,1,0,0,0-.33.21l-5,5a1,1,0,0,0,1.42,1.42L11,9.41V17a1,1,0,0,0,2,0V9.41l3.29,3.3a1,1,0,0,0,1.42,0A1,1,0,0,0,17.71,11.29Z"></path></svg></button><div draggable="false" role="separator" class="css-18v6oc3-resizeHandle" style="cursor: col-resize;"></div></div></div></div><div data-testid="data-testid table body"><div class="css-rzpihd" style="position: relative; overflow: hidden; width: 100%; height: auto; min-height: 0px; max-height: 100%;"><div class="scrollbar-view" style="position: relative; overflow: scroll; margin-right: -15px; margin-bottom: -15px; max-height: calc(100% + 15px);"><div style="position: relative; height: 586px; width: 100%; will-change: transform; direction: ltr;"><div style="height: 166.44px; width: 100%;"><div role="row" class="css-8fjwhi-row" style="position: absolute; width: 100%; left: 0px; top: 0px; height: 166.44px;"><div role="cell" class="css-htgroi-cellContainerOverflow" style="position: absolute; top: 0px; left: 0px; width: 1037px; word-break: break-word; min-width: 1037px; justify-content: flex-start; height: 165.44px; text-wrap: wrap; cursor: auto;">Summary of Metrics Findings:
+
+
+
+Device: /dev
+  
+
+Free Inodes: The average number of free inodes is 1,078,621, with no variation over the 60-minute window (min, max, avg, and last all equal). There is no trend observed.
+
+
+
+Device: /dev/shm
+  
+
+Free Inodes: The average number of free inodes is 1,078,799, with no variation over the 60-minute window (min, max, avg, and last all equal). There is no trend observed.
+
+
+
+Device: /dev/vda1
+  
+
+Free Inodes: The average number of free inodes is approximately 7,475,659, with a slight fluctuation between 7,475,560 and 7,475,762. The last recorded value is 7,475,581. There is a slight downward trend of -181 inodes over the 60-minute window.
+
+Practical Insight:
+- The root filesystem (`/dev`) and the shared memory (`/dev/shm`) show no change in the number of free inodes, indicating stable usage.
+- The main filesystem (`/dev/vda1`) shows a small but consistent decrease in the number of free inodes, suggesting a gradual consumption of inodes. Monitoring this trend is advisable to prevent potential inode exhaustion issues.</div></div></div></div></div><div class="track-horizontal" style="position: absolute; height: 6px; display: none;"><div class="thumb-horizontal" style="position: relative; display: block; height: 100%; width: 0px;"></div></div></div></div></div></div><div class="track-horizontal" style="position: absolute; height: 6px;"><div class="thumb-horizontal" style="position: relative; display: block; height: 100%; width: 0px;"></div></div><div class="track-vertical" style="position: absolute; width: 6px;"><div class="thumb-vertical" style="position: relative; display: block; width: 100%; height: 0px;"></div></div></div><div class="css-ur310l"><div class="css-146q31f" role="navigation"><ol><li class="css-1pj6ttl"><button class="css-k3bmw7-button" type="button" aria-label="previous page" aria-disabled="false" disabled=""><span class="css-1riaxdn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" class="css-1d3xu67-Icon"><path d="M11.29,12l3.54-3.54a1,1,0,0,0,0-1.41,1,1,0,0,0-1.42,0L9.17,11.29a1,1,0,0,0,0,1.42L13.41,17a1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41Z"></path></svg></span></button></li><li class="css-1pj6ttl"><button class="css-1cdcbw6-button" type="button" aria-disabled="false"><span class="css-1riaxdn">1</span></button></li><li class="css-1pj6ttl"><button class="css-k3bmw7-button" type="button" aria-label="next page" aria-disabled="false" disabled=""><span class="css-1riaxdn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" width="16" height="16" class="css-1d3xu67-Icon"><path d="M14.83,11.29,10.59,7.05a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L12.71,12,9.17,15.54a1,1,0,0,0,0,1.41,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l4.24-4.24A1,1,0,0,0,14.83,11.29Z"></path></svg></span></button></li></ol></div><div class="css-zxvuq1">1 - 1 of 1 rows</div></div></div></div></section></div></div></div></div></div></div></main></div></div><div class="css-1cep9y7"></div></div><div id="grafana-portal-container" data-testid="data-testid portal-container" class="css-y9fjoz"></div></div></div>
+
+    <script nonce="">
+      window.grafanaBootData = {
+        user: {"isSignedIn":true,"id":1,"uid":"aev77f5xyj0n4c","login":"admin","email":"admin@localhost","name":"admin","theme":"dark","lightTheme":false,"orgCount":1,"orgId":1,"orgName":"Main Org.","orgRole":"Admin","isGrafanaAdmin":true,"gravatarUrl":"/avatar/46d229b033af06a191ff2267bca9ae56","timezone":"browser","weekStart":"browser","locale":"en-US","regionalFormat":"","language":"en-US","helpFlags1":0,"hasEditPermissionInFolders":true,"authenticatedBy":"","permissions":{"alert.instances.external:read":true,"alert.instances.external:write":true,"alert.instances:create":true,"alert.instances:read":true,"alert.instances:write":true,"alert.notifications.external:read":true,"alert.notifications.external:write":true,"alert.notifications.provisioning:read":true,"alert.notifications.provisioning:write":true,"alert.notifications.receivers.secrets:read":true,"alert.notifications.receivers:create":true,"alert.notifications.receivers:delete":true,"alert.notifications.receivers:list":true,"alert.notifications.receivers:read":true,"alert.notifications.receivers:test":true,"alert.notifications.receivers:write":true,"alert.notifications.routes:read":true,"alert.notifications.routes:write":true,"alert.notifications.templates:delete":true,"alert.notifications.templates:read":true,"alert.notifications.templates:write":true,"alert.notifications.time-intervals:delete":true,"alert.notifications.time-intervals:read":true,"alert.notifications.time-intervals:write":true,"alert.notifications:read":true,"alert.notifications:write":true,"alert.provisioning.provenance:write":true,"alert.provisioning.secrets:read":true,"alert.provisioning:read":true,"alert.provisioning:write":true,"alert.rules.external:read":true,"alert.rules.external:write":true,"alert.rules.provisioning:read":true,"alert.rules.provisioning:write":true,"alert.rules:create":true,"alert.rules:delete":true,"alert.rules:read":true,"alert.rules:write":true,"alert.silences:create":true,"alert.silences:read":true,"alert.silences:write":true,"annotations:create":true,"annotations:delete":true,"annotations:read":true,"annotations:write":true,"apikeys:create":true,"apikeys:delete":true,"apikeys:read":true,"dashboards.permissions:read":true,"dashboards.permissions:write":true,"dashboards.public:write":true,"dashboards:create":true,"dashboards:delete":true,"dashboards:read":true,"dashboards:write":true,"datasources.id:read":true,"datasources:create":true,"datasources:delete":true,"datasources:explore":true,"datasources:query":true,"datasources:read":true,"datasources:write":true,"featuremgmt.read":true,"featuremgmt.write":true,"folders.permissions:read":true,"folders.permissions:write":true,"folders:create":true,"folders:delete":true,"folders:read":true,"folders:write":true,"ldap.config:reload":true,"ldap.status:read":true,"ldap.user:read":true,"ldap.user:sync":true,"library.panels:create":true,"library.panels:delete":true,"library.panels:read":true,"library.panels:write":true,"migrationassistant:migrate":true,"org.users:add":true,"org.users:read":true,"org.users:remove":true,"org.users:write":true,"orgs.preferences:read":true,"orgs.preferences:write":true,"orgs.quotas:read":true,"orgs.quotas:write":true,"orgs:create":true,"orgs:delete":true,"orgs:read":true,"orgs:write":true,"plugins.app:access":true,"plugins:install":true,"plugins:write":true,"provisioning:reload":true,"receivers.permissions:read":true,"receivers.permissions:write":true,"server.stats:read":true,"server.usagestats.report:read":true,"serviceaccounts.permissions:read":true,"serviceaccounts.permissions:write":true,"serviceaccounts:create":true,"serviceaccounts:delete":true,"serviceaccounts:read":true,"serviceaccounts:write":true,"settings:read":true,"settings:write":true,"snapshots:create":true,"snapshots:delete":true,"snapshots:read":true,"support.bundles:create":true,"support.bundles:delete":true,"support.bundles:read":true,"teams.permissions:read":true,"teams.permissions:write":true,"teams:create":true,"teams:delete":true,"teams:read":true,"teams:write":true,"users.authtoken:read":true,"users.authtoken:write":true,"users.password:write":true,"users.permissions:read":true,"users.permissions:write":true,"users.quotas:read":true,"users.quotas:write":true,"users:create":true,"users:delete":true,"users:disable":true,"users:enable":true,"users:logout":true,"users:read":true,"users:write":true},"analytics":{"identifier":"admin@localhost@http://localhost:3000/"}},
+        settings: {"defaultDatasource":"prometheus-9090","datasources":{"-- Dashboard --":{"type":"datasource","name":"-- Dashboard --","meta":{"id":"dashboard","type":"datasource","name":"-- Dashboard --","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Uses the result set from another panel in the same dashboard","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"}],"logos":{"small":"public/plugins/dashboard/img/icn-reusequeries.svg","large":"public/plugins/dashboard/img/icn-reusequeries.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"dependencies":{"grafanaDependency":"","grafanaVersion":"*","plugins":[],"extensions":{"exposedComponents":[]}},"includes":null,"category":"","preload":false,"backend":false,"routes":null,"skipDataQuery":false,"autoEnabled":false,"annotations":false,"metrics":true,"alerting":false,"explore":false,"tables":false,"logs":false,"tracing":false,"builtIn":true,"streaming":false,"signature":"internal","module":"core:plugin/dashboard","baseUrl":"public/plugins/dashboard","angular":{"detected":false,"hideDeprecation":false},"multiValueFilterOperators":false,"loadingStrategy":"","extensions":{"addedLinks":null,"addedComponents":null,"exposedComponents":null,"extensionPoints":null,"addedFunctions":null}},"isDefault":false,"preload":false,"jsonData":{},"readOnly":false,"cachingConfig":{"enabled":false,"TTLMs":0}},"-- Grafana --":{"id":-1,"uid":"grafana","type":"datasource","name":"-- Grafana --","meta":{"id":"grafana","type":"datasource","name":"-- Grafana --","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"A built-in data source that generates random walk data and can poll the Testdata data source. This helps you test visualizations and run experiments.","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"}],"logos":{"small":"public/plugins/grafana/img/icn-grafanadb.svg","large":"public/plugins/grafana/img/icn-grafanadb.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"dependencies":{"grafanaDependency":"","grafanaVersion":"*","plugins":[],"extensions":{"exposedComponents":[]}},"includes":null,"category":"","preload":false,"backend":true,"routes":null,"skipDataQuery":false,"autoEnabled":false,"annotations":true,"metrics":true,"alerting":false,"explore":false,"tables":false,"logs":false,"tracing":false,"builtIn":true,"streaming":false,"signature":"internal","module":"core:plugin/grafana","baseUrl":"public/plugins/grafana","angular":{"detected":false,"hideDeprecation":false},"multiValueFilterOperators":false,"loadingStrategy":"","extensions":{"addedLinks":null,"addedComponents":null,"exposedComponents":null,"extensionPoints":null,"addedFunctions":null}},"isDefault":false,"preload":false,"jsonData":{},"readOnly":false,"cachingConfig":{"enabled":false,"TTLMs":0}},"-- Mixed --":{"type":"datasource","name":"-- Mixed --","meta":{"id":"mixed","type":"datasource","name":"-- Mixed --","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Lets you query multiple data sources in the same panel.","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/datasources/#special-data-sources"}],"logos":{"small":"public/plugins/mixed/img/icn-mixeddatasources.svg","large":"public/plugins/mixed/img/icn-mixeddatasources.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"dependencies":{"grafanaDependency":"","grafanaVersion":"*","plugins":[],"extensions":{"exposedComponents":[]}},"includes":null,"category":"","preload":false,"backend":false,"routes":null,"skipDataQuery":false,"autoEnabled":false,"annotations":false,"metrics":true,"alerting":false,"explore":false,"tables":false,"logs":false,"tracing":false,"queryOptions":{"minInterval":true},"builtIn":true,"mixed":true,"streaming":false,"signature":"internal","module":"core:plugin/mixed","baseUrl":"public/plugins/mixed","angular":{"detected":false,"hideDeprecation":false},"multiValueFilterOperators":false,"loadingStrategy":"","extensions":{"addedLinks":null,"addedComponents":null,"exposedComponents":null,"extensionPoints":null,"addedFunctions":null}},"isDefault":false,"preload":false,"jsonData":{},"readOnly":false,"cachingConfig":{"enabled":false,"TTLMs":0}},"marcusolsson-json-datasource":{"id":1,"uid":"aev77monevq4gb","type":"marcusolsson-json-datasource","name":"marcusolsson-json-datasource","meta":{"id":"marcusolsson-json-datasource","type":"datasource","name":"JSON API","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"A data source plugin for loading JSON APIs into Grafana.","links":[{"name":"Documentation","url":"https://grafana.com/docs/plugins/marcusolsson-json-datasource/latest/"},{"name":"Github","url":"https://github.com/grafana/grafana-json-datasource"},{"name":"License","url":"https://github.com/grafana/grafana-json-datasource/blob/main/LICENSE"}],"logos":{"small":"public/plugins/marcusolsson-json-datasource/img/logo.svg","large":"public/plugins/marcusolsson-json-datasource/img/logo.svg"},"build":{},"screenshots":[{"name":"Explore (Dark)","path":"public/plugins/marcusolsson-json-datasource/img/dark.png"},{"name":"Explore (Light)","path":"public/plugins/marcusolsson-json-datasource/img/light.png"}],"version":"1.3.24","updated":"2025-03-21","keywords":["json","api"]},"dependencies":{"grafanaDependency":"\u003e=8.5.13","grafanaVersion":"8.5.x","plugins":[],"extensions":{"exposedComponents":[]}},"includes":null,"category":"","preload":false,"backend":false,"routes":null,"skipDataQuery":false,"autoEnabled":false,"annotations":true,"metrics":true,"alerting":false,"explore":false,"tables":false,"logs":true,"tracing":false,"streaming":false,"signature":"valid","module":"public/plugins/marcusolsson-json-datasource/module.js","baseUrl":"public/plugins/marcusolsson-json-datasource","angular":{"detected":false,"hideDeprecation":false},"multiValueFilterOperators":false,"loadingStrategy":"script","extensions":{"addedLinks":null,"addedComponents":null,"exposedComponents":null,"extensionPoints":null,"addedFunctions":null}},"url":"/api/datasources/proxy/uid/aev77monevq4gb","isDefault":false,"access":"proxy","preload":false,"module":"public/plugins/marcusolsson-json-datasource/module.js","jsonData":{"pdcInjected":false},"readOnly":false,"cachingConfig":{"enabled":false,"TTLMs":0}},"prometheus-9090":{"id":3,"uid":"fev7d6z0hvy80a","type":"prometheus","name":"prometheus-9090","meta":{"id":"prometheus","type":"datasource","name":"Prometheus","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Open source time series database \u0026 alerting","links":[{"name":"Learn more","url":"https://prometheus.io/"},{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/datasources/prometheus/"}],"logos":{"small":"public/plugins/prometheus/img/prometheus_logo.svg","large":"public/plugins/prometheus/img/prometheus_logo.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"dependencies":{"grafanaDependency":"","grafanaVersion":"*","plugins":[],"extensions":{"exposedComponents":[]}},"includes":[{"name":"Prometheus Stats","path":"dashboards/prometheus_stats.json","type":"dashboard","component":"","role":"Viewer","addToNav":false,"defaultNav":false,"slug":"","icon":"","uid":""},{"name":"Prometheus 2.0 Stats","path":"dashboards/prometheus_2_stats.json","type":"dashboard","component":"","role":"Viewer","addToNav":false,"defaultNav":false,"slug":"","icon":"","uid":""},{"name":"Grafana Stats","path":"dashboards/grafana_stats.json","type":"dashboard","component":"","role":"Viewer","addToNav":false,"defaultNav":false,"slug":"","icon":"","uid":""}],"category":"tsdb","preload":false,"backend":true,"routes":[{"path":"api/v1/query","method":"POST","reqRole":"Viewer","reqAction":"datasources:query","url":"","urlParams":null,"headers":null,"authType":"","tokenAuth":null,"jwtTokenAuth":null,"body":null},{"path":"api/v1/query_range","method":"POST","reqRole":"Viewer","reqAction":"datasources:query","url":"","urlParams":null,"headers":null,"authType":"","tokenAuth":null,"jwtTokenAuth":null,"body":null},{"path":"api/v1/series","method":"POST","reqRole":"Viewer","reqAction":"datasources:query","url":"","urlParams":null,"headers":null,"authType":"","tokenAuth":null,"jwtTokenAuth":null,"body":null},{"path":"api/v1/labels","method":"POST","reqRole":"Viewer","reqAction":"datasources:query","url":"","urlParams":null,"headers":null,"authType":"","tokenAuth":null,"jwtTokenAuth":null,"body":null},{"path":"api/v1/query_exemplars","method":"POST","reqRole":"Viewer","reqAction":"datasources:query","url":"","urlParams":null,"headers":null,"authType":"","tokenAuth":null,"jwtTokenAuth":null,"body":null},{"path":"/rules","method":"GET","reqRole":"Viewer","reqAction":"alert.rules.external:read","url":"","urlParams":null,"headers":null,"authType":"","tokenAuth":null,"jwtTokenAuth":null,"body":null},{"path":"/rules","method":"POST","reqRole":"Editor","reqAction":"alert.rules.external:write","url":"","urlParams":null,"headers":null,"authType":"","tokenAuth":null,"jwtTokenAuth":null,"body":null},{"path":"/rules","method":"DELETE","reqRole":"Editor","reqAction":"alert.rules.external:write","url":"","urlParams":null,"headers":null,"authType":"","tokenAuth":null,"jwtTokenAuth":null,"body":null},{"path":"/config/v1/rules","method":"DELETE","reqRole":"Editor","reqAction":"alert.rules.external:write","url":"","urlParams":null,"headers":null,"authType":"","tokenAuth":null,"jwtTokenAuth":null,"body":null},{"path":"/config/v1/rules","method":"POST","reqRole":"Editor","reqAction":"alert.rules.external:write","url":"","urlParams":null,"headers":null,"authType":"","tokenAuth":null,"jwtTokenAuth":null,"body":null}],"skipDataQuery":false,"autoEnabled":false,"annotations":true,"metrics":true,"alerting":true,"explore":false,"tables":false,"logs":false,"tracing":false,"queryOptions":{"minInterval":true},"streaming":false,"signature":"internal","module":"core:plugin/prometheus","baseUrl":"public/plugins/prometheus","angular":{"detected":false,"hideDeprecation":false},"multiValueFilterOperators":true,"loadingStrategy":"script","extensions":{"addedLinks":null,"addedComponents":null,"exposedComponents":null,"extensionPoints":null,"addedFunctions":null}},"url":"/api/datasources/proxy/uid/fev7d6z0hvy80a","isDefault":true,"access":"proxy","preload":false,"module":"core:plugin/prometheus","jsonData":{"directUrl":"http://prometheus-kube-prometheus-prometheus:9090","pdcInjected":false},"readOnly":false,"cachingConfig":{"enabled":false,"TTLMs":0}}},"minRefreshInterval":"5s","panels":{"alertlist":{"id":"alertlist","name":"Alert list","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Shows list of alerts and their current status","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/alert-list/"}],"logos":{"small":"public/plugins/alertlist/img/icn-singlestat-panel.svg","large":"public/plugins/alertlist/img/icn-singlestat-panel.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"hideFromList":false,"sort":15,"skipDataQuery":true,"state":"","baseUrl":"public/plugins/alertlist","signature":"internal","module":"core:plugin/alertlist","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"annolist":{"id":"annolist","name":"Annotations list","aliasIds":["ryantxu-annolist-panel"],"info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"List annotations","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/annotations/"}],"logos":{"small":"public/plugins/annolist/img/icn-annolist-panel.svg","large":"public/plugins/annolist/img/icn-annolist-panel.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"hideFromList":false,"sort":100,"skipDataQuery":true,"state":"","baseUrl":"public/plugins/annolist","signature":"internal","module":"core:plugin/annolist","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"barchart":{"id":"barchart","name":"Bar chart","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Categorical charts with group support","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/bar-chart/"}],"logos":{"small":"public/plugins/barchart/img/barchart.svg","large":"public/plugins/barchart/img/barchart.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"hideFromList":false,"sort":2,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/barchart","signature":"internal","module":"core:plugin/barchart","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"bargauge":{"id":"bargauge","name":"Bar gauge","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Horizontal and vertical gauges","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/bar-gauge/"}],"logos":{"small":"public/plugins/bargauge/img/icon_bar_gauge.svg","large":"public/plugins/bargauge/img/icon_bar_gauge.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"hideFromList":false,"sort":5,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/bargauge","signature":"internal","module":"core:plugin/bargauge","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"briangann-gauge-panel":{"id":"briangann-gauge-panel","name":"D3 Gauge","info":{"author":{"name":"Brian Gann (bkgann@gmail.com)","url":"https://github.com/briangann"},"description":"D3-based Gauge panel for Grafana","links":[{"name":"Project site","url":"https://github.com/briangann/grafana-gauge-panel"},{"name":"MIT License","url":"https://github.com/briangann/grafana-gauge-panel/blob/main/LICENSE"}],"logos":{"small":"public/plugins/briangann-gauge-panel/img/Logo_D3.svg","large":"public/plugins/briangann-gauge-panel/img/Logo_D3.svg"},"build":{},"screenshots":[{"name":"Gauge with thresholds","path":"public/plugins/briangann-gauge-panel/screenshots/react-gauge-threshold-middle-upper.png"},{"name":"Gauge with threshold on value","path":"public/plugins/briangann-gauge-panel/screenshots/react-gauge-threshold-on-value.png"},{"name":"Gauge with threshold on face","path":"public/plugins/briangann-gauge-panel/screenshots/react-gauge-threshold-on-face.png"},{"name":"Radial Customization","path":"public/plugins/briangann-gauge-panel/screenshots/react-radial-customization.png"}],"version":"2.0.1","updated":"2023-11-14","keywords":["gauge","panel"]},"hideFromList":false,"sort":100,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/briangann-gauge-panel","signature":"valid","module":"public/plugins/briangann-gauge-panel/module.js","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"candlestick":{"id":"candlestick","name":"Candlestick","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Graphical representation of price movements of a security, derivative, or currency.","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/candlestick/"}],"logos":{"small":"public/plugins/candlestick/img/candlestick.svg","large":"public/plugins/candlestick/img/candlestick.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":["financial","price","currency","k-line"]},"hideFromList":false,"sort":100,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/candlestick","signature":"internal","module":"core:plugin/candlestick","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"canvas":{"id":"canvas","name":"Canvas","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Explicit element placement","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/canvas/"}],"logos":{"small":"public/plugins/canvas/img/icn-canvas.svg","large":"public/plugins/canvas/img/icn-canvas.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"hideFromList":false,"sort":100,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/canvas","signature":"internal","module":"core:plugin/canvas","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"dashlist":{"id":"dashlist","name":"Dashboard list","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"List of dynamic links to other dashboards","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/dashboard-list/"}],"logos":{"small":"public/plugins/dashlist/img/icn-dashlist-panel.svg","large":"public/plugins/dashlist/img/icn-dashlist-panel.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"hideFromList":false,"sort":16,"skipDataQuery":true,"state":"","baseUrl":"public/plugins/dashlist","signature":"internal","module":"core:plugin/dashlist","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"flamegraph":{"id":"flamegraph","name":"Flame Graph","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/flame-graph/"}],"logos":{"small":"public/plugins/flamegraph/img/icn-flamegraph.svg","large":"public/plugins/flamegraph/img/icn-flamegraph.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"hideFromList":false,"sort":100,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/flamegraph","signature":"internal","module":"core:plugin/flamegraph","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"gauge":{"id":"gauge","name":"Gauge","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Standard gauge visualization","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/gauge/"}],"logos":{"small":"public/plugins/gauge/img/icon_gauge.svg","large":"public/plugins/gauge/img/icon_gauge.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"hideFromList":false,"sort":4,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/gauge","signature":"internal","module":"core:plugin/gauge","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"geomap":{"id":"geomap","name":"Geomap","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Geomap panel","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/geomap/"}],"logos":{"small":"public/plugins/geomap/img/icn-geomap.svg","large":"public/plugins/geomap/img/icn-geomap.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"hideFromList":false,"sort":100,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/geomap","signature":"internal","module":"core:plugin/geomap","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"gettingstarted":{"id":"gettingstarted","name":"Getting Started","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"}],"logos":{"small":"public/plugins/gettingstarted/img/icn-dashlist-panel.svg","large":"public/plugins/gettingstarted/img/icn-dashlist-panel.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"hideFromList":true,"sort":100,"skipDataQuery":true,"state":"","baseUrl":"public/plugins/gettingstarted","signature":"internal","module":"core:plugin/gettingstarted","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"grafana-clock-panel":{"id":"grafana-clock-panel","name":"Clock","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Clock panel for grafana","links":[{"name":"Project site","url":"https://github.com/grafana/clock-panel"},{"name":"MIT License","url":"https://github.com/grafana/clock-panel/blob/master/LICENSE"}],"logos":{"small":"public/plugins/grafana-clock-panel/img/clock.svg","large":"public/plugins/grafana-clock-panel/img/clock.svg"},"build":{"time":1727356341031},"screenshots":[{"name":"Showcase","path":"public/plugins/grafana-clock-panel/img/screenshot-showcase.png"},{"name":"Options","path":"public/plugins/grafana-clock-panel/img/screenshot-clock-options.png"}],"version":"2.1.8","updated":"2024-09-26","keywords":["clock","panel"]},"hideFromList":false,"sort":100,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/grafana-clock-panel","signature":"valid","module":"public/plugins/grafana-clock-panel/module.js","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"grafana-polystat-panel":{"id":"grafana-polystat-panel","name":"Polystat","info":{"author":{"name":"Grafana Project","url":"https://github.com/grafana/grafana-polystat-panel"},"description":"Polystat panel for Grafana","links":[{"name":"Project site","url":"https://github.com/grafana/grafana-polystat-panel"},{"name":"Apache-2.0","url":"https://github.com/grafana/grafana-polystat-panel/blob/master/LICENSE.md"}],"logos":{"small":"public/plugins/grafana-polystat-panel/img/polystat.svg","large":"public/plugins/grafana-polystat-panel/img/polystat.svg"},"build":{},"screenshots":[{"name":"Showcase","path":"public/plugins/grafana-polystat-panel/img/screenshots/polystat-v2-agent-all-visible.png"},{"name":"Animation","path":"public/plugins/grafana-polystat-panel/img/screenshots/polystat-v2-composite-animated.gif"},{"name":"Options","path":"public/plugins/grafana-polystat-panel/img/screenshots/polystat-v2-global-all.png"},{"name":"Hexagons","path":"public/plugins/grafana-polystat-panel/img/screenshots/polystat-v2-shape-hexagon-pointed-top.png"},{"name":"Squares","path":"public/plugins/grafana-polystat-panel/img/screenshots/polystat-v2-shape-square.png"},{"name":"Circles","path":"public/plugins/grafana-polystat-panel/img/screenshots/polystat-v2-shape-circle.png"},{"name":"Overrides","path":"public/plugins/grafana-polystat-panel/img/screenshots/polystat-v2-overrides-with-thresholds.png"},{"name":"Tooltips","path":"public/plugins/grafana-polystat-panel/img/screenshots/polystat-v2-tooltips-all.png"},{"name":"Composites","path":"public/plugins/grafana-polystat-panel/img/screenshots/polystat-v2-composite-with-tooltip.png"}],"version":"2.1.15","updated":"2025-07-17","keywords":["hexbin","honeycomb","panel"]},"hideFromList":false,"sort":100,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/grafana-polystat-panel","signature":"valid","module":"public/plugins/grafana-polystat-panel/module.js","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"heatmap":{"id":"heatmap","name":"Heatmap","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Like a histogram over time","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/heatmap/"}],"logos":{"small":"public/plugins/heatmap/img/icn-heatmap-panel.svg","large":"public/plugins/heatmap/img/icn-heatmap-panel.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"hideFromList":false,"sort":10,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/heatmap","signature":"internal","module":"core:plugin/heatmap","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"histogram":{"id":"histogram","name":"Histogram","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Distribution of values presented as a bar chart.","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/histogram/"}],"logos":{"small":"public/plugins/histogram/img/histogram.svg","large":"public/plugins/histogram/img/histogram.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":["distribution","bar chart","frequency","proportional"]},"hideFromList":false,"sort":12,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/histogram","signature":"internal","module":"core:plugin/histogram","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"jdbranham-diagram-panel":{"id":"jdbranham-diagram-panel","name":"Diagram","info":{"author":{"name":"Jeremy Branham","url":"https://savantly.net"},"description":"Display diagrams and charts with colored metric indicators","links":[{"name":"Project site","url":"https://github.com/jdbranham/grafana-diagram"},{"name":"Apache License","url":"https://github.com/jdbranham/grafana-diagram/blob/master/LICENSE"}],"logos":{"small":"public/plugins/jdbranham-diagram-panel/img/logo.svg","large":"public/plugins/jdbranham-diagram-panel/img/logo.svg"},"build":{},"screenshots":[{"name":"diagram","path":"public/plugins/jdbranham-diagram-panel/img/default.png"},{"name":"simple","path":"public/plugins/jdbranham-diagram-panel/img/simple.png"},{"name":"field options","path":"public/plugins/jdbranham-diagram-panel/img/field_options.png"},{"name":"field override","path":"public/plugins/jdbranham-diagram-panel/img/field_overrides.png"},{"name":"composites","path":"public/plugins/jdbranham-diagram-panel/img/composites.png"},{"name":"dark","path":"public/plugins/jdbranham-diagram-panel/img/theme_dark.png"},{"name":"custom","path":"public/plugins/jdbranham-diagram-panel/img/theme_custom.png"}],"version":"1.10.4","updated":"2024-04-19","keywords":["diagram","chart","flow","gantt"]},"hideFromList":false,"sort":100,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/jdbranham-diagram-panel","signature":"valid","module":"public/plugins/jdbranham-diagram-panel/module.js","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"larona-epict-panel":{"id":"larona-epict-panel","name":"ePict Panel","info":{"author":{"name":"larona","url":""},"description":"Enter the URL of the image you want, and add some metrics on it.","links":[{"name":"Website","url":"https://github.com/LucasArona/larona-epict-panel"},{"name":"License","url":"https://github.com/LucasArona/larona-epict-panel/blob/master/LICENSE"}],"logos":{"small":"public/plugins/larona-epict-panel/img/logo.svg","large":"public/plugins/larona-epict-panel/img/logo.svg"},"build":{},"screenshots":[],"version":"2.0.6","updated":"2023-04-17","keywords":["pictures","panel","superimpose metrics","metrics on image"]},"hideFromList":false,"sort":100,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/larona-epict-panel","signature":"valid","module":"public/plugins/larona-epict-panel/module.js","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"logs":{"id":"logs","name":"Logs","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/logs/"}],"logos":{"small":"public/plugins/logs/img/icn-logs-panel.svg","large":"public/plugins/logs/img/icn-logs-panel.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"hideFromList":false,"sort":100,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/logs","signature":"internal","module":"core:plugin/logs","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"news":{"id":"news","name":"News","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"RSS feed reader","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/news/"}],"logos":{"small":"public/plugins/news/img/news.svg","large":"public/plugins/news/img/news.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"hideFromList":false,"sort":17,"skipDataQuery":true,"state":"beta","baseUrl":"public/plugins/news","signature":"internal","module":"core:plugin/news","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"nodeGraph":{"id":"nodeGraph","name":"Node Graph","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/node-graph/"}],"logos":{"small":"public/plugins/nodeGraph/img/icn-node-graph.svg","large":"public/plugins/nodeGraph/img/icn-node-graph.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"hideFromList":false,"sort":100,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/nodeGraph","signature":"internal","module":"core:plugin/nodeGraph","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"piechart":{"id":"piechart","name":"Pie chart","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"The new core pie chart visualization","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/pie-chart/"}],"logos":{"small":"public/plugins/piechart/img/icon_piechart.svg","large":"public/plugins/piechart/img/icon_piechart.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"hideFromList":false,"sort":8,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/piechart","signature":"internal","module":"core:plugin/piechart","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"pierosavi-imageit-panel":{"id":"pierosavi-imageit-panel","name":"ImageIt","info":{"author":{"name":"Piero Savi","url":""},"description":"Add Measurements to a Picture in Grafana","links":[{"name":"Project site","url":"https://github.com/pierosavi/pierosavi-imageit-panel"},{"name":"License","url":"https://github.com/pierosavi/pierosavi-imageit-panel/blob/master/LICENSE"}],"logos":{"small":"public/plugins/pierosavi-imageit-panel/img/imageit_logo.png","large":"public/plugins/pierosavi-imageit-panel/img/imageit_logo.png"},"build":{},"screenshots":[{"name":"Panel Example","path":"public/plugins/pierosavi-imageit-panel/img/imageit_example.png"},{"name":"Sensor options","path":"public/plugins/pierosavi-imageit-panel/img/imageit_sensor.png"},{"name":"Mapping options","path":"public/plugins/pierosavi-imageit-panel/img/imageit_mapping.png"}],"version":"1.0.5","updated":"2021-07-21","keywords":["imageit","picture","panel"]},"hideFromList":false,"sort":100,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/pierosavi-imageit-panel","signature":"valid","module":"public/plugins/pierosavi-imageit-panel/module.js","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"scadavis-synoptic-panel":{"id":"scadavis-synoptic-panel","name":"SCADAvis Synoptic Panel","info":{"author":{"name":"Ricardo L. Olsen","url":"https://scadavis.io"},"description":"SCADA-like synoptic panel for grafana","links":[{"name":"Project site","url":"https://github.com/riclolsen/scadavis-synoptic-panel"},{"name":"GPL License","url":"https://www.gnu.org/licenses/gpl-3.0.txt"}],"logos":{"small":"public/plugins/scadavis-synoptic-panel/img/scadavis-small.png","large":"public/plugins/scadavis-synoptic-panel/img/scadavis-large.png"},"build":{},"screenshots":[{"name":"Power","path":"public/plugins/scadavis-synoptic-panel/img/scadavis-power.png"}],"version":"2.0.2","updated":"2024-04-28","keywords":["scada","svg"]},"hideFromList":false,"sort":100,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/scadavis-synoptic-panel","signature":"valid","module":"public/plugins/scadavis-synoptic-panel/module.js","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"stat":{"id":"stat","name":"Stat","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Big stat values \u0026 sparklines","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/stat/"}],"logos":{"small":"public/plugins/stat/img/icn-singlestat-panel.svg","large":"public/plugins/stat/img/icn-singlestat-panel.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"hideFromList":false,"sort":3,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/stat","signature":"internal","module":"core:plugin/stat","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"state-timeline":{"id":"state-timeline","name":"State timeline","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"State changes and durations","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/state-timeline/"}],"logos":{"small":"public/plugins/state-timeline/img/timeline.svg","large":"public/plugins/state-timeline/img/timeline.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"hideFromList":false,"sort":9,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/state-timeline","signature":"internal","module":"core:plugin/state-timeline","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"status-history":{"id":"status-history","name":"Status history","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Periodic status history","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/status-history/"}],"logos":{"small":"public/plugins/status-history/img/status.svg","large":"public/plugins/status-history/img/status.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"hideFromList":false,"sort":11,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/status-history","signature":"internal","module":"core:plugin/status-history","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"table":{"id":"table","name":"Table","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Supports many column styles","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/table/"}],"logos":{"small":"public/plugins/table/img/icn-table-panel.svg","large":"public/plugins/table/img/icn-table-panel.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"hideFromList":false,"sort":6,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/table","signature":"internal","module":"core:plugin/table","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"text":{"id":"text","name":"Text","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Supports markdown and html content","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/text/"}],"logos":{"small":"public/plugins/text/img/icn-text-panel.svg","large":"public/plugins/text/img/icn-text-panel.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"hideFromList":false,"sort":14,"skipDataQuery":true,"state":"","baseUrl":"public/plugins/text","signature":"internal","module":"core:plugin/text","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"timeseries":{"id":"timeseries","name":"Time series","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Time based line, area and bar charts","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/time-series/"}],"logos":{"small":"public/plugins/timeseries/img/icn-timeseries-panel.svg","large":"public/plugins/timeseries/img/icn-timeseries-panel.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"hideFromList":false,"sort":1,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/timeseries","signature":"internal","module":"core:plugin/timeseries","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"traces":{"id":"traces","name":"Traces","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/traces/"}],"logos":{"small":"public/plugins/traces/img/traces-panel.svg","large":"public/plugins/traces/img/traces-panel.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"hideFromList":false,"sort":100,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/traces","signature":"internal","module":"core:plugin/traces","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"trend":{"id":"trend","name":"Trend","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Like timeseries, but when x != time","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/trend/"}],"logos":{"small":"public/plugins/trend/img/trend.svg","large":"public/plugins/trend/img/trend.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"hideFromList":false,"sort":100,"skipDataQuery":false,"state":"beta","baseUrl":"public/plugins/trend","signature":"internal","module":"core:plugin/trend","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"vonage-status-panel":{"id":"vonage-status-panel","name":"Status Panel","info":{"author":{"name":"Grafana","url":"https://github.com/grafana/Grafana_Status_panel"},"description":"Status Panel for Grafana","links":[{"name":"Github","url":"https://github.com/grafana/Grafana_Status_panel"},{"name":"License","url":"https://github.com/grafana/Grafana_Status_panel/blob/master/LICENSE"}],"logos":{"small":"public/plugins/vonage-status-panel/img/logo.svg","large":"public/plugins/vonage-status-panel/img/logo.svg"},"build":{},"screenshots":[],"version":"2.0.4","updated":"2025-05-22","keywords":["status","panel"]},"hideFromList":false,"sort":100,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/vonage-status-panel","signature":"valid","module":"public/plugins/vonage-status-panel/module.js","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"welcome":{"id":"welcome","name":"Welcome","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"}],"logos":{"small":"public/plugins/welcome/img/icn-dashlist-panel.svg","large":"public/plugins/welcome/img/icn-dashlist-panel.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":null},"hideFromList":true,"sort":100,"skipDataQuery":true,"state":"","baseUrl":"public/plugins/welcome","signature":"internal","module":"core:plugin/welcome","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"},"xychart":{"id":"xychart","name":"XY Chart","info":{"author":{"name":"Grafana Labs","url":"https://grafana.com"},"description":"Supports arbitrary X vs Y in a graph to visualize the relationship between two variables.","links":[{"name":"Raise issue","url":"https://github.com/grafana/grafana/issues/new"},{"name":"Documentation","url":"https://grafana.com/docs/grafana/latest/panels-visualizations/visualizations/xy-chart/"}],"logos":{"small":"public/plugins/xychart/img/icn-xychart.svg","large":"public/plugins/xychart/img/icn-xychart.svg"},"build":{},"screenshots":null,"version":"","updated":"","keywords":["scatter","plot"]},"hideFromList":false,"sort":100,"skipDataQuery":false,"state":"","baseUrl":"public/plugins/xychart","signature":"internal","module":"core:plugin/xychart","angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script"}},"apps":{"grafana-exploretraces-app":{"id":"grafana-exploretraces-app","path":"public/plugins/grafana-exploretraces-app/module.js","version":"1.1.3","preload":true,"angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script","extensions":{"addedLinks":[{"targets":["grafana/dashboard/panel/menu"],"title":"Open in Traces Drilldown","description":"Open current query in the Traces Drilldown app"},{"targets":["grafana/explore/toolbar/action"],"title":"Open in Grafana Traces Drilldown","description":"Try our new queryless experience for traces"}],"addedComponents":[{"targets":["grafana-asserts-app/entity-assertions-widget/v1"],"title":"Asserts widget","description":"A block with assertions for a given service"}],"exposedComponents":[{"id":"grafana-exploretraces-app/open-in-explore-traces-button/v1","title":"Open in Traces Drilldown button","description":"A button that opens a traces view in the Traces Drilldown app."},{"id":"grafana-exploretraces-app/embedded-trace-exploration/v1","title":"Embedded Trace Exploration","description":"A component that renders a trace exploration view that can be embedded in other parts of Grafana."}],"extensionPoints":[{"id":"grafana-exploretraces-app/investigation/v1","title":"","description":""}],"addedFunctions":[]},"dependencies":{"grafanaDependency":"\u003e=11.5.0","grafanaVersion":"*","plugins":[],"extensions":{"exposedComponents":["grafana-asserts-app/entity-assertions-widget/v1"]}}},"grafana-lokiexplore-app":{"id":"grafana-lokiexplore-app","path":"public/plugins/grafana-lokiexplore-app/module.js","version":"1.0.25","preload":true,"angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script","extensions":{"addedLinks":[{"targets":["grafana/dashboard/panel/menu","grafana/explore/toolbar/action","grafana-metricsdrilldown-app/open-in-logs-drilldown/v1"],"title":"Open in Grafana Logs Drilldown","description":"Open current query in the Grafana Logs Drilldown view"}],"addedComponents":[],"exposedComponents":[{"id":"grafana-lokiexplore-app/open-in-explore-logs-button/v1","title":"Open in Logs Drilldown button","description":"A button that opens a logs view in the Logs Drilldown app."},{"id":"grafana-lokiexplore-app/embedded-logs-exploration/v1","title":"Embedded Logs Exploration","description":"A component that renders a logs exploration view that can be embedded in other parts of Grafana."}],"extensionPoints":[{"id":"grafana-lokiexplore-app/investigation/v1","title":"","description":""}],"addedFunctions":[]},"dependencies":{"grafanaDependency":"\u003e=11.6.0","grafanaVersion":"*","plugins":[],"extensions":{"exposedComponents":["grafana-adaptivelogs-app/temporary-exemptions/v1","grafana-lokiexplore-app/embedded-logs-exploration/v1"]}}},"grafana-metricsdrilldown-app":{"id":"grafana-metricsdrilldown-app","path":"public/plugins/grafana-metricsdrilldown-app/module.js","version":"1.0.10","preload":true,"angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script","extensions":{"addedLinks":[{"targets":["grafana/dashboard/panel/menu","grafana/explore/toolbar/action","grafana-assistant-app/navigateToDrilldown/v1","grafana/alerting/alertingrule/queryeditor"],"title":"Open in Grafana Metrics Drilldown","description":"Open current query in the Grafana Metrics Drilldown view"},{"targets":["grafana-metricsdrilldown-app/grafana-assistant-app/navigateToDrilldown/v0-alpha"],"title":"Navigate to metrics drilldown","description":"Build a url path to the metrics drilldown"}],"addedComponents":[],"exposedComponents":[{"id":"grafana-metricsdrilldown-app/label-breakdown-component/v1","title":"Label Breakdown","description":"A metrics label breakdown view from the Metrics Drilldown app."}],"extensionPoints":[{"id":"grafana-exploremetrics-app/investigation/v1","title":"","description":""},{"id":"grafana-metricsdrilldown-app/open-in-logs-drilldown/v1","title":"","description":""}],"addedFunctions":[]},"dependencies":{"grafanaDependency":"\u003e=11.6.0","grafanaVersion":"*","plugins":[],"extensions":{"exposedComponents":[]}}},"grafana-pyroscope-app":{"id":"grafana-pyroscope-app","path":"public/plugins/grafana-pyroscope-app/module.js","version":"1.7.0","preload":true,"angular":{"detected":false,"hideDeprecation":false},"loadingStrategy":"script","extensions":{"addedLinks":[{"targets":["grafana/explore/toolbar/action","grafana/traceview/details"],"title":"Open in Grafana Profiles Drilldown","description":"Try our new queryless experience for profiles"}],"addedComponents":[],"exposedComponents":[],"extensionPoints":[{"id":"grafana-pyroscope-app/investigation/v1","title":"","description":""},{"id":"grafana-pyroscope-app/settings/v1","title":"","description":""}],"addedFunctions":[]},"dependencies":{"grafanaDependency":"\u003e=11.5.0","grafanaVersion":"*","plugins":[],"extensions":{"exposedComponents":["grafana-o11yinsights-app/insights-launcher/v1"]}}}},"appUrl":"http://localhost:3000/","appSubUrl":"","allowOrgCreate":true,"authProxyEnabled":false,"ldapEnabled":false,"jwtHeaderName":"","jwtUrlLogin":false,"liveEnabled":true,"liveMessageSizeLimit":65536,"autoAssignOrg":true,"verifyEmailEnabled":false,"sigV4AuthEnabled":false,"azureAuthEnabled":false,"rbacEnabled":true,"exploreEnabled":true,"helpEnabled":true,"profileEnabled":true,"newsFeedEnabled":true,"queryHistoryEnabled":true,"googleAnalyticsId":"","googleAnalytics4Id":"","GoogleAnalytics4SendManualPageViews":false,"rudderstackWriteKey":"","rudderstackDataPlaneUrl":"","rudderstackSdkUrl":"","rudderstackConfigUrl":"","rudderstackIntegrationsUrl":"","analyticsConsoleReporting":false,"dashboardPerformanceMetrics":[],"panelSeriesLimit":0,"feedbackLinksEnabled":true,"applicationInsightsConnectionString":"","applicationInsightsEndpointUrl":"","disableLoginForm":false,"disableUserSignUp":true,"loginHint":"","passwordHint":"","externalUserMngInfo":"","externalUserMngLinkUrl":"","externalUserMngLinkName":"","externalUserMngAnalytics":false,"externalUserMngAnalyticsParams":"","viewersCanEdit":false,"disableSanitizeHtml":false,"trustedTypesDefaultPolicyEnabled":false,"cspReportOnlyEnabled":false,"enableFrontendSandboxForPlugins":[""],"exploreDefaultTimeOffset":"1h","exploreHideLogsDownload":false,"auth":{"AuthProxyEnableLoginToken":false,"OAuthSkipOrgRoleUpdateSync":false,"SAMLSkipOrgRoleSync":false,"LDAPSkipOrgRoleSync":false,"GoogleSkipOrgRoleSync":false,"GenericOAuthSkipOrgRoleSync":false,"JWTAuthSkipOrgRoleSync":false,"GrafanaComSkipOrgRoleSync":false,"AzureADSkipOrgRoleSync":false,"GithubSkipOrgRoleSync":false,"GitLabSkipOrgRoleSync":false,"OktaSkipOrgRoleSync":false,"disableLogin":false,"basicAuthStrongPasswordPolicy":false,"passwordlessEnabled":false,"disableSignoutMenu":false},"buildInfo":{"hideVersion":false,"version":"12.1.0","versionString":"Grafana v12.1.0 (df5de821)","commit":"df5de821","commitShort":"df5de821","buildstamp":1754988860,"edition":"Open Source","latestVersion":"12.1.1","hasUpdate":true,"env":"production"},"licenseInfo":{"expiry":0,"stateInfo":"","licenseUrl":"/admin/upgrading","edition":"Open Source","enabledFeatures":{}},"featureToggles":{"addFieldFromCalculationStatFunctions":true,"alertRuleRestore":true,"alertingBulkActionsInUI":true,"alertingImportYAMLUI":true,"alertingMigrationUI":true,"alertingNotificationsStepMode":true,"alertingQueryAndExpressionsStepMode":true,"alertingRulePermanentlyDelete":true,"alertingRuleRecoverDeleted":true,"alertingRuleVersionHistoryRestore":true,"alertingUIOptimizeReducer":true,"annotationPermissionUpdate":true,"awsAsyncQueryCaching":true,"awsDatasourcesTempCredentials":true,"azureMonitorEnableUserAuth":true,"azureMonitorPrometheusExemplars":true,"cloudWatchCrossAccountQuerying":true,"cloudWatchNewLabelParsing":true,"cloudWatchRoundUpEndTime":true,"correlations":true,"dashboardScene":true,"dashboardSceneForViewers":true,"dashboardSceneSolo":true,"dashgpt":true,"dataplaneFrontendFallback":true,"externalCorePlugins":true,"formatString":true,"grafanaconThemes":true,"groupToNestedTableTransformation":true,"improvedExternalSessionHandling":true,"improvedExternalSessionHandlingSAML":true,"influxdbBackendMigration":true,"jaegerBackendMigration":true,"kubernetesClientDashboardsFolders":true,"logRowsPopoverMenu":true,"logsContextDatasourceUi":true,"logsExploreTableVisualisation":true,"logsInfiniteScrolling":true,"logsPanelControls":true,"lokiLabelNamesQueryApi":true,"lokiQuerySplitting":true,"nestedFolders":true,"newDashboardSharingComponent":true,"newFiltersUI":true,"newPDFRendering":true,"onPremToCloudMigrations":true,"panelMonitoring":true,"pinNavItems":true,"pluginsDetailsRightPanel":true,"preinstallAutoUpdate":true,"promQLScope":true,"prometheusAzureOverrideAudience":true,"publicDashboardsScene":true,"recordedQueriesMulti":true,"skipTokenRotationIfRecent":true,"ssoSettingsLDAP":true,"ssoSettingsSAML":true,"tabularNumbers":true,"teamHttpHeadersMimir":true,"tlsMemcached":true,"topnav":true,"transformationsRedesign":true,"unifiedRequestLog":true,"unifiedStorageHistoryPruner":true,"unifiedStorageSearchPermissionFiltering":true,"useSessionStorageForRedirection":true},"anonymousEnabled":false,"anonymousDeviceLimit":0,"rendererAvailable":false,"rendererVersion":"","rendererDefaultImageWidth":1000,"rendererDefaultImageHeight":500,"rendererDefaultImageScale":1,"http2Enabled":false,"grafanaJavascriptAgent":{"enabled":false,"customEndpoint":"/log-grafana-javascript-agent","allInstrumentationEnabeld":false,"errorInstrumentalizationEnabled":true,"consoleInstrumentalizationEnabled":false,"webVitalsInstrumentalizationEnabled":false,"tracingInstrumentalizationEnabled":false,"internalLoggerLevel":0,"apiKey":""},"pluginCatalogURL":"https://grafana.com/grafana/plugins/","pluginAdminEnabled":true,"pluginAdminExternalManageEnabled":false,"pluginCatalogHiddenPlugins":[],"pluginCatalogManagedPlugins":[],"pluginCatalogPreinstalledPlugins":[{"id":"grafana-metricsdrilldown-app","version":""},{"id":"grafana-lokiexplore-app","version":""},{"id":"grafana-pyroscope-app","version":""},{"id":"grafana-exploretraces-app","version":""}],"expressionsEnabled":true,"awsAllowedAuthProviders":["default","keys","credentials"],"awsAssumeRoleEnabled":true,"supportBundlesEnabled":true,"snapshotEnabled":true,"secureSocksDSProxyEnabled":false,"reportingStaticContext":{},"azure":{"cloud":"AzureCloud"},"defaultDatasourceManageAlertsUiToggle":true,"defaultAllowRecordingRulesTargetAlertsUiToggle":true,"caching":{"enabled":true},"recordedQueries":{"enabled":true},"reporting":{"enabled":true},"analytics":{"enabled":true},"unifiedAlertingEnabled":true,"unifiedAlerting":{"minInterval":"10s","alertStateHistoryBackend":"annotations","recordingRulesEnabled":true},"oauth":{},"samlEnabled":false,"samlName":"","tokenExpirationDayLimit":-1,"sharedWithMeFolderUID":"sharedwithme","rootFolderUID":"general","passwordlessEnabled":"","geomapDisableCustomBaseLayer":false,"publicDashboardAccessToken":"","publicDashboardsEnabled":true,"cloudMigrationIsTarget":false,"cloudMigrationPollIntervalMs":2000,"dateFormats":{"fullDate":"YYYY-MM-DD HH:mm:ss","useBrowserLocale":false,"interval":{"millisecond":"HH:mm:ss.SSS","second":"HH:mm:ss","minute":"HH:mm","hour":"MM/DD HH:mm","day":"MM/DD","month":"YYYY-MM","year":"YYYY"},"defaultTimezone":"browser","defaultWeekStart":"browser"},"namespace":"default","sqlConnectionLimits":{"maxOpenConns":100,"maxIdleConns":100,"connMaxLifetime":14400},"localFileSystemAvailable":true,"listScopesEndpoint":"","listDashboardScopesEndpoint":""},
+        navTree: [{"id":"home","text":"Home","icon":"home-alt","url":"/","sortWeight":-2000},{"id":"bookmarks","text":"Bookmarks","icon":"bookmark","url":"/bookmarks","sortWeight":-1900,"emptyMessageId":"bookmarks-empty"},{"id":"starred","text":"Starred","icon":"star","url":"/dashboards?starred","sortWeight":-1800,"children":[{"id":"starred/a071e0bb-a928-4bab-b248-f8ca430b28e8","text":"AI-Enhanced Metrics Dashboard","url":"/d/a071e0bb-a928-4bab-b248-f8ca430b28e8/ai-enhanced-metrics-dashboard"}],"emptyMessageId":"starred-empty"},{"id":"dashboards/browse","text":"Dashboards","subTitle":"Create and manage dashboards to visualize your data","icon":"apps","url":"/dashboards","sortWeight":-1700,"children":[{"id":"dashboards/playlists","text":"Playlists","subTitle":"Groups of dashboards that are displayed in a sequence","icon":"presentation-play","url":"/playlists"},{"id":"dashboards/snapshots","text":"Snapshots","subTitle":"Interactive, publicly available, point-in-time representations of dashboards","icon":"camera","url":"/dashboard/snapshots"},{"id":"dashboards/library-panels","text":"Library panels","subTitle":"Reusable panels that can be added to multiple dashboards","icon":"library-panel","url":"/library-panels"},{"id":"dashboards/public","text":"Public dashboards","icon":"library-panel","url":"/dashboard/public"},{"id":"dashboards/new","text":"New dashboard","icon":"plus","url":"/dashboard/new","hideFromTabs":true,"isCreateAction":true},{"id":"dashboards/import","text":"Import dashboard","subTitle":"Import dashboard from file or Grafana.com","icon":"plus","url":"/dashboard/import","hideFromTabs":true,"isCreateAction":true}]},{"id":"explore","text":"Explore","subTitle":"Explore your data","icon":"compass","url":"/explore","sortWeight":-1600},{"id":"drilldown","text":"Drilldown","subTitle":"Drill down into your data using Grafana's powerful queryless apps","icon":"drilldown","url":"/drilldown","sortWeight":-1500,"children":[{"id":"plugin-page-grafana-metricsdrilldown-app","text":"Metrics","subTitle":"Quickly find related metrics with a few clicks, without needing to write PromQL queries to retrieve metrics.","img":"public/plugins/grafana-metricsdrilldown-app/img/logo.svg","url":"/a/grafana-metricsdrilldown-app/drilldown","sortWeight":1,"isSection":true,"pluginId":"grafana-metricsdrilldown-app"},{"id":"plugin-page-grafana-lokiexplore-app","text":"Logs","subTitle":"Visualize log volumes to easily detect anomalies or significant changes over time, without needing to compose LogQL queries.","img":"public/plugins/grafana-lokiexplore-app/img/logo.svg","url":"/a/grafana-lokiexplore-app/explore","sortWeight":2,"isSection":true,"pluginId":"grafana-lokiexplore-app"},{"id":"plugin-page-grafana-exploretraces-app","text":"Traces","subTitle":"Use Rate, Errors, and Duration (RED) metrics derived from traces to investigate errors within complex distributed systems.","img":"public/plugins/grafana-exploretraces-app/img/logo.svg","url":"/a/grafana-exploretraces-app/","sortWeight":3,"isSection":true,"pluginId":"grafana-exploretraces-app"},{"id":"plugin-page-grafana-pyroscope-app","text":"Profiles","subTitle":"View and analyze high-level service performance, identify problem processes for optimization, and diagnose issues to determine root causes.","img":"public/plugins/grafana-pyroscope-app/img/logo.svg","url":"/a/grafana-pyroscope-app/explore","sortWeight":4,"isSection":true,"pluginId":"grafana-pyroscope-app"}]},{"id":"alerting","text":"Alerting","subTitle":"Learn about problems in your systems moments after they occur","icon":"bell","url":"/alerting","sortWeight":-1400,"children":[{"id":"alert-list","text":"Alert rules","subTitle":"Rules that determine whether an alert will fire","icon":"list-ul","url":"/alerting/list"},{"id":"receivers","text":"Contact points","subTitle":"Choose how to notify your contact points when an alert instance fires","icon":"comment-alt-share","url":"/alerting/notifications"},{"id":"am-routes","text":"Notification policies","subTitle":"Determine how alerts are routed to contact points","icon":"sitemap","url":"/alerting/routes"},{"id":"silences","text":"Silences","subTitle":"Stop notifications from one or more alerting rules","icon":"bell-slash","url":"/alerting/silences"},{"id":"groups","text":"Alert groups","subTitle":"See grouped alerts with active notifications","icon":"layer-group","url":"/alerting/groups"},{"id":"alerts/recently-deleted","text":"Recently deleted","subTitle":"Any items listed here for more than 30 days will be automatically deleted.","url":"/alerting/recently-deleted"},{"id":"alerting-admin","text":"Settings","icon":"cog","url":"/alerting/admin"},{"id":"alert","text":"Create alert rule","subTitle":"Create an alert rule","icon":"plus","url":"/alerting/new","hideFromTabs":true,"isCreateAction":true}]},{"id":"connections","text":"Connections","icon":"adjust-circle","url":"/connections","sortWeight":-400,"children":[{"id":"connections-add-new-connection","text":"Add new connection","subTitle":"Browse and create new connections","url":"/connections/add-new-connection","keywords":["csv","graphite","json","loki","prometheus","sql","tempo"]},{"id":"connections-datasources","text":"Data sources","subTitle":"View and manage your connected data source connections","url":"/connections/datasources"}]},{"id":"cfg","text":"Administration","subTitle":"Organization: Main Org.","icon":"cog","url":"/admin","sortWeight":-100,"children":[{"id":"provisioning","text":"Provisioning","subTitle":"View and manage your provisioning connections","url":"/admin/provisioning"},{"id":"cfg/general","text":"General","subTitle":"Manage default preferences and settings across Grafana","icon":"shield","url":"/admin/general","children":[{"id":"upgrading","text":"Stats and license","icon":"unlock","url":"/admin/upgrading","sortWeight":-1},{"id":"org-settings","text":"Default preferences","subTitle":"Manage preferences across an organization","icon":"sliders-v-alt","url":"/org"},{"id":"server-settings","text":"Settings","subTitle":"View the settings defined in your Grafana config","icon":"sliders-v-alt","url":"/admin/settings"},{"id":"global-orgs","text":"Organizations","subTitle":"Isolated instances of Grafana running on the same server","icon":"building","url":"/admin/orgs"},{"id":"migrate-to-cloud","text":"Migrate to Grafana Cloud","subTitle":"Copy resources from your self-managed installation to a cloud stack","url":"/admin/migrate-to-cloud"}]},{"id":"cfg/plugins","text":"Plugins and data","subTitle":"Install plugins and define the relationships between data","icon":"shield","url":"/admin/plugins","children":[{"id":"plugins","text":"Plugins","subTitle":"Extend the Grafana experience with plugins","icon":"plug","url":"/plugins"},{"id":"correlations","text":"Correlations","subTitle":"Add and configure correlations","icon":"gf-glue","url":"/datasources/correlations"}]},{"id":"cfg/access","text":"Users and access","subTitle":"Configure access for individual users, teams, and service accounts","icon":"shield","url":"/admin/access","children":[{"id":"global-users","text":"Users","subTitle":"Manage users in Grafana","icon":"user","url":"/admin/users"},{"id":"teams","text":"Teams","subTitle":"Groups of users that have common dashboard and permission needs","icon":"users-alt","url":"/org/teams"},{"id":"serviceaccounts","text":"Service accounts","subTitle":"Use service accounts to run automated workloads in Grafana","icon":"gf-service-account","url":"/org/serviceaccounts"}]},{"id":"authentication","text":"Authentication","subTitle":"Manage your auth settings and configure single sign-on","icon":"signin","url":"/admin/authentication","isSection":true}]},{"id":"profile","text":"admin","img":"/avatar/46d229b033af06a191ff2267bca9ae56","url":"/profile","roundIcon":true,"children":[{"id":"profile/settings","text":"Profile","icon":"sliders-v-alt","url":"/profile"},{"id":"profile/notifications","text":"Notification history","icon":"bell","url":"/profile/notifications"},{"id":"profile/password","text":"Change password","icon":"lock","url":"/profile/password"}]},{"id":"help","text":"Help","subTitle":"Grafana v12.1.0 (df5de821)","icon":"question-circle","url":"#","sortWeight":100,"children":[{"id":"support-bundles","text":"Support bundles","icon":"wrench","url":"/support-bundles","sortWeight":100}]}],
+        assets: {"jsFiles":[{"filePath":"public/build/runtime.f411d9fd17caf2c61dab.js","integrity":"sha384-tvuf1SjqKlUjWospAA43rALC9nEZZZGzplRLlc4T5IDmfqgTKqzS3vIdViBg2/Ca sha512-1f+j/ZFdn3/E1uR5UWTXpDg47llw+XcYkHBJGje5aEGCmQsUevnsR2W6VRJhPg4cBepVL64o257nZb9f9elaeA=="},{"filePath":"public/build/6029.0549a3fcb50e73c4b256.js","integrity":"sha384-Otd1wLPciZ+tOJke2wbZQse4pmXNMdivu6XYXws1Z9H7Iy5TXpsS6Ja0Ke6p5Ti0 sha512-LFZ8zOE5Cke3SRGx5a2NMChf1LtQ1oTins3n4XA0/w9Wpn7cBzJpSGzuLUtN3pAOtDsZmQp0+CPdOdS/v/E44A=="},{"filePath":"public/build/2033.bec9d44fd0b4a0c196a7.js","integrity":"sha384-+IsDn5YFjeqdlVIHDkuCuYFReg/0Von47cT/fTCIB2lkiw719QRWYQ3WAOQSTmq5 sha512-DlHdq1fgJIA9krsPsKgFi4yzsNJsB0Jbbx8bhrjQhpDcqsdqGW2u+bq40iL3blcnDSRxBDj3wIkPcVMSZUobgQ=="},{"filePath":"public/build/7777.6c4200e47d2cb766b7e6.js","integrity":"sha384-ZRsj5GgSkKHT4OgrAIqvev32yfceK7QQbZ6UT6CehBK7OQaZKa83OVIG2YJ8GJOB sha512-N+Kg11PkW8kPoF6534WZZqcAb8qzjqLIXCPK8h0+aqViMCZnRbap1YrfodGpUgradTUI70nXX71tg/6+QogvdQ=="},{"filePath":"public/build/5923.236359203b24de0f1036.js","integrity":"sha384-gElGy6ORGWk7DdpnJkY2m4nfgnIGSz1ri5iQh6ns4NQEaYy3lHBsXMP6qGR+JDrw sha512-AnVOkiPifVJr37drJgmKQKJuzr10yIl5mTDB/G+cXwKTlmaxZ8nq+rKwn2WjKzijhIWvIdrXmbe6X4yK3vTUIA=="},{"filePath":"public/build/9414.e32d7f44873b22e671c7.js","integrity":"sha384-f3w2sQJxmSygOnVsD5PLYchtXsdxOBFgm/elT8grH5bGlJ0ESs3bY5ohEYeiUbfG sha512-t4m15KfuBEvRCeEaz/XCNMr2w4lbe52vG+7wYWVaaP+HJpvPpSLNX4U7Pi8oRln35G4DbvG7YsKLCnNZhSCBTQ=="},{"filePath":"public/build/app.e299abd209cd47ad567d.js","integrity":"sha384-mJk92Arnsh9UpHZPnXaaJ387s/x0e9ULyEFshvFXphnbr//fMnVOmtcrpcjBLsFH sha512-lKcZCYHzpvBFI97u/77vkIP37k+KQmjJuIQkcZLgJCcfr+z35b8mf0hraUyQI0uhQJZgWLJPGSN38VmoFNP8PQ=="}],"cssFiles":[{"filePath":"public/build/grafana.app.236e53eabc3f6ade9d45.css","integrity":"sha384-olpStxJ044VwQDmMgxX0o53NEt8XyvrkTxJICvUnHCiZoFPV7/BJfHJiEoGZIXX6 sha512-EjyLSbiqqJBsgRVlv6tZkK6EKBWLkm2dIFDc9hiuJ8Bqgx3nduxRlpCNlBKlJY1J4h77ifbrbz8/l63/kavtIQ=="}],"dark":"public/build/grafana.dark.23c5425b7a9e1580d499.css","light":"public/build/grafana.light.7fb85ddc153a7c559092.css","swagger":[{"filePath":"public/build/runtime.f411d9fd17caf2c61dab.js","integrity":"sha384-tvuf1SjqKlUjWospAA43rALC9nEZZZGzplRLlc4T5IDmfqgTKqzS3vIdViBg2/Ca sha512-1f+j/ZFdn3/E1uR5UWTXpDg47llw+XcYkHBJGje5aEGCmQsUevnsR2W6VRJhPg4cBepVL64o257nZb9f9elaeA=="},{"filePath":"public/build/6029.0549a3fcb50e73c4b256.js","integrity":"sha384-Otd1wLPciZ+tOJke2wbZQse4pmXNMdivu6XYXws1Z9H7Iy5TXpsS6Ja0Ke6p5Ti0 sha512-LFZ8zOE5Cke3SRGx5a2NMChf1LtQ1oTins3n4XA0/w9Wpn7cBzJpSGzuLUtN3pAOtDsZmQp0+CPdOdS/v/E44A=="},{"filePath":"public/build/2033.bec9d44fd0b4a0c196a7.js","integrity":"sha384-+IsDn5YFjeqdlVIHDkuCuYFReg/0Von47cT/fTCIB2lkiw719QRWYQ3WAOQSTmq5 sha512-DlHdq1fgJIA9krsPsKgFi4yzsNJsB0Jbbx8bhrjQhpDcqsdqGW2u+bq40iL3blcnDSRxBDj3wIkPcVMSZUobgQ=="},{"filePath":"public/build/7249.9de82c6a1993870a636e.js","integrity":"sha384-6kiKxXQ4AsR5wNSdaeJxcmss081DBr+Y1zMwg1ctzMPvMp2X7QYUt6nxYnM6xNwr sha512-/+5mlzFx2hP2ijUnd+pZ2S90lVgkdfimv6//EaEhylX9RsYmYTaf0m0M7WXVp/+P2ncUJeexftlPjr4TrGqQYg=="},{"filePath":"public/build/5923.236359203b24de0f1036.js","integrity":"sha384-gElGy6ORGWk7DdpnJkY2m4nfgnIGSz1ri5iQh6ns4NQEaYy3lHBsXMP6qGR+JDrw sha512-AnVOkiPifVJr37drJgmKQKJuzr10yIl5mTDB/G+cXwKTlmaxZ8nq+rKwn2WjKzijhIWvIdrXmbe6X4yK3vTUIA=="},{"filePath":"public/build/swagger.b7fa6c04bd44a97237e6.js","integrity":"sha384-JxJFMKZjQuPuukoJmylKIKGM88zMYxAD1qGa0/Oo8RZ+yoqNsqfQGYFHZ5SsMdTg sha512-oT3/iCX2Oqhkz3HIadzUCOskPXiQReqEWGYLIq87+2PDw9Mwws0+wQYjUdmbck8OCtjZetEqlhMSYB/1EGBAog=="}],"swaggerCssFiles":[{"filePath":"public/build/grafana.swagger.d0a2da197b9827204ac1.css","integrity":"sha384-WCNS9FySedugIyb8fkjUCt0U2ZQWKifCFICWKaBB/1X1roVDZiilm+hPnmFyt35H sha512-InI1FqWH/FNfgMiG9BCcL+2MIiBDQVc9nq7A5Ik4LFbbEhQ11exrTCBjOV6c35XvLVho87+z0uVbh4UbgkHxBA=="}]}
+      };
+
+      
+      window.__grafana_boot_data_promise = Promise.resolve();
+
+      
+      
+      if (window.grafanaBootData.user.theme === "system") {
+        document.body.classList.remove("theme-system");
+        var darkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+        var cssLink = document.createElement("link");
+        cssLink.rel = 'stylesheet';
+
+        if (darkQuery.matches) {
+          document.body.classList.add("theme-dark");
+          cssLink.href = window.grafanaBootData.assets.dark;
+          window.grafanaBootData.user.lightTheme = false;
+        } else {
+          document.body.classList.add("theme-light");
+          cssLink.href = window.grafanaBootData.assets.light;
+          window.grafanaBootData.user.lightTheme = true;
+        }
+        document.head.appendChild(cssLink);
+      }
+
+      window.__grafana_load_failed = function() {
+        var preloader = document.getElementsByClassName("preloader");
+        if (preloader.length) {
+          preloader[0].className = "preloader preloader--done";
+        }
+      }
+
+      
+      window.onload = function() {
+        if (window.__grafana_app_bundle_loaded) {
+          return;
+        }
+        window.__grafana_load_failed();
+      };
+
+      
+      
+    </script>
+
+    
+
+    
+      
+        <script nonce="" src="public/build/runtime.f411d9fd17caf2c61dab.js" type="text/javascript" defer=""></script>
+      
+        <script nonce="" src="public/build/6029.0549a3fcb50e73c4b256.js" type="text/javascript" defer=""></script>
+      
+        <script nonce="" src="public/build/2033.bec9d44fd0b4a0c196a7.js" type="text/javascript" defer=""></script>
+      
+        <script nonce="" src="public/build/7777.6c4200e47d2cb766b7e6.js" type="text/javascript" defer=""></script>
+      
+        <script nonce="" src="public/build/5923.236359203b24de0f1036.js" type="text/javascript" defer=""></script>
+      
+        <script nonce="" src="public/build/9414.e32d7f44873b22e671c7.js" type="text/javascript" defer=""></script>
+      
+        <script nonce="" src="public/build/app.e299abd209cd47ad567d.js" type="text/javascript" defer=""></script>
+      
+    
+
+    <script nonce="">
+      performance.mark('frontend_boot_js_done_time_seconds');
+    </script>
+  
+
+<div class="monaco-aria-container"><div class="monaco-alert" role="alert" aria-atomic="true"></div><div class="monaco-alert" role="alert" aria-atomic="true"></div><div class="monaco-status" role="complementary" aria-live="polite" aria-atomic="true"></div><div class="monaco-status" role="complementary" aria-live="polite" aria-atomic="true"></div></div><div data-overlay-container="true"></div></body></html>

@@ -1,0 +1,29 @@
+#Run this comman in AWS console
+cat > bedrock-policy.json << EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "bedrock:InvokeModel",
+      "Resource": [
+        "arn:aws:bedrock:*:*:foundation-model/amazon.nova-lite-v1:0",
+        "arn:aws:bedrock:*:*:foundation-model/amazon.nova-lite-v1:0:24k",
+        "arn:aws:bedrock:*:*:foundation-model/amazon.nova-lite-v1:0:300k"
+      ]
+    }
+  ]
+}
+EOF
+
+# Apply the updated policy
+aws iam put-user-policy \
+  --user-name bedrock-k8s-user \
+  --policy-name BedrockNovaLiteAccess \
+  --policy-document file://bedrock-policy.json
+
+
+
+#Check policy:
+aws iam get-user-policy --user-name bedrock-k8s-user --policy-name BedrockNovaLiteAccess
+

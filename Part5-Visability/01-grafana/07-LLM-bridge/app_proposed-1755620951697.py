@@ -14,19 +14,13 @@ logger = logging.getLogger(__name__)
 # Default values can be overite in `21-bridge-configmap.yaml`
 PROM = os.getenv("PROM_URL", "http://prometheus-server:80")
 CACHE_TTL = int(os.getenv("CACHE_TTL", "300"))  # 5 minutes default
-MODEL_NAME = os.getenv("MODEL_NAME", "amazon.nova-lite-v1:0")
+MODEL_NAME = os.getenv("MODEL_NAME", "anthropic.claude-3-sonnet-20240229-v1:0")
 BEDROCK_REGION = os.getenv("BEDROCK_REGION", "us-east-1")
-AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
-AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
+BEDROCK_KEY = os.getenv("BEDROCK_KEY","")
 
 api = FastAPI()
 client = httpx.AsyncClient(timeout=60)
-bedrock = boto3.client(
-    'bedrock-runtime',
-    region_name=BEDROCK_REGION,
-    aws_access_key_id=AWS_ACCESS_KEY_ID,
-    aws_secret_access_key=AWS_SECRET_ACCESS_KEY
-)
+bedrock = boto3.client('bedrock-runtime', region_name=BEDROCK_REGION)
 
 # Simple in-memory cache
 cache = {}
@@ -107,18 +101,11 @@ Provide a brief and practical summary."""
 
     try:
         body = json.dumps({
+            "anthropic_version": "bedrock-2023-05-31",
+            "max_tokens": 1000,
             "messages": [
-                {
-                    "role": "user", 
-                    "content": [
-                        {"text": f"You are a Senior SRE and DevOps metrics analyst. Be concise and practical. {prompt}"}
-                    ]
-                }
-            ],
-            "inferenceConfig": {
-                "maxTokens": 500,
-                "temperature": 0.7
-            }
+                {"role": "user", "content": f"You are a Senior SRE and DevOps metrics analyst. Be concise and practical. {prompt}"}
+            ]
         })
         
         response = bedrock.invoke_model(
@@ -127,13 +114,7 @@ Provide a brief and practical summary."""
         )
         
         result = json.loads(response['body'].read())
-        raw_summary = result['output']['message']['content'][0]['text']
-        
-        # Format for Grafana display with double newlines
-        #ai_summary = raw_summary.replace('- **', '<LI>').replace('**', '')
-        ai_summary = raw_summary.replace('\n\n', '\n\n').replace('- **', '• ').replace('**', '')
-
-
+        ai_summary = result['content'][0]['text']
                     
     except Exception as e:
         logger.error(f"{MODEL_NAME} connection error: {e}")
