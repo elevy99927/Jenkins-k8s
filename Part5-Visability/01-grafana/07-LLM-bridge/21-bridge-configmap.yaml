@@ -7,3 +7,4 @@ data:
   OLLAMA_URL: "http://phi3mini:11434"
   CACHE_TTL: "1200"  # 5 minutes
   MODEL_NAME: "gemma:2b"
+  SYSTEM_PROMPT: "You are a DevOps metrics analyst. Be concise and practical."

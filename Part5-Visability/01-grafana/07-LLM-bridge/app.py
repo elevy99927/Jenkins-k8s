@@ -15,6 +15,7 @@ PROM = os.getenv("PROM_URL", "http://prometheus-server:80")
 OLLAMA = os.getenv("OLLAMA_URL", "http://phi3mini:11434")
 CACHE_TTL = int(os.getenv("CACHE_TTL", "300"))  # 5 minutes default
 MODEL_NAME = os.getenv("MODEL_NAME", "gemma:2b")
+SYSTEM_PROMPT = os.getenv("SYSTEM_PROMPT", "You are a DevOps metrics analyst. Be concise and practical.")
 
 api = FastAPI()
 client = httpx.AsyncClient(timeout=60)
@@ -90,11 +91,10 @@ async def summarize(query: str = Query(...), minutes: int = 60):
 
     # Send to phi3:mini via Ollama
     prompt = f"""Analyze these metrics findings:
-PromQL: {query}
-Time window: {minutes} minutes
-Statistics: {series_stats[:3]}
-
-Provide a brief and practical summary."""
+    PromQL: {query}
+    Time window: {minutes} minutes
+    Statistics: {series_stats[:3]}
+    Provide a brief and practical summary in HTML format."""
 
     try:
         ollama_response = await client.post(f"{OLLAMA}/api/chat", 
@@ -102,7 +102,7 @@ Provide a brief and practical summary."""
                                               "model": MODEL_NAME,
                                               "stream": False,
                                               "messages": [
-                                                  {"role": "system", "content": "You are a DevOps metrics analyst. Be concise and practical."},
+                                                  {"role": "system", "content": SYSTEM_PROMPT},
                                                   {"role": "user", "content": prompt}
                                               ]
                                           })
