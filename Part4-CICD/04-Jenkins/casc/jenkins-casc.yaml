@@ -1,7 +1,3 @@
 jobs:
   - file: "/var/jenkins_home/casc_configs/pipeline.groovy"
-  
-unclassified:
-  location:
-    url: http://example.com
-    adminAddress: eyal@levys.co.il
+
