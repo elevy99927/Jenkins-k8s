@@ -1,6 +1,5 @@
 jenkins:
   systemMessage: "Welcome to our CI/CD server. This Jenkins is managed 'as code'."
-  numExecutors: 5
   mode: NORMAL
   scmCheckoutRetryCount: 3
   
