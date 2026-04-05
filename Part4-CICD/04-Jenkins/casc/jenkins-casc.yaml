@@ -1,0 +1,19 @@
+jenkins:
+  systemMessage: "Welcome to our CI/CD server. This Jenkins is managed 'as code'."
+  numExecutors: 5
+  mode: NORMAL
+  scmCheckoutRetryCount: 3
+  
+  # Security configuration
+  authorizationStrategy:
+    globalMatrix:
+      permissions:
+        - "USER:Overall/Read:anonymous"
+        - "GROUP:Overall/Administer:authenticated"
+        - "USER:Overall/Administer:admin"
+
+# Unclassified section for plugin-specific settings
+unclassified:
+  location:
+    url: http://example.com
+    adminAddress: eyal@levys.co.il
