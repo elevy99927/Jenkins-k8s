@@ -1,3 +1,3 @@
-# jobs:
-#   - file: "/var/jenkins_home/casc_configs/pipeline.groovy"
+jobs:
+   - file: "/var/jenkins_home/casc_configs/pipeline.groovy"
 
