@@ -12,7 +12,7 @@ controller:
                         remote {
                           url('https://github.com/elevy99927/hello-newapp.git')
                         }
-                        branches('*/main')
+                        branches('*/lab4-solution')
                       }
                     }
                     scriptPath('Jenkinsfile')
