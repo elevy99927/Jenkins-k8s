@@ -1,226 +1,25 @@
-configuration-as-code: {
-  }
-credentials:
-  folder: {
-    }
-  providerImpl: {
-    }
-  system:
-    domainCredentials:
-    - domain: {
-        }
-  user: {
-    }
-jenkins:
-  authorizationStrategy:
-    loggedInUsersCanDoAnything:
-      allowAnonymousRead: false
-  clouds:
-  - kubernetes:
-      containerCap: 10
-      containerCapStr: "10"
-      jenkinsTunnel: "jenkins-k8s-qa-agent.jenkins.svc.cluster.local:50000"
-      jenkinsUrl: "http://jenkins-k8s-qa.jenkins.svc.cluster.local:8080"
-      name: "kubernetes"
-      namespace: "jenkins"
-      podLabels:
-      - key: "jenkins/jenkins-k8s-qa-jenkins-agent"
-        value: "true"
-      serverUrl: "https://kubernetes.default"
-      templates:
-      - containers:
-        - args: "^${computer.jnlpmac} ^${computer.name}"
-          envVars:
-          - envVar:
-              key: "JENKINS_URL"
-              value: "http://jenkins-k8s-qa.jenkins.svc.cluster.local:8080/"
-          image: "jenkins/inbound-agent:3355.v388858a_47b_33-17"
-          name: "jnlp"
-          resourceLimitCpu: "512m"
-          resourceLimitMemory: "512Mi"
-          resourceRequestCpu: "512m"
-          resourceRequestMemory: "512Mi"
-          workingDir: "/home/jenkins/agent"
-        id: "f4d4365a0fec0782b890b993b76313dc849cf66ca57c3fdedba41bcdef3b7069"
-        label: "jenkins-k8s-qa-jenkins-agent"
-        name: "default"
-        namespace: "jenkins"
-        nodeUsageMode: NORMAL
-        podRetention: "never"
-        serviceAccount: "default"
-        slaveConnectTimeout: 100
-        slaveConnectTimeoutStr: "100"
-        yamlMergeStrategy: "override"
-  crumbIssuer:
-    standard:
-      excludeClientIPFromCrumb: true
-  disableRememberMe: false
-  labelAtoms:
-  - name: "built-in"
-  - name: "jenkins-k8s-qa-jenkins-agent"
-  - name: "k8s-pipeline-scm-1-2rs4c-xz15c-9nmk7"
-  - name: "k8s-pipeline-scm_1-2rs4c"
-  log: {
-    }
-  markupFormatter: "plainText"
-  mode: NORMAL
-  nodeMonitors:
-  - "architecture"
-  - "clock"
-  - diskSpace:
-      freeSpaceThreshold: "1GiB"
-      freeSpaceWarningThreshold: "2GiB"
-  - "swapSpace"
-  - tmpSpace:
-      freeSpaceThreshold: "1GiB"
-      freeSpaceWarningThreshold: "2GiB"
-  - "responseTime"
-  numExecutors: 0
-  primaryView:
-    all:
-      name: "all"
-  projectNamingStrategy: "standard"
-  quietPeriod: 5
-  remotingSecurity:
-    enabled: true
-  scmCheckoutRetryCount: 0
-  securityRealm:
-    local:
-      allowsSignup: false
-      enableCaptcha: false
-      users:
-      - id: "admin"
-        name: "Jenkins Admin"
-        properties:
-        - "apiToken"
-        - "consoleUrlProvider"
-        - "viewsTabBar"
-        - "mailer"
-        - myView:
-            viewsTabBar: "standard"
-        - preferredProvider:
-            providerId: "default"
-        - "timezone"
-        - "experimentalFlags"
-  slaveAgentPort: 50000
-  updateCenter:
-    sites:
-    - id: "default"
-      url: "https://updates.jenkins.io/update-center.json"
-  views:
-  - all:
-      name: "all"
-  viewsTabBar: "standard"
-globalCredentialsConfiguration:
-  configuration:
-    providerFilter: "none"
-    typeFilter: "none"
-appearance:
-  consoleUrlProvider: {
-    }
-  prism:
-    theme: PRISM
-security:
-  apiToken:
-    creationOfLegacyTokenEnabled: false
-    tokenGenerationOnCreationEnabled: false
-    usageStatisticsEnabled: true
-  apiTokenProperty: {
-    }
-  contentSecurityPolicy:
-    enforce: false
-  cps:
-    hideSandbox: false
-  crumb: {
-    }
-  gitHooks:
-    allowedOnAgents: false
-    allowedOnController: false
-  gitHostKeyVerificationConfiguration:
-    sshHostKeyVerificationStrategy: "knownHostsFileVerificationStrategy"
-  prism:
-    protectSourceCodeByPermission: false
-  queueItemAuthenticator: {
-    }
-  scriptApproval:
-    forceSandbox: false
-  updateSiteWarningsConfiguration: {
-    }
-unclassified:
-  administrativeMonitorsConfiguration: {
-    }
-  artifactManager: {
-    }
-  buildDiscarders:
-    configuredBuildDiscarders:
-    - "jobBuildDiscarder"
-  casCGlobalConfig: {
-    }
-  computerRetentionCheckInterval: {
-    }
-  defaultDisplayUrlProvider: {
-    }
-  defaultFolderConfiguration: {
-    }
-  defaultView: {
-    }
-  envVarsFilter: {
-    }
-  fingerprints:
-    fingerprintCleanupDisabled: false
-    storage: "file"
-  globalDefaultFlowDurabilityLevel: {
-    }
-  globalLibraries: {
-    }
-  globalUntrustedLibraries: {
-    }
-  location:
-    adminAddress: "address not configured yet <nobody@nowhere>"
-    url: "http://jenkins-k8s-qa:8080/"
-  mailer:
-    charset: "UTF-8"
-    useSsl: false
-    useTls: false
-  metricsAccessKey: {
-    }
-  myView: {
-    }
-  nodeProperties: {
-    }
-  plugin: {
-    }
-  pollSCM:
-    pollingThreadCount: 10
-  projectNamingStrategy: {
-    }
-  proxyConfigurationManager: {
-    }
-  quietPeriod: {
-    }
-  resourceRoot: {
-    }
-  scmGit:
-    addGitTagAction: false
-    allowSecondFetch: false
-    createAccountBasedOnEmail: false
-    disableGitToolChooser: false
-    hideCredentials: false
-    showEntireCommitSummaryInChanges: false
-    useExistingAccountWithSameEmail: false
-  scmRetryCount: {
-    }
-  shell: {
-    }
-  usageStatistics: {
-    }
-  viewsTabBar: {
-    }
-tool:
-  git:
-    installations:
-    - home: "git"
-      name: "Default"
-  mavenGlobalConfig:
-    globalSettingsProvider: "standard"
-    settingsProvider: "standard"
+controller:
+  admin:
+    username: "admin"
+    password: "Aa123456"
+
+  JCasC:
+    configScripts:
+      jobs: |
+        jobs:
+          - script: >
+              pipelineJob('hello-newapp') {
+                definition {
+                  cpsScm {
+                    scm {
+                      git {
+                        remote {
+                          url('https://github.com/elevy99927/hello-newapp.git')
+                        }
+                        branches('*/main')
+                      }
+                    }
+                    scriptPath('Jenkinsfile')
+                  }
+                }
+              }
