@@ -1,8 +1,4 @@
 controller:
-  admin:
-    username: "admin"
-    password: "Aa123456"
-
   JCasC:
     configScripts:
       jobs: |
