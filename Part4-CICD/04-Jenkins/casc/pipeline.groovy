@@ -12,7 +12,7 @@ pipelineJob('app-pipeline') {
           branch('main')
         }
       }
-      scriptPath('Jenkinsfile')
+      scriptPath('Part4-CICD/04-Jenkins/06-Argo-Integration/Jenkinsfile')
     }
   }
 }
