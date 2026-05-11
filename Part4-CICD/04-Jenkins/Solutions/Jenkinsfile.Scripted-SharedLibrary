@@ -1,62 +1,28 @@
+/*
+ * DISCLAIMER - How to use this shared library:
+ *
+ * 1. Go to Jenkins Dashboard > Manage Jenkins > System.
+ * 2. Scroll down to the "Global Pipeline Libraries" section.
+ * 3. Add a new library:
+ *    - Name: Give it a name (e.g., my-shared-library).
+ *    - Default version: Specify a branch or tag.
+ *    - Retrieval method: Choose "Modern SCM" and select Git.
+ *    - Project Repository: Provide the repository URL.
+ */
+
+@Library('my-shared-library') _
+
 node {
-    env.APP_ENV = 'production'
-    env.APP_DEBUG = 'false'
-    env.GITREPO = 'github.com/elevy99927/jenkins-with-gitlab.git'
-
-    stage('SCM pull') {
-        echo 'Pull SCM...'
-
-        // Option 1
-        withCredentials([usernamePassword(credentialsId: 'your-credential-id', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-            sh "git clone https://${GIT_USERNAME}:${GIT_PASSWORD}@${env.GITREPO} ."
+    try {
+        stage('Build') {
+            myLibrary.buildApp()
         }
-        // Better Option without "withCredentials"
-        //checkout([$class: 'GitSCM', branches: [[name: 'main']], userRemoteConfigs: [[credentialsId: 'your-credential-id', url: "https://${env.GITREPO}"]]])
-    }
 
-    stage('Parallel Tests') {
-        parallel(
-            'build': {
-                echo "Building Volt app in environment: ${env.APP_ENV}"
-                echo "Debug mode is set to: ${env.APP_DEBUG}"
-                echo 'build image'
-            },
-            'trivy test': {
-                echo 'tivy test'
-            },
-            'bandit test': {
-                echo 'bandit test'
-            },
-            'sonarqube': {
-                echo 'sonarqube'
-                sh "exit 0" // Or exit 1 to break the pipeline
-            }
-        )
-    }
+        stage('Deploy') {
+            myLibrary.deployApp(env.BRANCH_NAME)
+        }
 
-    stage('Parallel 2') {
-        parallel(
-            'docker push': {
-                echo 'build image'
-            },
-            'unit test': {
-                echo 'tivy test'
-            }
-        )
+    } finally {
+        myLibrary.cleanup()
     }
-
-    stage('Deploy') {
-        echo 'deploy to kubernetes ...'
-    }
-
-    stage('Test') {
-        echo 'Run QA tests...'
-    }
-
-    // post always
-    echo 'Cleaning up workspace...'
-    sh "pwd"
-    sh "ls -la"
-    sh "rm -f -r *"
-    echo 'Sending email...'
 }
