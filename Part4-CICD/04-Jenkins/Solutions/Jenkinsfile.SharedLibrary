@@ -1,0 +1,95 @@
+pipeline {
+    agent any
+    environment {
+        APP_ENV = 'production'
+        APP_DEBUG = 'false'
+    	GITREPO = 'github.com/elevy99927/jenkins-with-gitlab.git'
+    }
+    stages {
+        stage('SCM pull') {
+            steps {
+	    	    echo 'Pull SCM...'
+
+    	    	// Option 1
+	        	withCredentials([usernamePassword(credentialsId: 'your-credential-id', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+ 	        	   sh "git clone https://${GIT_USERNAME}:${GIT_PASSWORD}@${env.GITREPO} ."
+	    	    }
+                // Better Option without "withCredentials"
+		        //git branch: 'main', credentialsId: 'your-credential-id', url: "https://${env.GITREPO}"
+            }
+        }
+        stage('Parallel Tests') {
+            parallel {
+                stage('build') {
+                    steps {
+                	echo "Building Volt app in environment: ${env.APP_ENV}"
+                	echo "Debug mode is set to: ${env.APP_DEBUG}"
+                        echo 'build image'
+
+
+                    }
+                }
+                stage('tivy test') {
+                    steps {
+                        echo 'tivy test'
+   
+                    }
+                }
+                stage('bandit test') {
+                    steps {
+                        echo 'bandit test'
+
+
+                    }
+                }
+                stage('sonarqube') {
+                    steps {
+                        echo 'sonarqube'
+                        sh "exit 0" // Or exit 1 to breake the pipeline
+                    }
+                }
+            }
+        }
+
+        stage('Parallel 2') {
+            parallel {
+                stage('docker push') {
+                    steps {
+                        echo 'build image'
+
+
+                    }
+                }
+                stage('unit test') {
+                    steps {
+                        echo 'tivy test'
+   
+                    }
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'deploy to kubernetes ...'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Run QA tests...'
+            }
+        }
+    }
+    post {
+        always {
+            echo 'Cleaning up workspace...'
+            sh "pwd"
+            sh "ls -la"
+            sh "rm -f -r *"
+            echo 'Sending email...'
+        }
+    }
+}
+
+
+
+
