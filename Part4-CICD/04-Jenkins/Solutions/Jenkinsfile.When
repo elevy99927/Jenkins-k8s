@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build Docker Image') {
+            when {
+                environment name: 'BUILD_DOCKER', value: 'true'
+            }
+            steps {
+                echo 'Building Docker image...'
+                // Docker build steps
+            }
+        }
+
+        stage('Integration Tests') {
+            when {
+                expression { currentBuild.result == null || currentBuild.result == 'SUCCESS' }
+            }
+            steps {
+                echo 'Running integration tests...'
+                // Test steps
+            }
+        }
+        stage('Notify Team') {
+            when {
+                anyOf {
+                    branch 'develop'
+                    branch pattern: 'release/*', comparator: 'GLOB'
+                }
+            }
+            steps {
+                echo 'Notifying the team...'
+                // Notification steps
+            }
+        }
+    }
+}
