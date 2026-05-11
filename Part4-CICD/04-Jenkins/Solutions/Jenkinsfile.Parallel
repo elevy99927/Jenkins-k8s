@@ -1,0 +1,78 @@
+pipeline {
+    agent any
+    stages {
+        stage('SCM pull') {
+            steps {
+                echo 'scm pull...'
+            }
+        }
+        stage('Parallel Tests') {
+            parallel {
+                stage('build') {
+                    steps {
+                        echo 'build image'
+
+
+                    }
+                }
+                stage('tivy test') {
+                    steps {
+                        echo 'tivy test'
+   
+                    }
+                }
+                stage('bandit test') {
+                    steps {
+                        echo 'bandit test'
+
+
+                    }
+                }
+                stage('sonarqube') {
+                    steps {
+                        echo 'sonarqube'
+                        sh "exit 0" // Or exit 1 to breake the pipeline
+                    }
+                }
+            }
+        }
+
+        stage('Parallel 2') {
+            parallel {
+                stage('docker push') {
+                    steps {
+                        echo 'build image'
+
+
+                    }
+                }
+                stage('unit test') {
+                    steps {
+                        echo 'tivy test'
+   
+                    }
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'deploy to kubernetes ...'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Run QA tests...'
+            }
+        }
+    }
+    post {
+        always {
+            echo 'Cleaning up workspace...'
+            echo 'Sending email...'
+        }
+    }
+}
+
+
+
+
