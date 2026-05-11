@@ -16,11 +16,11 @@ pipeline {
 	    	    echo 'Pull SCM...'
 
     	    	// Option 1
-	        	withCredentials([usernamePassword(credentialsId: 'your-credential-id', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
- 	        	   sh "git clone https://${GIT_USERNAME}:${GIT_PASSWORD}@${env.GITREPO} ."
-	    	    }
+	        	//withCredentials([usernamePassword(credentialsId: 'your-credential-id', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+ 	        	//   sh "git clone https://${GIT_USERNAME}:${GIT_PASSWORD}@${env.GITREPO} ."
+	    	    //}
                 // Better Option without "withCredentials"
-		        //git branch: 'main', credentialsId: 'your-credential-id', url: "https://${env.GITREPO}"
+		        git branch: 'main', credentialsId: 'your-credential-id', url: "https://${env.GITREPO}"
             }
         }
         stage('Parallel Tests') {
@@ -38,7 +38,7 @@ pipeline {
                 stage('trivy test') {
                     steps {
                         script {
-                           SecurityScan.trivyLocalScan() 
+                           securityScan.trivyLocalScan() 
                            echo 'trivy test'
                         }                     
                     }
@@ -46,7 +46,7 @@ pipeline {
                 stage('bandit test') {
                     steps {
                         script {
-                           SecurityScan.banditLocalScan()
+                           securityScan.banditLocalScan()
                            echo 'bandit test'
                         }
 
@@ -56,7 +56,7 @@ pipeline {
                 stage('sonarqube') {
                     steps {
                         script {
-                            CodeQuality.sonarqubeScan()
+                            codeQuality.sonarqubeScan()
                             echo 'sonarqube'
                         }
                     }
