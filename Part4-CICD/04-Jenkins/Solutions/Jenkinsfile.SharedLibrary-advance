@@ -1,0 +1,113 @@
+@Library('my-shared-library') _
+
+pipeline {
+    agent any
+    environment {
+        IMAGEREPO = "elevy99927/helloworld"
+        IMAGETAG = "1"
+        HELMCHART = 'helmchart'
+        APP_ENV = 'production'
+        APP_DEBUG = 'false'
+    	GITREPO = 'github.com/elevy99927/jenkins-with-gitlab.git'
+    }
+    stages {
+        stage('SCM pull') {
+            steps {
+	    	    echo 'Pull SCM...'
+
+    	    	// Option 1
+	        	withCredentials([usernamePassword(credentialsId: 'your-credential-id', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+ 	        	   sh "git clone https://${GIT_USERNAME}:${GIT_PASSWORD}@${env.GITREPO} ."
+	    	    }
+                // Better Option without "withCredentials"
+		        //git branch: 'main', credentialsId: 'your-credential-id', url: "https://${env.GITREPO}"
+            }
+        }
+        stage('Parallel Tests') {
+            parallel {
+                stage('build') {
+                    steps {
+                         script {
+                            imageBuild.dockerBuild("${env.IMAGEREPO}","${env.IMAGETAG}")
+                	        echo "Building Volt app in environment: ${env.APP_ENV}"
+                	        echo "Debug mode is set to: ${env.APP_DEBUG}"
+                            echo 'build image'
+                         }
+                    }
+                }
+                stage('trivy test') {
+                    steps {
+                        script {
+                           SecurityScan.trivyLocalScan() 
+                           echo 'trivy test'
+                        }                     
+                    }
+                }
+                stage('bandit test') {
+                    steps {
+                        script {
+                           SecurityScan.banditLocalScan()
+                           echo 'bandit test'
+                        }
+
+
+                    }
+                }
+                stage('sonarqube') {
+                    steps {
+                        script {
+                            CodeQuality.sonarqubeScan()
+                            echo 'sonarqube'
+                        }
+                    }
+                }
+            }
+        }
+
+        stage('Parallel 2') {
+            parallel {
+                stage('docker push') {
+                    steps {
+                        script {
+                            imageBuild.dockerPush("${env.IMAGEREPO}", "${env.IMAGETAG}")
+                        }
+                    }
+                }
+                stage('unit test') {
+                    steps {
+                        script {
+                            unitTest.runTests()
+                        }
+                    }
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                script {
+                    k8sUtils.helmDeploy(env.HELMCHART, env.APP_ENV,env.IMAGEREPO,env.IMAGETAG)
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                script {
+                    qaTest.newmanLocalTest("my_collection.json")
+                }
+            }
+        }
+    }
+    post {
+        always {
+            echo 'Cleaning up workspace...'
+            sh "pwd"
+            sh "ls -la"
+            sh "rm -f -r *"
+            echo 'Sending email...'
+        }
+    }
+}
+
+
+
+
