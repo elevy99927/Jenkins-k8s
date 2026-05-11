@@ -1,3 +1,17 @@
+/*
+    Shared Library reference:
+    https://github.com/elevy99927/my-shared-library/tree/solution
+
+ * 1. Go to Jenkins Dashboard > Manage Jenkins > System.
+ * 2. Scroll down to the "Global Pipeline Libraries" section.
+ * 3. Add a new library:
+ *    - Name: Give it a name (e.g., my-shared-library).
+ *    - Default version: Specify a branch or tag.
+ *    - Retrieval method: Choose "Modern SCM" and select Git.
+ *    - Project Repository: Provide the repository URL.
+
+*/
+
 @Library('my-shared-library') _
 
 pipeline {
