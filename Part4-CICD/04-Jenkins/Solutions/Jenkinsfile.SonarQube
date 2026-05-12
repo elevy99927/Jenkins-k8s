@@ -9,6 +9,11 @@
  *    - Default version: Specify a branch or tag.
  *    - Retrieval method: Choose "Modern SCM" and select Git.
  *    - Project Repository: Provide the repository URL.
+ * 4. In SonarQube - add user token: My Account > Security > Generate Token.
+ * 5. In Jenkins - install the SonarQube Scanner plugin.
+ * 6. In Jenkins > Credentials > add credential "Secret text" with name "sonarqube-token".
+ * 7. In Jenkins > Manage Jenkins > System > SonarQube installations - configure SonarQube server.
+ * 8. In Jenkins > Manage Jenkins > Tools > SonarQube Scanner installations - configure the scanner.
 
 */
 
