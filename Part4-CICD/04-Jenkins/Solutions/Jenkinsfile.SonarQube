@@ -1,0 +1,128 @@
+/*
+    Shared Library reference:
+    https://github.com/elevy99927/my-shared-library/tree/solution
+
+ * 1. Go to Jenkins Dashboard > Manage Jenkins > System.
+ * 2. Scroll down to the "Global Pipeline Libraries" section.
+ * 3. Add a new library:
+ *    - Name: Give it a name (e.g., my-shared-library).
+ *    - Default version: Specify a branch or tag.
+ *    - Retrieval method: Choose "Modern SCM" and select Git.
+ *    - Project Repository: Provide the repository URL.
+
+*/
+
+@Library('my-shared-library') _
+
+pipeline {
+    agent any
+    environment {
+        IMAGEREPO = "elevy99927/helloworld"
+        IMAGETAG = "1"
+        HELMCHART = 'helmchart'
+        APP_ENV = 'production'
+        APP_DEBUG = 'false'
+    	GITREPO = 'github.com/elevy99927/jenkins-with-gitlab.git'
+    }
+    stages {
+        stage('SCM pull') {
+            steps {
+	    	    echo 'Pull SCM...'
+
+    	    	// Option 1
+	        	//withCredentials([usernamePassword(credentialsId: 'your-credential-id', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+ 	        	//   sh "git clone https://${GIT_USERNAME}:${GIT_PASSWORD}@${env.GITREPO} ."
+	    	    //}
+                // Better Option without "withCredentials"
+		        git branch: 'main', credentialsId: 'your-credential-id', url: "https://${env.GITREPO}"
+            }
+        }
+        stage('Parallel Tests') {
+            parallel {
+                stage('build') {
+                    steps {
+                         script {
+                            imageBuild.dockerBuild("${env.IMAGEREPO}","${env.IMAGETAG}")
+                	        echo "Building Volt app in environment: ${env.APP_ENV}"
+                	        echo "Debug mode is set to: ${env.APP_DEBUG}"
+                            echo 'build image'
+                         }
+                    }
+                } //build
+                stage('trivy test') {
+                    steps {
+                        script {
+                           securityScan.trivyLocalScan() 
+                           echo 'trivy test'
+                        }                     
+                    }
+                } //trivy test
+                stage('bandit test') {
+                    steps {
+                        script {
+                           securityScan.banditLocalScan()
+                           echo 'bandit test'
+                        }
+
+
+                    }
+                } //bandit test
+                stage('sonarqube') {
+                    steps {
+                        script {
+                            codeQuality.sonarCreateProject(env.JOB_NAME)
+                            codeQuality.sonarLocalScan()
+                            echo 'sonarqube'
+                        }
+                    }
+                } //sonarqube
+            }
+        }
+
+        stage('Parallel 2') {
+            parallel {
+                stage('docker push') {
+                    steps {
+                        script {
+                            imageBuild.dockerPush("${env.IMAGEREPO}", "${env.IMAGETAG}")
+                        }
+                    }
+                } //docker push 
+                stage('helm lint') {
+                    steps {
+                        script {
+                            unitTest.runTests()
+                        }
+                    }
+                } //helm lint
+            }
+        }
+        stage('Deploy') {
+            steps {
+                script {
+                    k8sUtils.helmDeploy(env.HELMCHART, env.APP_ENV,env.IMAGEREPO,env.IMAGETAG)
+                }
+            }
+        } //Deploy
+        stage('Test') {
+            steps {
+                script {
+                    qaTest.newmanLocalTest("my_collection.json")
+                }
+            }
+        } //Test
+    }
+    post {
+        always {
+            echo 'Cleaning up workspace...'
+            sh "pwd"
+            sh "ls -la"
+            sh "rm -f -r *"
+            echo 'Sending email...'
+        }
+    }
+}
+
+
+
+
