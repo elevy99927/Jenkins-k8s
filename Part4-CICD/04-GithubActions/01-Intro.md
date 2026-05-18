@@ -88,102 +88,22 @@ Result + Logs
 
 ---
 
-## GitHub Hosted Runners
+## GitHub Runners
 
-GitHub provides managed runners:
+GitHub provides [managed runners](https://docs.github.com/en/actions/concepts/runners/github-hosted-runners):
+
+GitHub offers hosted virtual machines to run workflows. The virtual machine contains an environment of tools, packages, and settings available for GitHub Actions to use.
 
 - Ubuntu
 - Windows
 - macOS
 
-Example:
+Runner Example:
 
 ```yaml
 runs-on: ubuntu-latest
 ```
 
 The runner is a temporary VM/container that executes the workflow.
-
----
-
-# Example Workflow
-
-```yaml
-name: hello-actions
-
-on:
-  push:
-
-jobs:
-  hello:
-    runs-on: ubuntu-latest #free tier - 2,000 minutes per month
-
-    steps:
-      - name: Print message
-        run: echo "Hello GitHub Actions"
-```
-
----
-
-# YAML Breakdown
-
-## Workflow Name
-
-```yaml
-name: hello-actions
-```
-
-Human-readable workflow name.
-
----
-
-## Trigger
-
-```yaml
-on:
-  push:
-```
-
-Execute workflow when code is pushed.
-
----
-
-## Job Definition
-
-```yaml
-jobs:
-```
-
-Container for all jobs.
-
----
-
-## Runner
-
-```yaml
-runs-on: ubuntu-latest
-```
-
-Defines execution environment.
-
----
-
-## Step
-
-```yaml
-steps:
-```
-
-List of commands/actions to execute.
-
----
-
-## Command Execution
-
-```yaml
-run: echo "Hello GitHub Actions"
-```
-
-Executes shell command.
 
 ---
