@@ -7,6 +7,7 @@ This repository is a structured guide for hands-on training in DevOps practices,
 - [CircleCI](./04-CircleCI)
 - [Jenkins](./04-Jenkins)
 - [ArgoCD](./04-ArgoCD/)
+- [Github Actions](./04-GithubActions)
 
 
 ## Open in Google Cloud Shell
