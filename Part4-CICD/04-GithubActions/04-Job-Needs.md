@@ -20,7 +20,7 @@ GitHub Actions executes jobs on isolated runners.
 name: ci
 
 on:
-  pull_request:
+  push:
 
 jobs:
   test:
