@@ -12,14 +12,24 @@
 helm repo add jenkinsci https://charts.jenkins.io
 helm repo update
 ```
+
 ---
 
 ### 2. Install Jenkins
 ```bash
 helm install jenkins jenkinsci/jenkins
 ```
+---
 
-### 2.1. Check Installation Status
+### 2.1 Configuration Options
+
+For custom configuration, see [VALUES.md](./VALUES.md) for common examples:
+```bash
+helm install jenkins jenkinsci/jenkins -f values.yaml
+```
+---
+
+### 2.2. Check Installation Status
 ```bash
 kubectl get pods --namespace default -l "app.kubernetes.io/instance=jenkins"
 helm status jenkins
@@ -67,21 +77,6 @@ Access via `<NODE-IP>:<NODE-PORT>`
 - **8080**: Jenkins web UI
 - **50000**: Jenkins agent communication (JNLP)
 
-
-## Configuration Options
-
-For custom configuration, see [VALUES.md](./VALUES.md) for common examples:
-```bash
-helm install jenkins jenkinsci/jenkins -f values.yaml
-```
-
-## Useful Commands
-
-- **Upgrade**: `helm upgrade jenkins jenkinsci/jenkins`
-- **Uninstall**: `helm uninstall jenkins`
-- **Status**: `helm status jenkins`
-
-For more details, visit: https://artifacthub.io/packages/helm/jenkinsci/jenkins
 
 ---
 ### 5. Work with Jenkins
