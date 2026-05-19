@@ -1,4 +1,4 @@
-# Part 2 — Jobs, Steps and Events
+# Jobs, Steps and Events
 
 ## Technical Background
 

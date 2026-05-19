@@ -1,5 +1,5 @@
 
-# Part 1 — Introduction to GitHub Actions
+# Introduction to GitHub Actions
 
 ## Technical Background
 

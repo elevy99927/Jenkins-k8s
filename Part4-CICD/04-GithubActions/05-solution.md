@@ -1,4 +1,4 @@
-Example workflow:
+## Example workflow:
 
 ```yaml
 name: trivy-scan

@@ -1,4 +1,4 @@
-# Part 3 — Marketplace Actions
+# Marketplace Actions
 
 ## Technical Background
 
