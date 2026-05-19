@@ -10,6 +10,7 @@ Learn how to automate workflows, run tests, build applications, and deploy direc
 3. [Basic Lab](./03-Basic-Lab.md)
 4. [Jobs & Needs](./04-Job-Needs.md)
 5. [Marketplace Actions](./05-Marketplace-Actions.md)
+6. [Secrets and Variables](./06-Secrets-and-Variables.md)
 
 
 ---
