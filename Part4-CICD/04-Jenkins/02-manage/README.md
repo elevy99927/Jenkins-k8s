@@ -52,7 +52,7 @@ jenkins:
       allowsSignup: false
       users:
        - id: "admin"
-         password: "admin123"
+         password: "admin1234"
 
   authorizationStrategy:
     globalMatrix:
@@ -63,7 +63,7 @@ jenkins:
 unclassified:
   location:
     url: "http://jenkins.example.com/"
-    adminAddress: "admin@example.com"
+    adminAddress: "eyal@levys.co.il"
 ```
 
 ### Clouds
