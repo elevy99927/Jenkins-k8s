@@ -1,48 +1,36 @@
 def branch = env.BRANCH_NAME
 def build = env.BUILD_NUMBER
 def DEBUG = true
-def appname ="hello-newapp"
 def DEPLOY = false
-def artifactory = "docker.io" 
-def repo = "elevy99927" 
-def appimage = "${artifactory}/${repo}/${appname}"
-def apptag = "${build}"
+
 
 def kubernetesurl = "https://kubernetes.default.svc"
 
-if (branch == "dev"){
-    echo "----------  dev   -------"
-    kubernetesurl = "https://kubernetes.default.svc"
-} else if  (branch == "qa"){
-    echo "----------  qa   -------"
-    kubernetesurl = "https://my-qa-cluster.mydomain.com:6443"
-} else if  (branch == "main"){
-    echo "----------  master   -------"
-    kubernetesurl = "https://kubernetes.default.svc"
-} else {
-    kubernetesurl = "https://my-test-cluster.mydomain.com:6443"
-}
 
-podTemplate(containers: [
-      containerTemplate(name: 'jnlp', image: 'jenkins/inbound-agent', ttyEnabled: true),
-      containerTemplate(name: 'docker', image: 'gcr.io/kaniko-project/executor:debug-v0.19.0', command: "/busybox/cat", ttyEnabled: true)
-  ] {
+podTemplate(cloud: 'kubernetes', containers: [
+    containerTemplate(
+        name: 'jnlp', 
+        image: 'jenkins/inbound-agent:latest'
+    ),
+     containerTemplate(
+        name: 'docker', 
+        image: 'docker:26-dind', // Use the latest stable DinD image
+        privileged: true,      // Essential for Docker daemon to run
+        args: '--storage-driver=vfs' // VFS is safest for K8s, though slower
+    )], 
+  volumes: [
+    emptyDirVolume(mountPath: '/var/lib/docker', memory: false) // Q: Why do we need this volume?
+  ]) {
     node(POD_LABEL) {
         stage('chackout') {
             container('jnlp') {
-            sh '/usr/bin/git config --global http.sslVerify false'
-	    checkout scm
+                echo "checkout"
           }
         } // end chackout
 
         stage('build') {
             container('docker') {
               echo "Building docker image..."
-	            echo "Original step was using docker for build."
-	            echo "You will need to use kaniko instead"
-              sh "echo docker build -t $appimage --no-cache ."
-              sh "echo docker login $artifactory -u admin -p password"
-              sh "echo docker push $appimage"
             }
         } //end build
 
