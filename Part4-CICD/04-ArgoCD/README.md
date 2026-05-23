@@ -2,12 +2,12 @@
 
 ## **Part 1: ArgoCD Overview and Installation**
 
-## 1. **What is ArgoCD?**
+### 1. **What is ArgoCD?**
    ArgoCD (Argo Continuous Delivery) is a declarative GitOps tool for Kubernetes. It enables automated deployment of applications by continuously monitoring Git repositories for changes and syncing them to the cluster. ArgoCD ensures that the actual state of Kubernetes resources matches the desired state defined in version-controlled manifests (e.g., YAML files). It supports features like automated syncing, application rollbacks, health status tracking, and a user-friendly web UI.
 
 ArgoCD integrates tightly with Git, making it the single source of truth for deployments. Once a change is committed to the repository, ArgoCD automatically applies it to the target environment, enabling fast, auditable, and reliable application delivery.
 
-## 2. **ArgoCD vs. Traditional CI/CD**
+### 2. **ArgoCD vs. Traditional CI/CD**
    Traditional CI/CD tools (like Jenkins or GitLab CI) often manage both the build and deployment processes in a linear pipeline. These tools usually require scripting to push changes to Kubernetes clusters, and deployments are typically imperative—defined by instructions, not state.
 
 In contrast, ArgoCD focuses purely on the CD part and embraces a **declarative** approach. Rather than instructing Kubernetes on *how* to deploy, ArgoCD focuses on *what* the final state should be. This enables:
@@ -18,7 +18,8 @@ In contrast, ArgoCD focuses purely on the CD part and embraces a **declarative**
 
 This separation improves reliability, auditability, and clarity in managing complex Kubernetes environments.
 
-3. **ArgoCD Architecture and Components** ArgoCD follows a modular architecture designed to support high-availability GitOps workflows for Kubernetes. The architecture is composed of four logical layers:
+### 3. **ArgoCD Architecture and Components** 
+ArgoCD follows a modular architecture designed to support high-availability GitOps workflows for Kubernetes. The architecture is composed of four logical layers:
 
 <img src="./images/topology.png">
 
@@ -52,8 +53,6 @@ This separation improves reliability, auditability, and clarity in managing comp
 These components work together to provide a continuous reconciliation loop between Git and the Kubernetes cluster. Applications in ArgoCD are declarative resources that specify the source (Git), target (cluster/namespace), and sync policy (manual or automatic).
 
 
-
-4. ArgoCD Authentication and Access Control
 
 
 ## Part 2: **Installing ArgoCD**
