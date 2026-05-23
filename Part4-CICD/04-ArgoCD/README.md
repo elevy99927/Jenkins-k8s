@@ -58,12 +58,9 @@ These components work together to provide a continuous reconciliation loop betwe
 ## Part 2: **Installing ArgoCD**
    The recommended way to install ArgoCD is by applying the official manifests published on ArtifactHub.
 
-
 ### 1. **Create a Namespace for ArgoCD:**
 
 ```bash
-minikube start #on google cloudshell
-
 kubectl create namespace argocd
 ```
 
