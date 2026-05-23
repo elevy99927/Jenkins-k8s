@@ -110,9 +110,9 @@ Access it at: [https://localhost:8080](https://localhost:8080)
 <img src="./images/login.png">
 
 
+## Part 3: Basic configuration
 
-
-### 6. **Configuring Access to a Git Repository**
+### 1. **Configuring Access to a Git Repository**
 
 To restrict which repositories a project is allowed to use, ArgoCD provides the `AppProject` custom resource. Below is an example of a project that explicitly allows the repository `https://github.com/elevy99927/argo-demo-repo.git` and restricts access to a specific branch (`main`):
 
@@ -137,7 +137,7 @@ spec:
 
 > Important: The repository must also be added to ArgoCD via CLI or UI (`argocd repo add`).
 
-### 7. Managing Applications with ArgoCD
+### 2. Managing Applications with ArgoCD
 
 To define and manage an application in ArgoCD, you need to create an `Application` resource that links your Git repository (and branch), the target cluster, and the desired namespace.
 
@@ -188,7 +188,7 @@ kubectl apply -f app-demo.yaml
 
 
 
-## Part 3: Hands-On Lab
+## Part 4: Hands-On Lab
 
 ### Lab Overview ###
 

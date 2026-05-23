@@ -1,6 +1,6 @@
 # **ARGOCD**
 
-## Part 4: Advanced Hands-On Lab
+## Part 5: Advanced Hands-On Lab
 
 ### **ApplicationSet**
 

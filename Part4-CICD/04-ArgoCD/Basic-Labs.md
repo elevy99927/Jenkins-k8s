@@ -1,6 +1,6 @@
 # **ARGOCD**
 
-## Part 3: Hands-On Lab
+## Part 4: Hands-On Lab
 
 ### Lab Overview ###
 
