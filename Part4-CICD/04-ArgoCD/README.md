@@ -73,7 +73,7 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 
 ---
 
-**⚠ NOTE for Google Cloudshell**  <BR> Define ArgoCD as `inscure` (due to **Google** cloudshell limitations)
+> **⚠ NOTE for Google Cloudshell**  <BR> Define ArgoCD as `inscure` (due to **Google** cloudshell limitations)
 ```sh
 kubectl patch configmap argocd-cmd-params-cm -n argocd --patch '{"data":{"server.insecure":"true"}}'
 kubectl delete pod -n argocd -l app.kubernetes.io/name=argocd-server
@@ -116,7 +116,6 @@ Access it at: [https://localhost:8080](https://localhost:8080)
 
 To restrict which repositories a project is allowed to use, ArgoCD provides the `AppProject` custom resource. Below is an example of a project that explicitly allows the repository `https://github.com/elevy99927/argo-demo-repo.git` and restricts access to a specific branch (`main`):
 
-- [my-project.yaml](./yamls/my-project.yaml)
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
@@ -135,9 +134,22 @@ spec:
     - '*'
 ```
 
-> Note: ArgoCD does not natively enforce branch-level restrictions within the `sourceRepos` field directly, so the above `sourceRestrictions` is illustrative and may require enforcement via tooling or custom policy admission controllers.
+- [my-project.yaml](https://github.com/elevy99927/Jenkins-k8s/blob/main/Part4-CICD/04-ArgoCD/yamls/my-project.yaml)
+```bash
+kubectl apply -f yamls/my-project.yaml
+```
 
-> Important: The repository must also be added to ArgoCD via CLI or UI (`argocd repo add`).
+---
+
+> **Note:** 
+- ArgoCD does not natively enforce branch-level restrictions within the `sourceRepos` field directly, so the above `sourceRestrictions` is illustrative and may require enforcement via tooling or custom policy admission controllers.
+
+> **Important:** 
+- The repository can also be added to ArgoCD via CLI or UI (`argocd repo add`).
+
+
+
+
 
 ### 2. Managing Applications with ArgoCD
 
@@ -181,7 +193,7 @@ spec:
 
 Apply this manifest to register and sync the application with ArgoCD:
 
-- [demo-app.yaml](./yamls/demo-app.yaml)
+- [demo-app.yaml](https://github.com/elevy99927/Jenkins-k8s/blob/main/Part4-CICD/04-ArgoCD/yamls/demo-app.yaml)
 
 ```bash
 kubectl apply -f yamls/demo-app.yaml
