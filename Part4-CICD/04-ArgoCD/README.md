@@ -116,6 +116,8 @@ Access it at: [https://localhost:8080](https://localhost:8080)
 
 To restrict which repositories a project is allowed to use, ArgoCD provides the `AppProject` custom resource. Below is an example of a project that explicitly allows the repository `https://github.com/elevy99927/argo-demo-repo.git` and restricts access to a specific branch (`main`):
 
+- [my-project.yaml](./yamls/my-project.yaml)
+
 ```yaml
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
@@ -179,8 +181,10 @@ spec:
 
 Apply this manifest to register and sync the application with ArgoCD:
 
-```sh
-kubectl apply -f app-demo.yaml
+- [demo-app.yaml](./yamls/demo-app.yaml)
+
+```bash
+kubectl apply -f yamls/demo-app.yaml
 ```
 
 ---

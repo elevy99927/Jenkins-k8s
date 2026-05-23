@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: my-project
+  namespace: argocd
+spec:
+  description: Allow access to a specific Git repository and branch
+  sourceRepos:
+    - https://github.com/elevy99927/argo-demo-repo.git
+  destinations:
+    - namespace: '*'
+      server: https://kubernetes.default.svc
+  sourceNamespaces:
+    - '*'
