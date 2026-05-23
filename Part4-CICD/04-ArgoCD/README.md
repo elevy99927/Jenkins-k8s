@@ -63,6 +63,7 @@ These components work together to provide a continuous reconciliation loop betwe
 
 ```sh
 minikube start #on google cloudshell
+
 kubectl create namespace argocd
 ```
 
