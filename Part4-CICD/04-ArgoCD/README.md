@@ -74,7 +74,8 @@ kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/st
 ---
 
 > **⚠ NOTE for Google Cloudshell**  <BR> Define ArgoCD as `inscure` (due to **Google** cloudshell limitations)
-```sh
+- [Explain](./ArgoCD-Ingress.md)
+```bash
 kubectl patch configmap argocd-cmd-params-cm -n argocd --patch '{"data":{"server.insecure":"true"}}'
 kubectl delete pod -n argocd -l app.kubernetes.io/name=argocd-server
  ```
