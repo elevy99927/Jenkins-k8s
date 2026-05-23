@@ -61,7 +61,7 @@ These components work together to provide a continuous reconciliation loop betwe
 
 ### 1. **Create a Namespace for ArgoCD:**
 
-```sh
+```bash
 minikube start #on google cloudshell
 
 kubectl create namespace argocd
