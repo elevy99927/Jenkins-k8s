@@ -1,0 +1,31 @@
+name: Secrets and Variables Exercise
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+jobs:
+  # Part 1: Production Environment Variables
+  production-job:
+    name: Run Production Job
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Print Production Environment Variable
+        run: |
+          echo "The current environment is: ${{ vars.MY_ENVIRONMENT }}"
+  # Part 2: Repository Secrets
+  secrets-job:
+    name: Run Secrets Job
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Securely Use Repository Secret
+        env:
+          DEMO_USER: ${{ secrets.JB_DEMO_USER }}
+        run: |
+          # Note: GitHub automatically masks secrets. 
+          # It will print as *** in the log files for security.
+          echo "The demo user is: $DEMO_USER"
+          

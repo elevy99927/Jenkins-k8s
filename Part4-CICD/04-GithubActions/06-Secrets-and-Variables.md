@@ -116,10 +116,12 @@ env:
 ```
 
 ---
+### Additional reading
+[Creating secrets for an environment](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets#creating-encrypted-secrets-for-a-repository)
 
-## Basic Exercise
+---
 
-
+## LAB Basic Exercise
 ### Part 1
 
 Implement environment-specific variables. 
@@ -132,5 +134,8 @@ Implement environment-specific variables.
 
 
 
+### Solution
+
+[Secrets and Variables](./06-solution.md)
 
 

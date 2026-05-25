@@ -1,0 +1,19 @@
+name: slack-notification-demo
+
+on:
+  workflow_dispatch:
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send Slack notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_CHANNEL: elevy99927-alerts
+          SLACK_USERNAME: elevy99927
+          SLACK_TITLE: GitHub Actions Notification
+          SLACK_MESSAGE: "Manual workflow executed successfully"
+          SLACK_COLOR: good
