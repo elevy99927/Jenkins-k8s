@@ -15,27 +15,28 @@ Never hardcode:
 
 ---
 
-## Where to Configure Secrets
+## Where We Configure Secrets
 
-GitHub Actions secrets can be configured in three main scopes:
+GitHub Actions `secrets` can be configured in three main scopes:
 
-| Scope | Where to configure | When to use |
-|---|---|---|
-| Repository Secret | Repository → Settings → Secrets and variables → Actions → Secrets | Secret is used only by one repository |
-| Environment Secret | Repository → Settings → Environments → Select environment → Environment secrets | Secret is specific to an environment such as `dev`, `staging`, or `prod` |
-| Organization Secret | Organization → Settings → Secrets and variables → Actions → Secrets | Secret should be shared across multiple repositories |
+| Scope |  When to use |
+|---|---|
+| Repository Secret |   Secret is used only by one repository |
+| Environment Secret |  Secret is specific to an environment such as `dev`, `staging`, or `prod` |
+| Organization Secret | Secret should be shared across multiple repositories |
 
 ---
 
 ## Repository Secret
 
-Use this for most beginner workflows.
+Use this for most common workflows in Github Actions.
 
-Path:
+Configuration Path:
 
-```text
+```yaml
 Repository → Settings → Secrets and variables → Actions → Secrets → New repository secret
 ```
+
 
 Example use case:
 
@@ -53,7 +54,7 @@ Use this when the same workflow deploys to different environments.
 
 Path:
 
-```text
+```yaml
 Repository → Settings → Environments → production → Environment secrets
 ```
 
@@ -64,7 +65,7 @@ PROD_API_TOKEN
 PROD_KUBECONFIG
 ```
 
-In the workflow, the job must reference the environment:
+In the workflow, the job **must** reference the `environment`:
 
 ```yaml
 jobs:
@@ -84,7 +85,7 @@ Use this when many repositories need the same secret.
 
 Path:
 
-```text
+```yaml
 Organization → Settings → Secrets and variables → Actions → Secrets → New organization secret
 ```
 
@@ -118,14 +119,18 @@ env:
 
 ## Basic Exercise
 
-Create repository secret and use it.
 
----
+### Part 1
 
-## Advanced Exercise
+Implement environment-specific variables. 
+- Create repository variable named `MY_ENVIORMENT` for enviorment `production` and for `development`
+- Print `MY_ENVIORMENT` for `environment: production`
 
-Implement:
+### Part 2
+- Create repository secret named `JB_DEMO_USER`
+- Use this Secret and print it in your solution 
 
-Environment-specific variables. For example: Differant vers for branch `main` and for branch `dev`
+
+
 
 

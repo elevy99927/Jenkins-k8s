@@ -37,7 +37,21 @@ on:
   push:
 ```
 
-Execute workflow when code is pushed.
+Execute workflow when code is pushed to the git repo.
+
+More trigger examples:
+
+```yaml
+on:
+  pull_request:
+
+  push:
+    branches:
+      - main
+      - fb-demo
+
+  workflow_dispatch:
+```
 
 ---
 
@@ -65,6 +79,7 @@ Defines execution environment.
 
 ```yaml
 steps:
+  ...
 ```
 
 List of commands/actions to execute.

@@ -25,13 +25,12 @@ Configure Jenkins to push YAML files back to GitHub after successful builds.
 Set up GitHub authentication and automated git operations in pipelines.
 
 ## Getting Started
-
-1. Start with [Jenkins Installation](./01-install/) to set up your environment
-2. Configure Jenkins through [Management](./02-manage/) section
-3. Create your first pipeline with [Hello World](./03-helloworld/)
-4. Build advanced pipelines with [Kubernetes Integration](./04-k8s-pipeline/)
-5. Complete the workflow with [GitHub Integration](./05-upload-to-github/)
-
+1. [Introduction](./01-Intro.md)
+2. [Example Workflow](./02-Example.md)
+3. [Basic Lab](./03-Basic-Lab.md)
+4. [Jobs & Needs](./04-Job-Needs.md)
+5. [Marketplace Actions](./05-Marketplace-Actions.md)
+6. [Solution](./05-solution.md)
 
 
 ---

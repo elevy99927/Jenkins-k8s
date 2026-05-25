@@ -50,15 +50,15 @@ GitHub Actions helps solve these issues through automation.
 | Component | Description |
 |---|---|
 | Workflow | YAML automation definition |
-| Event | Trigger for workflow execution |
 | Job | Group of execution steps |
 | Step | Single command or action |
+| Event | Trigger for workflow execution |
 | Runner | Machine executing the workflow |
 | Action | Reusable automation component (TBD)|
 
 ---
 ## Hierarchy
-```
+```yaml
 Workflow
  ├── Job
  │    ├── Step
@@ -72,7 +72,7 @@ Workflow
 ---
 ## Workflow Execution Flow
 
-```text
+```
 Git Event
    ↓
 Workflow Triggered

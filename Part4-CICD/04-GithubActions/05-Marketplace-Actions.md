@@ -77,7 +77,7 @@ steps:
 ```
 
 
-## Simple Lab — Hello World JS Action
+## Lab — Hello World JS Action
 
 **Source:**
 

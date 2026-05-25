@@ -11,7 +11,7 @@ Create and execute first GitHub Actions workflow.
 
 ### 1. Create Repository
 
-Create a new GitHub repository, and clone it to your computer.
+Create** a new GitHub repository, and clone it to your computer.
 
 ```bash
 git clone https://github.com/YOUR_ID/github-action-example
@@ -69,15 +69,12 @@ git push
 
 In your Repository Navigate to `Actions`
 
-```text
-
-```
 
 Verify workflow execution.
 
 ---
 
-# Expected log:
+### Expected log:
 
 ```text
 Hello GitHub Actions
