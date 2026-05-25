@@ -5,12 +5,12 @@ Learn how to automate workflows, run tests, build applications, and deploy direc
 
 ## Table of Contents
 
-1. [Introduction](https://github.com/elevy99927/Jenkins-k8s/tree/main/Part4-CICD/04-GithubActions/01-Intro.md)
-2. [Example Workflow](https://github.com/elevy99927/Jenkins-k8s/tree/main/Part4-CICD/04-GithubActions/02-Example.md)
-3. [Basic Lab](https://github.com/elevy99927/Jenkins-k8s/tree/main/Part4-CICD/04-GithubActions/03-Basic-Lab.md)
-4. [Jobs & Needs](https://github.com/elevy99927/Jenkins-k8s/tree/main/Part4-CICD/04-GithubActions/04-Job-Needs.md)
-5. [Marketplace Actions](https://github.com/elevy99927/Jenkins-k8s/tree/main/Part4-CICD/04-GithubActions/05-Marketplace-Actions.md)
-6. [Secrets and Variables](https://github.com/elevy99927/Jenkins-k8s/tree/main/Part4-CICD/04-GithubActions/06-Secrets-and-Variables.md)
+1. <walkthrough-editor-open-file filePath="Part4-CICD/04-GithubActions/01-Intro.md">Introduction</walkthrough-editor-open-file>
+2. <walkthrough-editor-open-file filePath="Part4-CICD/04-GithubActions/02-Example.md">Example Workflow</walkthrough-editor-open-file>
+3. <walkthrough-editor-open-file filePath="Part4-CICD/04-GithubActions/03-Basic-Lab.md">Basic Lab</walkthrough-editor-open-file>
+4. <walkthrough-editor-open-file filePath="Part4-CICD/04-GithubActions/04-Job-Needs.md">Jobs & Needs</walkthrough-editor-open-file>
+5. <walkthrough-editor-open-file filePath="./05-Marketplace-Actions.md">Marketplace Actions</walkthrough-editor-open-file>
+6. <walkthrough-editor-open-file filePath="Part4-CICD/04-GithubActions/06-Secrets-and-Variables.md">Secrets and Variables</walkthrough-editor-open-file>
 
 
 ---
