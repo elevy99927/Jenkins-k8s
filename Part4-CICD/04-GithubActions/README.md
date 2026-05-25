@@ -21,7 +21,6 @@ Learn how to automate workflows, run tests, build applications, and deploy direc
 After opening Cloud Shell, run:
 
 ```bash
-cd Jenkins-k8s/Part4-CICD/04-GithubActions
 teachme README.md
 ```
 
