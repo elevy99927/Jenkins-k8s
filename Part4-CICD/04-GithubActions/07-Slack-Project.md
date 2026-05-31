@@ -144,3 +144,7 @@ https://hooks.slack.com/services/XXX/YYY/ZZZ
 ```
 
 
+---
+### Solution
+
+[Slack Notification](./07-Slack-Project.md)
