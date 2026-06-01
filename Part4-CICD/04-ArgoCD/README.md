@@ -68,7 +68,10 @@ kubectl create namespace argocd
    Apply the official installation manifest:
 
 ```sh
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+helm repo add argocd https://argoproj.github.io/argo-helm 
+helm repo update
+helm upgrade --install -n argocd argocd argocd/argo-cd
+
 ```
 
 ---
