@@ -32,3 +32,4 @@ helm upgrade --install prometheus \
   --create-namespace \
   --wait \
   --timeout 10m
+kubectl patch svc prometheus-kube-prometheus-prometheus -n monitoring -p '{"spec": {"type": "LoadBalancer"}}'
