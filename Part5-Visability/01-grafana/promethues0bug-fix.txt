@@ -1,0 +1,34 @@
+
+helm uninstall prometheus
+kubectl delete mutatingwebhookconfiguration \
+  prometheus-kube-prometheus-admission \
+  --ignore-not-found
+
+kubectl delete validatingwebhookconfiguration \
+  prometheus-kube-prometheus-admission \
+  --ignore-not-found
+
+kubectl delete job \
+  prometheus-kube-prometheus-admission-create \
+  prometheus-kube-prometheus-admission-patch \
+  --ignore-not-found
+
+
+
+kubectl create ns monitoring
+
+helm repo add prometheus-community \
+  https://prometheus-community.github.io/helm-charts \
+  --force-update
+
+helm repo update
+
+helm search repo prometheus-community/kube-prometheus-stack \
+  --versions | head -n 6
+helm upgrade --install prometheus \
+  prometheus-community/kube-prometheus-stack \
+  --version 86.1.0 \
+  --namespace monitoring \
+  --create-namespace \
+  --wait \
+  --timeout 10m
