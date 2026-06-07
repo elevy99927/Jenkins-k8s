@@ -69,7 +69,7 @@ helm upgrade --install promtail \
 **ONLY IF if you are running on AWS**
 ```sh
 kubectl patch svc prometheus-kube-prometheus-prometheus -n monitoring -p '{"spec": {"type": "LoadBalancer"}}'
-kubectl patch svc rometheus-grafana -n monitoring -p '{"spec": {"type": "LoadBalancer"}}'
+kubectl patch svc prometheus-grafana -n monitoring -p '{"spec": {"type": "LoadBalancer"}}'
 
 ```
 ---
