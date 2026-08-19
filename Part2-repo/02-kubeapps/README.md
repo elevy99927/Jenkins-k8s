@@ -1,7 +1,12 @@
 ## Install kubeapps
 
 ```bash
-helm upgrade --install kubeapps ./kubeapps -n kubeapps --create-namespace -f values-v3.0.0.yaml)
+# Apply CRDs
+kubectl apply -f apprepository-crd.yaml
+
+# install kubeapps
+kubectl apply -f kubeapps-all-in-one.yaml
+
 ```
 
 ### Wait for all pods to be Running:
