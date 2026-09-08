@@ -53,30 +53,30 @@ spec:
 
 Example repo: [argo-demo-repo @ `example-2-dynamic-generator`](https://github.com/elevy99927/argo-demo-repo/tree/example-2-dynamic-generator)
 
-The list generator above is *static* - every app must be typed in by hand. The Git **directory generator** is *dynamic*: ArgoCD scans the repo and creates one Application per folder matching `systems/*/*` (team × cluster). Add a `systems/team-c/k8s-dev/` folder in Git and a new Application appears automatically.
+The list generator above is *static* - every app must be typed in by hand. The Git **directory generator** is *dynamic*: ArgoCD scans the repo and creates one Application per folder matching `systems/*/*` (team × cluster). Add a `systems/team-c/dev/` folder in Git and a new Application appears automatically.
 
 Repo layout (branch `example-2-dynamic-generator`):
 
 ```
 └── systems
     ├── team-a
-    │   ├── k8s-dev
+    │   ├── dev
     │   │   ├── application-a.yaml
     │   │   └── application-b.yaml
-    │   ├── k8s-qa
+    │   ├── qa
     │   │   ├── application-a.yaml
     │   │   └── application-b.yaml
-    │   └── k8s-prd
+    │   └── prd
     │       ├── application-a.yaml
     │       └── application-b.yaml
     └── team-b
-        ├── k8s-dev
+        ├── dev
         │   ├── application-c.yaml
         │   └── application-d.yaml
-        ├── k8s-qa
+        ├── qa
         │   ├── application-c.yaml
         │   └── application-d.yaml 
-        └── k8s-prd
+        └── prd
             ├── application-c.yaml
             └── application-d.yaml
 ```
@@ -98,17 +98,17 @@ spec:
           - path: systems/*/*
   template:
     metadata:
-      # .path.segments = [systems, team-a, k8s-dev]
-      name: '{{index .path.segments 1}}-{{.path.basename}}'   # team-a-k8s-dev
+      # .path.segments = [systems, team-a, dev]
+      name: '{{index .path.segments 1}}-{{.path.basename}}'   # team-a-dev
     spec:
       project: default
       source:
         repoURL: https://github.com/elevy99927/argo-demo-repo.git
         targetRevision: example-2-dynamic-generator
-        path: '{{.path.path}}'            # systems/team-a/k8s-dev
+        path: '{{.path.path}}'            # systems/team-a/dev
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{index .path.segments 1}}-{{.path.basename}}'   # team-a-k8s-dev
+        namespace: '{{index .path.segments 1}}-{{.path.basename}}'   # team-a-dev
       syncPolicy:
         automated:
           prune: true
