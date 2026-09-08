@@ -8,7 +8,8 @@ docker run -it --rm  --name n8n  \
 	-e N8N_PORT=5678 \
 	-e N8N_PROTOCOL=https \
 	-e NODE_ENV=production \
+        -e N8N_SECURE_COOKIE=false \
 	-e WEBHOOK_URL=https://${SUBDOMAIN}.${DOMAIN_NAME}/ \
-	-p 5678:5678  -v n8n_data:/home/node/.n8n  docker.n8n.io/n8nio/n8n
+	-p 5678:5678 -p 5679:5679 -v n8n_data:/home/node/.n8n  docker.n8n.io/n8nio/n8n
 
 

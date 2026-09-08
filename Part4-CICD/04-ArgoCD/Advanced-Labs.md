@@ -13,7 +13,9 @@ ApplicationSet is a controller that extends ArgoCD, enabling you to manage **mul
 * Supports DRY (Don't Repeat Yourself) principles by templating app definitions
 * Useful for GitOps patterns where many environments share similar structures
 
-**Example: ApplicationSet with List Generator**
+**Example 1: ApplicationSet with List Generator**
+
+Example repo: [argo-demo-repo @ `example-1-appset`](https://github.com/elevy99927/argo-demo-repo/tree/example-1-appset)
 
 ```yaml
 apiVersion: argoproj.io/v1alpha1
@@ -36,7 +38,7 @@ spec:
       project: default
       source:
         repoURL: https://github.com/elevy99927/argo-demo-repo.git
-        targetRevision: application
+        targetRevision: example-1-appset
         path: '{{project}}/k8s-{{cluster}}'
       destination:
         server: https://kubernetes.default.svc
@@ -45,6 +47,192 @@ spec:
         automated:
           prune: true
           selfHeal: true
+```
+
+**Example 2: Dynamic Generator (Git Directories)**
+
+Example repo: [argo-demo-repo @ `example-2-dynamic-generator`](https://github.com/elevy99927/argo-demo-repo/tree/example-2-dynamic-generator)
+
+The list generator above is *static* - every app must be typed in by hand. The Git **directory generator** is *dynamic*: ArgoCD scans the repo and creates one Application per folder matching `systems/*/*` (team × cluster). Add a `systems/team-c/k8s-dev/` folder in Git and a new Application appears automatically.
+
+Repo layout (branch `example-2-dynamic-generator`):
+
+```
+└── systems
+    ├── team-a
+    │   ├── k8s-dev
+    │   │   ├── application-a.yaml
+    │   │   └── application-b.yaml
+    │   ├── k8s-qa
+    │   │   ├── application-a.yaml
+    │   │   └── application-b.yaml
+    │   └── k8s-prd
+    │       ├── application-a.yaml
+    │       └── application-b.yaml
+    └── team-b
+        ├── k8s-dev
+        │   ├── application-c.yaml
+        │   └── application-d.yaml
+        ├── k8s-qa
+        │   ├── application-c.yaml
+        │   └── application-d.yaml 
+        └── k8s-prd
+            ├── application-c.yaml
+            └── application-d.yaml
+```
+
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: systems-dynamic
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+    - git:
+        repoURL: https://github.com/elevy99927/argo-demo-repo.git
+        revision: example-2-dynamic-generator
+        directories:
+          - path: systems/*/*
+  template:
+    metadata:
+      # .path.segments = [systems, team-a, k8s-dev]
+      name: '{{index .path.segments 1}}-{{.path.basename}}'   # team-a-k8s-dev
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/elevy99927/argo-demo-repo.git
+        targetRevision: example-2-dynamic-generator
+        path: '{{.path.path}}'            # systems/team-a/k8s-dev
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{index .path.segments 1}}-{{.path.basename}}'   # team-a-k8s-dev
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
+```
+
+**Example 3: Helm Repo + GitOps Repo with Values (Multi-Source)**
+
+Example repo: [argo-demo-repo @ `example-3-helm-values`](https://github.com/elevy99927/argo-demo-repo/tree/example-3-helm-values)
+
+*** Real Production Example ***
+The chart comes from a **Helm repository**, the values come from your **GitOps repository**. This uses ArgoCD *multi-source* apps: the Git source is given a `ref: values`, and the Helm source references it with `$values/...`.
+
+Nothing is hardcoded. The Git **files generator** scans `systems/*/*/*/*-values.yaml` and creates **one Application per values file**. The path encodes everything:
+
+```
+systems/<team>/<cluster>/<namespace>/<app>-values.yaml
+```
+
+Add a new team, cluster, namespace or app in Git → a new Application appears. Delete the file → the Application is removed.
+
+Repo layout (branch `example-3-helm-values`):
+
+```
+└── systems
+    ├── team-a
+    │   ├── k8s-dev
+    │   │   ├── frontend-ns
+    │   │   │   ├── fe-a-values.yaml
+    │   │   │   └── fe-b-values.yaml
+    │   │   └── backend-ns
+    │   │       └── be-c-values.yaml
+    │   ├── k8s-qa
+    │   │   ├── frontend-ns
+    │   │   ├── frontend-ns
+    │   │   │   ├── fe-a-values.yaml
+    │   │   │   └── fe-b-values.yaml
+    │   │   └── backend-ns
+    │   │       └── be-c-values.yaml
+    │   └── k8s-prd
+    │       ├── frontend-ns
+    │       │   ├── fe-a-values.yaml
+    │       │   └── fe-b-values.yaml
+    │       └── backend-ns
+    │           └── be-c-values.yaml
+    └── team-b
+        ├── k8s-dev
+        │   └── payments-ns
+        │       ├── payment-d-values.yaml
+        │       └── payment-e-values.yaml
+        ├── k8s-qa
+        │   └── payments-ns
+        │       ├── payment-d-values.yaml
+        │       └── payment-e-values.yaml
+        └── k8s-prd
+            └── payments-ns
+                ├── payment-d-values.yaml
+                └── payment-e-values.yaml
+```
+
+Example `systems/team-a/k8s-dev/frontend-ns/application-a-values.yaml` (podinfo chart values):
+
+```yaml
+replicaCount: 1
+ui:
+  message: "application-a | team-a | k8s-dev | frontend-ns"
+```
+
+```yaml
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: systems-helm
+  namespace: argocd
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  generators:
+    - git:
+        repoURL: https://github.com/elevy99927/argo-demo-repo.git
+        revision: example-3-helm-values
+        files:
+          - path: "systems/*/*/*/*-values.yaml"
+  # For every matched file:
+  #   .path.path     = systems/team-a/k8s-dev/frontend-ns
+  #   .path.segments = [systems, team-a, k8s-dev, frontend-ns]
+  #   .path.filename = application-a-values.yaml
+  template:
+    metadata:
+      # team-a-k8s-dev-frontend-ns-application-a
+      name: '{{index .path.segments 1}}-{{index .path.segments 2}}-{{index .path.segments 3}}-{{.path.filename | trimSuffix "-values.yaml"}}'
+      labels:
+        team: '{{index .path.segments 1}}'
+        cluster: '{{index .path.segments 2}}'
+        app: '{{.path.filename | trimSuffix "-values.yaml"}}'
+    spec:
+      project: default
+      sources:
+        # 1. Chart from the Helm repo
+        - repoURL: https://stefanprodan.github.io/podinfo
+          chart: podinfo
+          targetRevision: 6.5.0
+          helm:
+            releaseName: '{{.path.filename | trimSuffix "-values.yaml"}}'
+            valueFiles:
+              - $values/{{.path.path}}/{{.path.filename}}
+        # 2. Values from the GitOps repo
+        - repoURL: https://github.com/elevy99927/argo-demo-repo.git
+          targetRevision: example-3-helm-values
+          ref: values
+      destination:
+        # cluster folder name == cluster name registered in ArgoCD
+        # (argocd cluster add <kube-context> --name k8s-dev)
+        # single-cluster lab: replace with  server: https://kubernetes.default.svc
+        name: '{{index .path.segments 2}}'
+        namespace: '{{index .path.segments 3}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
 ```
 
 ---
