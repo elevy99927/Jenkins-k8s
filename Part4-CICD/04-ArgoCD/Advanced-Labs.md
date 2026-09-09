@@ -28,21 +28,21 @@ spec:
     - list:
         elements:
           - cluster: dev
-            project: project-1
+            team: team-a
           - cluster: qa
-            project: project-1
+            team: team-a
   template:
     metadata:
-      name: '{{project}}-{{cluster}}'
+      name: '{{team}}-{{cluster}}'
     spec:
       project: default
       source:
         repoURL: https://github.com/elevy99927/argo-demo-repo.git
         targetRevision: example-1-appset
-        path: '{{project}}/k8s-{{cluster}}'
+        path: '{{team}}/k8s-{{cluster}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{project}}-{{cluster}}'
+        namespace: '{{team}}-{{cluster}}'
       syncPolicy:
         automated:
           prune: true
