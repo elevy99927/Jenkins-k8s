@@ -41,6 +41,8 @@ Execute workflow when code is pushed to the git repo.
 
 More trigger examples:
 
+> See the list of trigger categories in [Triggers List](./99-Triggers.md)
+
 ```yaml
 on:
   pull_request:

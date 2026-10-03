@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-10-03
+
+### GitHub Actions (`Part4-CICD/04-githubactions`)
+- Added `99-Triggers.md` – trigger event categories table; linked from `02-Example.md`.
+
 ## 2026-09-08
 
 ### ArgoCD (`Part4-CICD/04-ArgoCD`)
