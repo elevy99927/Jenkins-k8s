@@ -4,6 +4,7 @@
 
 ### GitHub Actions (`Part4-CICD/04-githubactions`)
 - Added `99-Triggers.md` – trigger event categories table; linked from `02-Example.md`.
+- `04-Job-Needs.md`: added solutions for the Basic and Advanced exercises (`Solutions/needs-basic-solution.yaml`, `Solutions/needs-advanced-solution.yaml`) and linked them.
 
 ## 2026-09-08
 

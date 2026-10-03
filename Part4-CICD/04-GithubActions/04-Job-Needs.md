@@ -71,6 +71,10 @@ Create:
 - build job
 - sequential execution using `needs`
 
+### Solution
+
+[Basic Solution](./Solutions/needs-basic-solution.yaml)
+
 ---
 
 ## Advanced Exercise
@@ -80,4 +84,13 @@ Implement:
 - push trigger for main
 - pull_request trigger
 - separate behavior per branch
+
+**Hint:**
+
+- Use the `if` condition on a job to run it only for a specific event or branch (Read how the How-To...)
+- Docs: [Control jobs with conditions](https://docs.github.com/en/actions/how-tos/write-workflows/choose-when-workflows-run/control-jobs-with-conditions)
+
+### Solution
+
+[Advanced Solution](./Solutions/needs-advanced-solution.yaml)
 
